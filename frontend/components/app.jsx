@@ -6,6 +6,7 @@ const App = () => (
         <header>
             This is a header
         </header>
+        
     </div>
 );
 
