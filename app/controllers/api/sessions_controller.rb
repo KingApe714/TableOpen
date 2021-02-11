@@ -5,13 +5,12 @@ class Api::SessionsController < ApplicationController
             params[:user][:username],
             params[:user][:password]
         )
-    end
-
-    if @user
-        login(@user)
-        render 'api/users/show'
-    else
-        render json: ["Invalid username and/or password"]
+        if @user
+            login(@user)
+            render 'api/users/show'
+        else
+            render json: ["Invalid username and/or password"]
+        end
     end
 
     def destroy
