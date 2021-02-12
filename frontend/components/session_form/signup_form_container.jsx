@@ -9,6 +9,8 @@ const mapStateToProps = ({ errors }) => {
   return {
     // errors: errors.session,
     formType: 'signup',
+    headerMessage: 'Welcome to TableOpen!',
+    buttonMessage: 'Create Account'
     //navLink: <Link to="/login">log in instead</Link>,
   };
 };
@@ -21,7 +23,7 @@ const mapDispatchToProps = dispatch => {
         Login
       </button>
     ),
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
   };
 };
 
