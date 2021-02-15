@@ -7,9 +7,9 @@ import { openModal } from '../../actions/modal_actions';
 const Greeting = ({ currentUser, logout, openModal }) => {
   const sessionLinks = () => (
     <nav className="login-signup">
-      <button onClick={() => openModal('signup')}>Sign up</button>
+      <button className="signup-button" onClick={() => openModal('signup')}>Sign up</button>
       &nbsp;
-      <button onClick={() => openModal('login')}>Sign In</button>
+      <button className="signin-button" onClick={() => openModal('login')}>Sign In</button>
     </nav>
   );
   const personalGreeting = () => (

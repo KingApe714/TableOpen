@@ -13,4 +13,59 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    padding-top: 3px;
+    padding-left: 3px;
+    padding-right: 10px;
+    background: #fff;
+    z-index: 3;
+    border-radius: 5px;
+    border: 1px solid #000;
+    width: 370px;
+    margin: auto;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+.login-form {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    border-top: 1px solid $light-gray;
+    width: 100%;
+}
+
+.login-form-box {
+    margin-bottom: 10px;
+    margin-top: 1px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.session-submit {
+    background-color: $magenta;
+    color: white;
+    border-color: white;
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+    border: 0;
+    width: 100%;
+    height: 50px;
+}
+
+.login-input {
+    font-size: 17px;
+    width: 100%;
+    height: 50px;
+    z-index: 3;
+    border: 1px solid $light-gray;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+.create-account {
+    color: $magenta;
+}
+
+.close-x {
+    margin-bottom: 15px;
 }

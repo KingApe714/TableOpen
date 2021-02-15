@@ -7,7 +7,7 @@ import { openModal, closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = ({ errors }) => {
   return {
-    // errors: errors.session,
+    errors: errors.session,
     formType: 'signup',
     headerMessage: 'Welcome to TableOpen!',
     buttonMessage: 'Create Account'
@@ -18,11 +18,7 @@ const mapStateToProps = ({ errors }) => {
 const mapDispatchToProps = dispatch => {
   return {
     processForm: (user) => dispatch(signup(user)),
-    otherForm: (
-      <button onClick={() => dispatch(openModal('login'))}>
-        Login
-      </button>
-    ),
+    otherForm: null,
     closeModal: () => dispatch(closeModal()),
   };
 };

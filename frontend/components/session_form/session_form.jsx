@@ -23,60 +23,75 @@ class SessionForm extends React.Component {
     this.props.processForm(user).then(this.props.closeModal);
   }
 
-//   renderErrors() {
-//     return(
-//       <ul>
-//         {this.props.errors.map((error, i) => (
-//           <li key={`error-${i}`}>
-//             {error}
-//           </li>
-//         ))}
-//       </ul>
-//     );
-//   }
+  renderErrors() {
+    return(
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
 
   render() {
       let usernameField = null;
       if (this.props.formType === 'signup') {
-          usernameField = (<div>
-                        <label>Username:
+          usernameField = (
+                        <label>
                             <input type="text"
                             value={this.state.username}
                             onChange={this.update('username')}
                             className="login-input"
+                            placeholder="Username"
                         />
                         </label>
-                    </div>)
+                        )
+      }
+      let footerMessage = null;
+      if (this.props.formType === 'Sign In') {
+          footerMessage = (
+                        <label>New to TableOpen? &nbsp;
+                            {this.props.otherForm}
+                        </label>
+          )
       }
     return (
       <div className="login-form-container">
+        <div onClick={this.props.closeModal} className="close-x">X</div>
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          {this.props.headerMessage}
+            {this.props.headerMessage}
           <br/>
           {/* Please {this.props.formType} or {this.props.otherForm} */}
-          {/* {this.renderErrors()} */}
+          {this.renderErrors()}
           <div className="login-form">
             <br/>
                 {usernameField}
             <br/>
-            <label>Email:
+            <label>
             <input type="test"
                 value={this.state.email}
                 onChange={this.update('email')}
                 className="login-input"
+                placeholder="Email"
               />
             </label>
             <br/>
-            <label>Password:
+            <label>
               <input type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
                 className="login-input"
+                placeholder="Password"
               />
             </label>
             <br/>
             <input className="session-submit" type="submit" value={this.props.buttonMessage} />
           </div>
+        <br/>
+            {footerMessage}
+        <br/>
         </form>
       </div>
     );
