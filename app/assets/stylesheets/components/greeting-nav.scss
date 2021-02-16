@@ -1,12 +1,50 @@
 .login-signup {
+    font-family: 'Montserrat', sans-serif;
     float: right;
     margin-right: 20px;
 }
 
 .signup-button {
-    
+    font-family: 'Montserrat', sans-serif;
+    background-color: $blue-green;
+    border: 1px;
+    border-radius: 3px;
+    width: 75px;
+    height: 33px;
+    margin: 2px;
+    color: white;
 }
 
 .signin-button {
+    font-family: 'Montserrat', sans-serif;
+    border: 1px solid $light-gray;
+    border-radius: 3px;
+    width: 75px;
+    height: 33px;
+    margin: 2px;
+    background-color: white;
+}
 
+.header-logo {
+    height: 40px;
+    margin: 2px;
+}
+
+.header-logo-container {
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+    font-weight: 800;
+    text-decoration: none;
+    border-right: 1px solid $light-gray
+}
+
+.header-group {
+    float: right;
+    margin: 20px;
+}
+
+.header-button {
+    border-radius: 100px;
+    border: 1px solid $light-gray;
+    height: 35px;
 }

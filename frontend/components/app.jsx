@@ -11,8 +11,9 @@ import Modal from './modal/modal_container'
 const App = () => (
     <div>
         <header>
-            <Link to='/'>
-                <h1>Let's head back to that young root page baby</h1>
+            <Link to='/' className="header-logo-container">
+                <img src={window.logoURL} className="header-logo"/>
+                TableOpen
             </Link>
             <GreetingContainer />
             <Modal />
