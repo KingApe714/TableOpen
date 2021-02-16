@@ -36,21 +36,23 @@ class SessionForm extends React.Component {
   }
 
   handleErrors(errType) {
-    return this.props.errors.filter(error => error.include(errType))
+    //maybe make this return lis that will be rendered in the relevant UL
+    //for now just send it to the relevant input field
+    return this.props.errors.filter(error => error.includes(errType))
   }
 
   render() {
       let usernameField = null;
       if (this.props.formType === 'signup') {
-          usernameField = (
-                        <label>
-                            <input type="text"
-                            value={this.state.username}
-                            onChange={this.update('username')}
-                            className="login-input"
-                            placeholder="Username"
-                        />
-                        </label>
+          usernameField = ( <>
+                              <p className="error-list">{this.handleErrors('Username')}</p>
+                              <input type="text"
+                              value={this.state.username}
+                              onChange={this.update('username')}
+                              className="login-input"
+                              placeholder="Username"
+                              />
+                            </>
                         )
       }
     return (
@@ -59,34 +61,30 @@ class SessionForm extends React.Component {
         <form onSubmit={this.handleSubmit} className="login-form-box">
             {this.props.headerMessage}
           <br/>
-          {/* Please {this.props.formType} or {this.props.otherForm} */}
-          {this.renderErrors()}
           <div className="login-form">
             <br/>
                 {usernameField}
             <br/>
-            <label>
-            <input type="test"
+            <p className="error-list">{this.handleErrors('Email')}</p>
+            <input type="text"
                 value={this.state.email}
                 onChange={this.update('email')}
                 className="login-input"
                 placeholder="Email"
               />
-            </label>
             <br/>
-            <label>
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                className="login-input"
-                placeholder="Password"
-              />
-            </label>
+            <p className="error-list">{this.handleErrors('Password')}</p>
+            <input type="password"
+              value={this.state.password}
+              onChange={this.update('password')}
+              className="login-input"
+              placeholder="Password"
+            />
             <br/>
             <input className="session-submit" type="submit" value={this.props.buttonMessage} />
           </div>
         <br/>
-            {this.props.otherForm}
+        {this.props.otherForm}
         <br/>
         </form>
       </div>
