@@ -42,6 +42,7 @@
 }
 
 .session-submit {
+    cursor: pointer;
     background-color: $magenta;
     color: white;
     border-color: white;
@@ -50,6 +51,23 @@
     border: 0;
     width: 100%;
     height: 50px;
+    transition: all 0.4s;
+}
+
+.create-account {
+    cursor: pointer;
+    color: $magenta;
+    transition: all 0.4s;
+}
+
+.session-submit:hover {
+    cursor: pointer;
+    filter: brightness(70%);
+}
+
+.create-account:hover {
+    cursor: pointer;
+    filter: brightness(70%);
 }
 
 .login-input {
@@ -62,10 +80,7 @@
     border-radius: 4px;
 }
 
-.create-account {
-    color: $magenta;
-}
-
 .close-x {
+    cursor: pointer;
     margin-bottom: 15px;
 }

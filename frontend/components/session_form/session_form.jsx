@@ -53,14 +53,6 @@ class SessionForm extends React.Component {
                         </label>
                         )
       }
-      let footerMessage = null;
-      if (this.props.formType === 'Sign In') {
-          footerMessage = (
-                        <label>New to TableOpen? &nbsp;
-                            {this.props.otherForm}
-                        </label>
-          )
-      }
     return (
       <div className="login-form-container">
         <div onClick={this.props.closeModal} className="close-x">X</div>
@@ -94,7 +86,7 @@ class SessionForm extends React.Component {
             <input className="session-submit" type="submit" value={this.props.buttonMessage} />
           </div>
         <br/>
-            {footerMessage}
+            {this.props.otherForm}
         <br/>
         </form>
       </div>

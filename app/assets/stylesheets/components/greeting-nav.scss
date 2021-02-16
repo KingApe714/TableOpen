@@ -5,6 +5,7 @@
 }
 
 .signup-button {
+    cursor: pointer;
     font-family: 'Montserrat', sans-serif;
     background-color: $blue-green;
     border: 1px;
@@ -16,6 +17,7 @@
 }
 
 .signin-button {
+    cursor: pointer;
     font-family: 'Montserrat', sans-serif;
     border: 1px solid $light-gray;
     border-radius: 3px;
