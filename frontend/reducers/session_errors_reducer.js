@@ -1,6 +1,7 @@
 import {
     RECEIVE_SESSION_ERRORS,
     RECEIVE_CURRENT_USER,
+    CLEAR_ERRORS,
   } from '../actions/session_actions';
   
   import { CLOSE_MODAL } from '../actions/modal_actions';
@@ -11,9 +12,11 @@ import {
       case RECEIVE_SESSION_ERRORS:
         return action.errors;
       case RECEIVE_CURRENT_USER:
+        return [];
+      case CLEAR_ERRORS:
+        return [];
       case CLOSE_MODAL:
         return [];
-  
       default:
         return state;
     }

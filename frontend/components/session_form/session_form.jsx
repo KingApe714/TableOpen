@@ -11,6 +11,10 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    this.props.clearErrors();
+  }
+
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -23,18 +27,6 @@ class SessionForm extends React.Component {
     this.props.processForm(user).then(this.props.closeModal);
   }
 
-  renderErrors() {
-    return(
-      <ul>
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    );
-  }
-
   handleErrors(errType) {
     //maybe make this return lis that will be rendered in the relevant UL
     //for now just send it to the relevant input field
@@ -42,19 +34,25 @@ class SessionForm extends React.Component {
   }
 
   render() {
-      let usernameField = null;
-      if (this.props.formType === 'signup') {
-          usernameField = ( <>
-                              <p className="error-list">{this.handleErrors('Username')}</p>
-                              <input type="text"
-                              value={this.state.username}
-                              onChange={this.update('username')}
-                              className="login-input"
-                              placeholder="Username"
-                              />
-                            </>
-                        )
-      }
+    let userErrors = null;
+    if (this.props.formType === 'Sign In') {
+      userErrors = <p className="error-list">
+        {this.props.errors}
+      </p>
+    }
+    let usernameField = null;
+    if (this.props.formType === 'signup') {
+        usernameField = ( <>
+                            <p className="error-list">{this.handleErrors('Username')}</p>
+                            <input type="text"
+                            value={this.state.username}
+                            onChange={this.update('username')}
+                            className="login-input"
+                            placeholder="Username"
+                            />
+                          </>
+                      )
+    }
     return (
       <div className="login-form-container">
         <div onClick={this.props.closeModal} className="close-x">X</div>
@@ -62,10 +60,10 @@ class SessionForm extends React.Component {
             {this.props.headerMessage}
           <br/>
           <div className="login-form">
-            <br/>
-                {usernameField}
+            {usernameField}
             <br/>
             <p className="error-list">{this.handleErrors('Email')}</p>
+            {userErrors}
             <input type="text"
                 value={this.state.email}
                 onChange={this.update('email')}
