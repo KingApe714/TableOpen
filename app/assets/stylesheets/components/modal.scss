@@ -82,7 +82,11 @@
 }
 
 .error-list {
-    height: 17px;
+    display: flex;
+    justify-content: left;
+    color: red;
+    margin: 5px;
+    height: 24px;
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
