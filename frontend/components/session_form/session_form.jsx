@@ -9,6 +9,7 @@ class SessionForm extends React.Component {
       email: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.loginDemo = this.loginDemo.bind(this);
   }
 
   componentDidMount() {
@@ -31,6 +32,14 @@ class SessionForm extends React.Component {
     //maybe make this return lis that will be rendered in the relevant UL
     //for now just send it to the relevant input field
     return this.props.errors.filter(error => error.includes(errType))
+  }
+
+  loginDemo(e) {
+    e.preventDefault()
+    this.props.loginDemo({
+      email: "test123",
+      password: "123456"
+    }).then(this.props.closeModal)
   }
 
   render() {
@@ -57,7 +66,7 @@ class SessionForm extends React.Component {
       <div className="login-form-container">
         <div onClick={this.props.closeModal} className="close-x">X</div>
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          <p>{this.props.headerMessage}</p>
+          {this.props.headerMessage}
           <div className="login-form">
             {usernameField}
             <br/>
@@ -79,6 +88,7 @@ class SessionForm extends React.Component {
             />
             <br/>
             <input className="session-submit" type="submit" value={this.props.buttonMessage} />
+            <input onClick={this.loginDemo} className="session-submit" type="submit" value="Login Demo User" />
           </div>
         <br/>
         {this.props.otherForm}

@@ -6,7 +6,7 @@ import GreetingContainer from './greeting/greeting_containter'
 import SignUpFormContainer from './session_form/signup_form_container';
 import LoginFormContainer from './session_form/login_form_container';
 import Modal from './modal/modal_container'
-
+import NotFoundPage from './not_found.jsx'
 
 const App = () => (
     <div>
@@ -21,6 +21,8 @@ const App = () => (
         <Switch>
             {/* <AuthRoute exact path='/login' component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignUpFormContainer} /> */}
+            <Route path="/404" component={NotFoundPage} />
+            <Redirect to="/404" />
         </Switch>
     </div>
 );
