@@ -13,9 +13,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding-top: 3px;
-    padding-left: 3px;
-    padding-right: 10px;
+    padding: 15px;
     background: #fff;
     z-index: 3;
     border-radius: 5px;
@@ -43,6 +41,7 @@
 
 .session-submit {
     cursor: pointer;
+    margin-top: 15px;
     background-color: $magenta;
     color: white;
     border-color: white;

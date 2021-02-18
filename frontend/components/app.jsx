@@ -10,7 +10,7 @@ import Modal from './modal/modal_container'
 
 const App = () => (
     <div>
-        <header>
+        <header className="header-container">
             <Link to='/' className="header-logo-container">
                 <img src={window.logoURL} className="header-logo"/>
                 TableOpen
