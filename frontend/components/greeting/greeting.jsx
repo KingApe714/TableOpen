@@ -14,10 +14,14 @@ const Greeting = ({ currentUser, logout, openModal }) => {
     </nav>
   );
   const personalGreeting = () => (
-    <hgroup className="header-group">
-      {/* <h2 className="header-name">Hi, {currentUser.username}!</h2> */}
-      <button className="header-button" onClick={logout}>Log</button>
-    </hgroup>
+    <div className="user-dropdown">
+      <div className="user-icon">Anything
+        <ul className="dropdown-list arrow">
+          <li className="dropdown-greeting">Hello, {currentUser.username}!</li>
+          <li className="dropdown-signout" onClick={logout}>Sign Out</li>
+        </ul>
+      </div>
+    </div>
   );
 
   return currentUser ? personalGreeting() : sessionLinks();

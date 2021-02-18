@@ -1,0 +1,59 @@
+.user-dropdown:hover .dropdown-list {
+    // cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    display: block;
+    position: relative;
+    background-color: white;
+    padding: 0px;
+    width: 280px;
+    height: 280px;
+    border: solid $light-gray 1px;
+    border-radius: 4px;
+}
+.dropdown-list.arrow {
+    content: " ";
+    width: 0px;
+    height: 0px;
+    border-top: none;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-bottom: 10px solid #ECEEEF;
+    left: 4px;
+}
+
+.dropdown-list {
+    display: none;
+    margin-right: 10px;
+    float: right;
+}
+
+.user-dropdown {
+    padding: 15px;
+    margin-right: 35px;
+    float: right;
+}
+
+.dropdown-signout {
+    border-top: solid $light-gray 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 15px;
+    color: $magenta;
+    cursor: pointer;
+}
+
+.dropdown-signout:hover {
+    background-color: $light-gray;
+}
+
+.user-icon {
+    cursor: pointer;
+    margin-right: 20px;
+    width: 35px;
+    height: 20px;
+}
+
+.dropdown-greeting {
+    padding: 15px;
+    font-weight: 600;
+}
