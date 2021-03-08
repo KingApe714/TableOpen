@@ -45,9 +45,9 @@ class SessionForm extends React.Component {
   render() {
     let userErrors = null;
     if (this.props.formType === 'Sign In') {
-      userErrors = <p className="error-list">
-        {this.props.errors}
-      </p>
+      userErrors =  <p className="error-list">
+                      {this.props.errors}
+                    </p>
     }
     let usernameField = null;
     if (this.props.formType === 'signup') {
@@ -61,6 +61,15 @@ class SessionForm extends React.Component {
                             />
                           </>
                       )
+    }
+    let demoUser = null;
+    if (this.props.formType === 'Sign In') {
+      demoUser = <input 
+                    onClick={this.loginDemo} 
+                    className="session-submit" 
+                    type="submit" 
+                    value="Login Demo User" 
+                  />
     }
     return (
       <div className="login-form-container">
@@ -88,7 +97,7 @@ class SessionForm extends React.Component {
             />
             <br/>
             <input className="session-submit" type="submit" value={this.props.buttonMessage} />
-            <input onClick={this.loginDemo} className="session-submit" type="submit" value="Login Demo User" />
+            {demoUser}
           </div>
         <br/>
         {this.props.otherForm}

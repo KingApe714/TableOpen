@@ -30,7 +30,7 @@ const mapDispatchToProps = dispatch => {
     ),
     closeModal: () => dispatch(closeModal()),
     clearErrors: () => dispatch(clearErrors()),
-    loginDemo: (user) => dispatch(login(user))
+    loginDemo: (user) => dispatch(login(user)),
   };
 };
 

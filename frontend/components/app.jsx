@@ -7,6 +7,7 @@ import SignUpFormContainer from './session_form/signup_form_container';
 import LoginFormContainer from './session_form/login_form_container';
 import Modal from './modal/modal_container'
 import NotFoundPage from './not_found.jsx'
+import SplashContainer from './splash_page/splash_container';
 
 const App = () => (
     <div>
@@ -19,8 +20,7 @@ const App = () => (
             <Modal />
         </header>
         <Switch>
-            {/* <AuthRoute exact path='/login' component={LoginFormContainer} />
-            <AuthRoute exact path="/signup" component={SignUpFormContainer} /> */}
+            <Route exact path='/' component={SplashContainer}/>
             <Route path="/404" component={NotFoundPage} />
             <Redirect to="/404" />
         </Switch>
