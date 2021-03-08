@@ -7889,3 +7889,26 @@ Processing by StaticPagesController#root as HTML
 Completed 200 OK in 419ms (Views: 411.9ms | ActiveRecord: 5.3ms)
 
 
+Started POST "/api/session" for ::1 at 2021-03-08 18:43:24 -0500
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"email"=>"test123", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (8.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test123"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:27
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "John Snow"], ["id", 9], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "test123"], ["id", 9], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "38F+mF18o9dfHA29+P4ckbvmPxSMw5PcxrH9McSLesF4Baqg7ERkmqbCydpuowbiLrasC7YhuIZJds3DFsoBTA=="], ["id", 9], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27
+  [1m[36mUser Update (12.2ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "38F+mF18o9dfHA29+P4ckbvmPxSMw5PcxrH9McSLesF4Baqg7ERkmqbCydpuowbiLrasC7YhuIZJds3DFsoBTA=="], ["updated_at", "2021-03-08 23:43:24.464104"], ["id", 9]]
+  ↳ app/models/user.rb:27
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:27
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (1.1ms)
+  Rendered api/users/show.json.jbuilder (2.8ms)
+Completed 200 OK in 366ms (Views: 7.8ms | ActiveRecord: 24.7ms)
+
+
