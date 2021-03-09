@@ -43,12 +43,6 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    let userErrors = null;
-    if (this.props.formType === 'Sign In') {
-      userErrors =  <p className="error-list">
-                      {this.props.errors}
-                    </p>
-    }
     let usernameField = null;
     if (this.props.formType === 'signup') {
         usernameField = ( <>
@@ -66,7 +60,7 @@ class SessionForm extends React.Component {
     if (this.props.formType === 'Sign In') {
       demoUser = <input 
                     onClick={this.loginDemo} 
-                    className="session-submit" 
+                    className="demo-submit" 
                     type="submit" 
                     value="Login Demo User" 
                   />
@@ -78,16 +72,13 @@ class SessionForm extends React.Component {
           {this.props.headerMessage}
           <div className="login-form">
             {usernameField}
-            <br/>
-            <p className="error-list">{this.handleErrors('Email')}</p>
-            {userErrors}
+            <p className="error-list">{this.props.formType === 'Sign In' ? this.props.errors : this.handleErrors('Email')}</p>
             <input type="text"
                 value={this.state.email}
                 onChange={this.update('email')}
                 className="login-input"
                 placeholder="Email"
               />
-            <br/>
             <p className="error-list">{this.handleErrors('Password')}</p>
             <input type="password"
               value={this.state.password}
@@ -95,7 +86,6 @@ class SessionForm extends React.Component {
               className="login-input"
               placeholder="Password"
             />
-            <br/>
             <input className="session-submit" type="submit" value={this.props.buttonMessage} />
             {demoUser}
           </div>

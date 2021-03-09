@@ -25,7 +25,7 @@ const mapDispatchToProps = dispatch => {
                         >
                     Sign in
                   </Link>
-  </label>,
+               </label>,
     closeModal: () => dispatch(closeModal()),
     clearErrors: () => dispatch(clearErrors())
   };

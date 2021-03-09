@@ -41,7 +41,7 @@
 
 .session-submit {
     cursor: pointer;
-    margin-top: 15px;
+    margin-top: 40px;
     background-color: $magenta;
     color: white;
     border-color: white;
@@ -53,16 +53,36 @@
     transition: all 0.4s;
 }
 
+.session-submit:hover {
+    cursor: pointer;
+    filter: brightness(70%);
+}
+
+.demo-submit {
+    cursor: pointer;
+    margin-top: 20px;
+    background-color: $magenta;
+    color: white;
+    border-color: white;
+    border-radius: 4px;
+    font-family: $montseratt;
+    border: 0;
+    width: 100%;
+    height: 50px;
+    transition: all 0.4s;
+}
+
+.demo-submit:hover {
+    cursor: pointer;
+    filter: brightness(70%);
+}
+
 .create-account {
     cursor: pointer;
     color: $magenta;
     transition: all 0.4s;
 }
 
-.session-submit:hover {
-    cursor: pointer;
-    filter: brightness(70%);
-}
 
 .create-account:hover {
     cursor: pointer;
@@ -82,12 +102,13 @@
 }
 
 .error-list {
+    // font-size: 40px;
     display: flex;
     justify-content: left;
     color: red;
     margin: 5px;
     height: 24px;
-    font-size: 100%;
+    font-size: 40%;
     font: inherit;
     vertical-align: baseline;
 }
