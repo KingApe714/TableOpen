@@ -1,9 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { openModal } from '../../actions/modal_actions';
-// import LogoImg from '../../../app/assets/images'
-
-
 
 const Greeting = ({ currentUser, logout, openModal }) => {
   const sessionLinks = () => (
@@ -15,12 +12,11 @@ const Greeting = ({ currentUser, logout, openModal }) => {
   );
   const personalGreeting = () => (
     <div className="user-dropdown">
-      <div className="user-icon">Anything
-        <ul className="dropdown-list arrow">
-          <li className="dropdown-greeting">Hello, {currentUser.username}!</li>
-          <li className="dropdown-signout" onClick={logout}>Sign Out</li>
-        </ul>
-      </div>
+      <img src={window.profileIcon} className="user-icon"/>
+      <ul className="dropdown-list arrow">
+        <li className="dropdown-greeting">Hello, {currentUser.username}!</li>
+        <li className="dropdown-signout" onClick={logout}>Sign Out</li>
+      </ul>
     </div>
   );
 
