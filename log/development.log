@@ -9415,3 +9415,156 @@ Processing by Api::SessionsController#destroy as JSON
 Completed 200 OK in 344ms (Views: 14.5ms | ActiveRecord: 292.9ms)
 
 
+  [1m[36mRestaurant Load (4.6ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" ORDER BY "restaurants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.6ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" ORDER BY "restaurants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Exists (12.9ms)[0m  [1m[34mSELECT  1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "photos"], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" ORDER BY "restaurants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+[36m  S3 Storage (718.6ms) [0m[32mUploaded file to key: qiyauZpiJ3cTPsQUqTfDBvqj (checksum: xZqF8ktiJqCHnvwBvYp/AQ==)[0m
+  [1m[35m (10.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveStorage::Blob Create (65.1ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "qiyauZpiJ3cTPsQUqTfDBvqj"], ["filename", "jona.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["byte_size", 1884442], ["checksum", "xZqF8ktiJqCHnvwBvYp/AQ=="], ["created_at", "2021-03-23 22:07:54.491566"]]
+  [1m[35m (46.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (4.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveStorage::Attachment Create (48.3ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "photos"], ["record_type", "Restaurant"], ["record_id", 1], ["blob_id", 2], ["created_at", "2021-03-23 22:07:54.650842"]]
+  [1m[36mRestaurant Update (11.4ms)[0m  [1m[33mUPDATE "restaurants" SET "updated_at" = $1 WHERE "restaurants"."id" = $2[0m  [["updated_at", "2021-03-23 22:07:54.700278"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 71497a06-bc54-4433-80c4-6302e385c57e) to Async(default) with arguments: #<GlobalID:0x00007ff3985292c8 @uri=#<URI::GID gid://table-open/ActiveStorage::Blob/2>>
+  [1m[36mActiveStorage::Blob Load (0.9ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [71497a06-bc54-4433-80c4-6302e385c57e] Performing ActiveStorage::AnalyzeJob (Job ID: 71497a06-bc54-4433-80c4-6302e385c57e) from Async(default) with arguments: #<GlobalID:0x00007ff398eb8870 @uri=#<URI::GID gid://table-open/ActiveStorage::Blob/2>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [71497a06-bc54-4433-80c4-6302e385c57e] [36m  S3 Storage (1007.7ms) [0m[34mDownloaded file from key: qiyauZpiJ3cTPsQUqTfDBvqj[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [71497a06-bc54-4433-80c4-6302e385c57e] Skipping image analysis because the mini_magick gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [71497a06-bc54-4433-80c4-6302e385c57e]   [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [71497a06-bc54-4433-80c4-6302e385c57e]   [1m[36mActiveStorage::Blob Update (25.6ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 2]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [71497a06-bc54-4433-80c4-6302e385c57e]   [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [71497a06-bc54-4433-80c4-6302e385c57e] Performed ActiveStorage::AnalyzeJob (Job ID: 71497a06-bc54-4433-80c4-6302e385c57e) from Async(default) in 1054.52ms
+  [1m[36mRestaurant Load (2.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  [1m[36mRestaurant Load (0.5ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" ORDER BY "restaurants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Exists (6.8ms)[0m  [1m[34mSELECT  1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "photos"], ["LIMIT", 1]]
+Started GET "/restaurants/2" for ::1 at 2021-03-23 18:21:59 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/restaurants/2"):
+  
+actionpack (5.2.4.5) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.5) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.5) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.5) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.5) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.5) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.5) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.5) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.5) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.5) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.5) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.5) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.5) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/api/restaurants/2" for ::1 at 2021-03-23 18:22:28 -0400
+Processing by Api::RestaurantsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mRestaurant Load (8.8ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/restaurants_controller.rb:4
+Completed 404 Not Found in 82ms (ActiveRecord: 60.2ms)
+
+
+
+ActiveRecord::RecordNotFound - Couldn't find Restaurant with 'id'=2:
+  app/controllers/api/restaurants_controller.rb:4:in `show'
+
+Started POST "/__better_errors/fa8c6d57ebecbd92/variables" for ::1 at 2021-03-23 18:22:28 -0400
+Started GET "/api/restaurants/1" for ::1 at 2021-03-23 18:22:40 -0400
+Processing by Api::RestaurantsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (1.3ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/restaurants_controller.rb:4
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 1.3ms)
+
+
+
+ActionView::MissingTemplate - Missing template api/restaurants/show, application/show with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/jonathandiaz/Desktop/table_Open/app/views":
+  app/controllers/api/restaurants_controller.rb:5:in `show'
+
+Started POST "/__better_errors/32a3dcec7704558c/variables" for ::1 at 2021-03-23 18:22:40 -0400
+Started POST "/__better_errors/32a3dcec7704558c/variables" for ::1 at 2021-03-23 18:25:11 -0400
+Started GET "/api/restaurants/1" for ::1 at 2021-03-23 18:25:14 -0400
+Processing by Api::RestaurantsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (0.9ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/restaurants_controller.rb:4
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 20.7ms)
+
+
+
+ActionView::MissingTemplate - Missing template api/restaurants/show, application/show with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/jonathandiaz/Desktop/table_Open/app/views":
+  app/controllers/api/restaurants_controller.rb:5:in `show'
+
+Started POST "/__better_errors/bffdcfb94ffd468e/variables" for ::1 at 2021-03-23 18:25:14 -0400
+  [1m[36mActiveStorage::Attachment Exists (21.8ms)[0m  [1m[34mSELECT  1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "photos"], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (7.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  [1m[36mActiveStorage::Attachment Exists (4.7ms)[0m  [1m[34mSELECT  1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "photos"], ["LIMIT", 1]]
+Started GET "/api/restaurants/1" for ::1 at 2021-03-23 18:43:31 -0400
+Processing by Api::RestaurantsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (10.8ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/restaurants_controller.rb:4
+  [1m[36mActiveStorage::Attachment Load (7.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" = $3[0m  [["record_type", "Restaurant"], ["name", "photos"], ["record_id", 1]]
+  ↳ app/controllers/api/restaurants_controller.rb:4
+  [1m[36mActiveStorage::Blob Load (3.5ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/api/restaurants_controller.rb:4
+Completed 500 Internal Server Error in 231ms (ActiveRecord: 123.3ms)
+
+
+
+ActionView::MissingTemplate - Missing template api/restaurants/show, application/show with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/jonathandiaz/Desktop/table_Open/app/views":
+  app/controllers/api/restaurants_controller.rb:5:in `show'
+
+Started POST "/__better_errors/246f6ad842b2d51b/variables" for ::1 at 2021-03-23 18:43:31 -0400
+Started GET "/api/restaurants/1" for ::1 at 2021-03-23 18:49:13 -0400
+Processing by Api::RestaurantsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (10.1ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/restaurants_controller.rb:4
+  [1m[36mActiveStorage::Attachment Load (0.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" = $3[0m  [["record_type", "Restaurant"], ["name", "photos"], ["record_id", 1]]
+  ↳ app/controllers/api/restaurants_controller.rb:4
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/api/restaurants_controller.rb:4
+  Rendering api/restaurants/show.json.jbuilder
+  Rendered api/restaurants/show.json.jbuilder (361.5ms)
+Completed 500 Internal Server Error in 387ms (ActiveRecord: 11.4ms)
+
+
+
+NameError - undefined local variable or method `restaurant' for #<#<Class:0x00007ffcc2d8fe98>:0x00007ffcc33ae478>
+Did you mean?  @restaurant:
+  app/views/api/restaurants/show.json.jbuilder:10:in `_app_views_api_restaurants_show_json_jbuilder___4442366073592785285_70361791948400'
+  app/controllers/api/restaurants_controller.rb:5:in `show'
+
+Started POST "/__better_errors/28ac4a1d714cbc1d/variables" for ::1 at 2021-03-23 18:49:14 -0400
+Started GET "/api/restaurants/1" for ::1 at 2021-03-23 18:49:30 -0400
+Processing by Api::RestaurantsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (8.0ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/restaurants_controller.rb:4
+  [1m[36mActiveStorage::Attachment Load (10.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" = $3[0m  [["record_type", "Restaurant"], ["name", "photos"], ["record_id", 1]]
+  ↳ app/controllers/api/restaurants_controller.rb:4
+  [1m[36mActiveStorage::Blob Load (7.6ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/api/restaurants_controller.rb:4
+  Rendering api/restaurants/show.json.jbuilder
+  Rendered api/restaurants/show.json.jbuilder (5.9ms)
+Completed 200 OK in 39ms (Views: 10.4ms | ActiveRecord: 25.8ms)
+
+
