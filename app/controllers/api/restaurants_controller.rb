@@ -4,4 +4,9 @@ class Api::RestaurantsController < ApplicationController
         @restaurant = Restaurant.with_attached_photos.find(params[:id])
         render :show
     end
+
+    def index
+        @restaurants = Restaurant.all
+        render :index
+    end
 end

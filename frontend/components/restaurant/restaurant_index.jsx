@@ -6,6 +6,10 @@ class RestaurantIndex extends React.Component {
         super(props)
     }
 
+    componentDidMount() {
+        this.props.fetchRestaurants();
+    }
+
     render() {
         const restaurants = this.props.restaurants.map(restaurant => (
             <Link 
@@ -19,10 +23,21 @@ class RestaurantIndex extends React.Component {
                         <p>{restaurant.phone_number}</p>
                         <p>{restaurant.executive_chef}</p>
                         <p>{restaurant.city}</p>
-                        <p>{restaurant.description}</p>
+                        <p>{restaurant.description} Description HERE!!</p>
                         <p>{restaurant.operation_hours}</p>
+                        <img src={restaurant.photos} default="Restaurant Image"></img>
                     </div>
             </Link>
         ))
+
+        return (
+            <div>
+                {/* {this.props.restaurants} */}
+                {restaurants}
+                Absolutely anything!!
+            </div>
+        )
     }
 }
+
+export default RestaurantIndex
