@@ -10442,3 +10442,699 @@ Processing by Api::SessionsController#destroy as JSON
 Completed 200 OK in 40ms (Views: 5.7ms | ActiveRecord: 29.9ms)
 
 
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Load (5.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (7.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 20]]
+  ↳ db/seeds.rb:9
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "John Snow"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test123"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FFgyeIBqN0YmHFY95Yxq8P14ppbmOj8LR9gxBHQdxHFvpMlCRt0wVHegevFn5A98dnZl5VUMs9FvYN6QDdu7Tg=="], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (10.8ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "John Snow"], ["email", "test123"], ["password_digest", "$2a$12$34sqVAiN4IvvjGTEJg4Rp.JX.YeNh0Az8.qo4OMan.OWS201LBTUy"], ["session_token", "FFgyeIBqN0YmHFY95Yxq8P14ppbmOj8LR9gxBHQdxHFvpMlCRt0wVHegevFn5A98dnZl5VUMs9FvYN6QDdu7Tg=="], ["created_at", "2021-03-24 20:06:14.950563"], ["updated_at", "2021-03-24 20:06:14.950563"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[36mRestaurant Load (4.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mRestaurant Destroy (1.2ms)[0m  [1m[31mDELETE FROM "restaurants" WHERE "restaurants"."id" = $1[0m  [["id", 1]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[36mActiveStorage::Attachment Load (5.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "photos"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mRestaurant Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" WHERE "restaurants"."name" = $1 LIMIT $2[0m  [["name", "Dinos"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mRestaurant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" WHERE "restaurants"."phone_number" = $1 LIMIT $2[0m  [["phone_number", 123], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mRestaurant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" WHERE "restaurants"."executive_chef" = $1 LIMIT $2[0m  [["executive_chef", "James Koenig"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mRestaurant Create (0.8ms)[0m  [1m[32mINSERT INTO "restaurants" ("id", "name", "phone_number", "executive_chef", "city", "description", "created_at", "updated_at", "operation_hours") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["id", 1], ["name", "Dinos"], ["phone_number", 123], ["executive_chef", "James Koenig"], ["city", "Newark"], ["description", "GLANG"], ["created_at", "2021-03-24 20:06:15.018869"], ["updated_at", "2021-03-24 20:06:15.018869"], ["operation_hours", "10:00am - 4:00pm"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+Started GET "/" for ::1 at 2021-03-24 16:15:24 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 53ms (Views: 49.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/api/restaurants" for ::1 at 2021-03-24 16:15:25 -0400
+Processing by Api::RestaurantsController#index as JSON
+  Rendering api/restaurants/index.json.jbuilder
+  [1m[36mRestaurant Load (49.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/api/restaurants/index.json.jbuilder:1
+  Rendered api/restaurants/index.json.jbuilder (150.9ms)
+Completed 500 Internal Server Error in 157ms (ActiveRecord: 76.7ms)
+
+
+
+NoMethodError - undefined method `to_model' for #<ActiveStorage::Attached::Many:0x00007fc9f62dcc20>
+Did you mean?  to_yaml:
+  app/views/api/restaurants/index.json.jbuilder:11:in `block (2 levels) in _app_views_api_restaurants_index_json_jbuilder___2738094414394611161_70252697709300'
+  app/views/api/restaurants/index.json.jbuilder:2:in `block in _app_views_api_restaurants_index_json_jbuilder___2738094414394611161_70252697709300'
+  app/views/api/restaurants/index.json.jbuilder:1:in `_app_views_api_restaurants_index_json_jbuilder___2738094414394611161_70252697709300'
+  app/controllers/api/restaurants_controller.rb:10:in `index'
+
+  [1m[36mRestaurant Load (5.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  [1m[36mRestaurant Load (4.0ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" ORDER BY "restaurants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Exists (16.8ms)[0m  [1m[34mSELECT  1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "photos"], ["LIMIT", 1]]
+Started GET "/" for ::1 at 2021-03-24 16:37:39 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (22.1ms)
+Completed 200 OK in 59ms (Views: 53.0ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/api/restaurants" for ::1 at 2021-03-24 16:37:39 -0400
+Processing by Api::RestaurantsController#index as JSON
+  Rendering api/restaurants/index.json.jbuilder
+  [1m[36mRestaurant Load (61.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/api/restaurants/index.json.jbuilder:1
+  Rendered api/restaurants/index.json.jbuilder (83.8ms)
+Completed 500 Internal Server Error in 93ms (ActiveRecord: 61.2ms)
+
+
+
+NoMethodError - undefined method `to_model' for #<ActiveStorage::Attached::Many:0x00007fc9f6131560>
+Did you mean?  to_yaml:
+  app/views/api/restaurants/index.json.jbuilder:11:in `block (2 levels) in _app_views_api_restaurants_index_json_jbuilder___2738094414394611161_70252696845740'
+  app/views/api/restaurants/index.json.jbuilder:2:in `block in _app_views_api_restaurants_index_json_jbuilder___2738094414394611161_70252696845740'
+  app/views/api/restaurants/index.json.jbuilder:1:in `_app_views_api_restaurants_index_json_jbuilder___2738094414394611161_70252696845740'
+  app/controllers/api/restaurants_controller.rb:10:in `index'
+
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (5.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (9.9ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 21]]
+  ↳ db/seeds.rb:9
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "John Snow"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test123"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "LY3WPUIjd1OPLG5p407+7ztT/USziZ1z/t+UPamdd9uBrmU8FHkvfzIxlC5kD1hG0wsKTgwcRWNsxyGJZZ869Q=="], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (13.0ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "John Snow"], ["email", "test123"], ["password_digest", "$2a$12$xod18DeS7Ybq6L9H/xkgEO6NhL/U9lkFx4yWYSecpefPsplYFyEdO"], ["session_token", "LY3WPUIjd1OPLG5p407+7ztT/USziZ1z/t+UPamdd9uBrmU8FHkvfzIxlC5kD1hG0wsKTgwcRWNsxyGJZZ869Q=="], ["created_at", "2021-03-24 20:37:50.107731"], ["updated_at", "2021-03-24 20:37:50.107731"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[36mRestaurant Load (2.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mRestaurant Destroy (0.6ms)[0m  [1m[31mDELETE FROM "restaurants" WHERE "restaurants"."id" = $1[0m  [["id", 1]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[36mActiveStorage::Attachment Load (1.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "photos"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mRestaurant Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" WHERE "restaurants"."name" = $1 LIMIT $2[0m  [["name", "Dinos"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mRestaurant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" WHERE "restaurants"."phone_number" = $1 LIMIT $2[0m  [["phone_number", 123], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mRestaurant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" WHERE "restaurants"."executive_chef" = $1 LIMIT $2[0m  [["executive_chef", "James Koenig"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mRestaurant Create (1.9ms)[0m  [1m[32mINSERT INTO "restaurants" ("id", "name", "phone_number", "executive_chef", "city", "description", "created_at", "updated_at", "operation_hours") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["id", 1], ["name", "Dinos"], ["phone_number", 123], ["executive_chef", "James Koenig"], ["city", "Newark"], ["description", "GLANG"], ["created_at", "2021-03-24 20:37:50.171748"], ["updated_at", "2021-03-24 20:37:50.171748"], ["operation_hours", "10:00am - 4:00pm"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+Started GET "/" for ::1 at 2021-03-24 16:41:59 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (14.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (22.3ms)
+Completed 200 OK in 81ms (Views: 65.4ms | ActiveRecord: 14.0ms)
+
+
+Started GET "/api/restaurants" for ::1 at 2021-03-24 16:42:00 -0400
+Processing by Api::RestaurantsController#index as JSON
+  Rendering api/restaurants/index.json.jbuilder
+  [1m[36mRestaurant Load (24.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/api/restaurants/index.json.jbuilder:1
+  Rendered api/restaurants/index.json.jbuilder (32.2ms)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 24.0ms)
+
+
+
+NoMethodError - undefined method `to_model' for #<ActiveStorage::Attached::Many:0x00007fc9f67dcb30>
+Did you mean?  to_yaml:
+  app/views/api/restaurants/index.json.jbuilder:11:in `block (2 levels) in _app_views_api_restaurants_index_json_jbuilder___2738094414394611161_70252700329600'
+  app/views/api/restaurants/index.json.jbuilder:2:in `block in _app_views_api_restaurants_index_json_jbuilder___2738094414394611161_70252700329600'
+  app/views/api/restaurants/index.json.jbuilder:1:in `_app_views_api_restaurants_index_json_jbuilder___2738094414394611161_70252700329600'
+  app/controllers/api/restaurants_controller.rb:10:in `index'
+
+Started GET "/" for ::1 at 2021-03-24 16:44:25 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (6.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (14.3ms)
+Completed 200 OK in 47ms (Views: 38.7ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/api/restaurants" for ::1 at 2021-03-24 16:44:25 -0400
+Processing by Api::RestaurantsController#index as JSON
+  Rendering api/restaurants/index.json.jbuilder
+  [1m[36mRestaurant Load (53.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/api/restaurants/index.json.jbuilder:1
+  Rendered api/restaurants/index.json.jbuilder (70.4ms)
+Completed 500 Internal Server Error in 77ms (ActiveRecord: 53.9ms)
+
+
+
+NoMethodError - undefined method `to_model' for #<ActiveStorage::Attached::Many:0x00007fc9f664f538>
+Did you mean?  to_yaml:
+  app/views/api/restaurants/index.json.jbuilder:11:in `block (2 levels) in _app_views_api_restaurants_index_json_jbuilder___2738094414394611161_70252699515800'
+  app/views/api/restaurants/index.json.jbuilder:2:in `block in _app_views_api_restaurants_index_json_jbuilder___2738094414394611161_70252699515800'
+  app/views/api/restaurants/index.json.jbuilder:1:in `_app_views_api_restaurants_index_json_jbuilder___2738094414394611161_70252699515800'
+  app/controllers/api/restaurants_controller.rb:10:in `index'
+
+Started GET "/" for ::1 at 2021-03-24 16:51:55 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (13.2ms)
+Completed 200 OK in 41ms (Views: 37.6ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/api/restaurants" for ::1 at 2021-03-24 16:51:55 -0400
+Processing by Api::RestaurantsController#index as JSON
+  Rendering api/restaurants/index.json.jbuilder
+  [1m[36mRestaurant Load (91.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/api/restaurants/index.json.jbuilder:1
+  Rendered api/restaurants/index.json.jbuilder (101.3ms)
+Completed 500 Internal Server Error in 108ms (ActiveRecord: 91.9ms)
+
+
+
+NoMethodError - undefined method `to_model' for #<ActiveStorage::Attached::Many:0x00007fca07ca14c0>
+Did you mean?  to_yaml:
+  app/views/api/restaurants/index.json.jbuilder:11:in `block (2 levels) in _app_views_api_restaurants_index_json_jbuilder___2738094414394611161_70252845437600'
+  app/views/api/restaurants/index.json.jbuilder:2:in `block in _app_views_api_restaurants_index_json_jbuilder___2738094414394611161_70252845437600'
+  app/views/api/restaurants/index.json.jbuilder:1:in `_app_views_api_restaurants_index_json_jbuilder___2738094414394611161_70252845437600'
+  app/controllers/api/restaurants_controller.rb:10:in `index'
+
+Started GET "/" for ::1 at 2021-03-24 16:54:33 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (11.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (16.4ms)
+Completed 200 OK in 46ms (Views: 33.1ms | ActiveRecord: 11.2ms)
+
+
+Started GET "/api/restaurants" for ::1 at 2021-03-24 16:54:34 -0400
+Processing by Api::RestaurantsController#index as JSON
+  Rendering api/restaurants/index.json.jbuilder
+  [1m[36mRestaurant Load (22.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/api/restaurants/index.json.jbuilder:1
+  Rendered api/restaurants/index.json.jbuilder (25.1ms)
+Completed 200 OK in 35ms (Views: 12.4ms | ActiveRecord: 22.0ms)
+
+
+Started GET "/" for ::1 at 2021-03-24 16:55:05 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (7.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 29ms (Views: 19.9ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/api/restaurants" for ::1 at 2021-03-24 16:55:06 -0400
+Processing by Api::RestaurantsController#index as JSON
+  Rendering api/restaurants/index.json.jbuilder
+  [1m[36mRestaurant Load (3.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/api/restaurants/index.json.jbuilder:1
+  [1m[36mActiveStorage::Attachment Load (34.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "photos"]]
+  ↳ app/views/api/restaurants/index.json.jbuilder:11
+  Rendered api/restaurants/index.json.jbuilder (189.2ms)
+Completed 200 OK in 197ms (Views: 158.5ms | ActiveRecord: 38.0ms)
+
+
+  [1m[35m (24.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (6.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 22]]
+  ↳ db/seeds.rb:9
+  [1m[35m (8.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (1.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "John Snow"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test123"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "z4fAuVWAvDNvyt9xzTrfF/xLXWk6STC6cjo/9/nHbiwObGSGf3NehCZp3HxGBSyn7ESkluANLlkxBbzIRT0ZAQ=="], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (3.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "John Snow"], ["email", "test123"], ["password_digest", "$2a$12$bvF1BEIJnN5HilgU5GCwTupJZIlJklnLGfTHpVJrxQlB9DsQ04DpO"], ["session_token", "z4fAuVWAvDNvyt9xzTrfF/xLXWk6STC6cjo/9/nHbiwObGSGf3NehCZp3HxGBSyn7ESkluANLlkxBbzIRT0ZAQ=="], ["created_at", "2021-03-24 20:56:11.250041"], ["updated_at", "2021-03-24 20:56:11.250041"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[36mRestaurant Load (5.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mRestaurant Destroy (1.4ms)[0m  [1m[31mDELETE FROM "restaurants" WHERE "restaurants"."id" = $1[0m  [["id", 1]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[36mActiveStorage::Attachment Load (4.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "photos"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mRestaurant Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" WHERE "restaurants"."name" = $1 LIMIT $2[0m  [["name", "Dinos"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mRestaurant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" WHERE "restaurants"."phone_number" = $1 LIMIT $2[0m  [["phone_number", 123], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mRestaurant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" WHERE "restaurants"."executive_chef" = $1 LIMIT $2[0m  [["executive_chef", "James Koenig"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mRestaurant Create (0.8ms)[0m  [1m[32mINSERT INTO "restaurants" ("id", "name", "phone_number", "executive_chef", "city", "description", "created_at", "updated_at", "operation_hours") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["id", 1], ["name", "Dinos"], ["phone_number", 123], ["executive_chef", "James Koenig"], ["city", "Newark"], ["description", "GLANG"], ["created_at", "2021-03-24 20:56:11.325771"], ["updated_at", "2021-03-24 20:56:11.325771"], ["operation_hours", "10:00am - 4:00pm"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 23]]
+  ↳ db/seeds.rb:9
+  [1m[35m (5.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "John Snow"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test123"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "JsgFZPwKFqEb9e+jn/IqYvvHbMjNil++woacQzlgSmREDNWui6VFd99hH6ujgGyaM9U/y8JuzZtQmUlv7tAmpg=="], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (2.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "John Snow"], ["email", "test123"], ["password_digest", "$2a$12$emtlue57m78X0Td0V29iYuKMOvJjXp4I2RpkEaw4s1xHGhEqwtGAu"], ["session_token", "JsgFZPwKFqEb9e+jn/IqYvvHbMjNil++woacQzlgSmREDNWui6VFd99hH6ujgGyaM9U/y8JuzZtQmUlv7tAmpg=="], ["created_at", "2021-03-24 20:56:31.478324"], ["updated_at", "2021-03-24 20:56:31.478324"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[36mRestaurant Load (2.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mRestaurant Destroy (0.6ms)[0m  [1m[31mDELETE FROM "restaurants" WHERE "restaurants"."id" = $1[0m  [["id", 1]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[36mActiveStorage::Attachment Load (1.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "photos"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mRestaurant Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" WHERE "restaurants"."name" = $1 LIMIT $2[0m  [["name", "Dinos"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mRestaurant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" WHERE "restaurants"."phone_number" = $1 LIMIT $2[0m  [["phone_number", 123], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mRestaurant Exists (2.9ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" WHERE "restaurants"."executive_chef" = $1 LIMIT $2[0m  [["executive_chef", "James Koenig"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mRestaurant Create (1.5ms)[0m  [1m[32mINSERT INTO "restaurants" ("id", "name", "phone_number", "executive_chef", "city", "description", "created_at", "updated_at", "operation_hours") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["id", 1], ["name", "Dinos"], ["phone_number", 123], ["executive_chef", "James Koenig"], ["city", "Newark"], ["description", "GLANG"], ["created_at", "2021-03-24 20:56:31.531089"], ["updated_at", "2021-03-24 20:56:31.531089"], ["operation_hours", "10:00am - 4:00pm"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Load (4.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (0.9ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 24]]
+  ↳ db/seeds.rb:9
+  [1m[35m (4.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "John Snow"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test123"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "xFIevLNXxxuqFdw+UGuG5kLBGR3PYbA9jsJkvlBjuQ27U7g2BHKjk1U6+9BM1SRQ36w0x9p6vaTvMv04Td0XGg=="], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (2.0ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "John Snow"], ["email", "test123"], ["password_digest", "$2a$12$3gUyqm7gIUvN5QPRP.Mrj.zDgPFe9NXrv1Pcp3UH1L54hnJcQpqoi"], ["session_token", "xFIevLNXxxuqFdw+UGuG5kLBGR3PYbA9jsJkvlBjuQ27U7g2BHKjk1U6+9BM1SRQ36w0x9p6vaTvMv04Td0XGg=="], ["created_at", "2021-03-24 20:58:19.454664"], ["updated_at", "2021-03-24 20:58:19.454664"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[36mRestaurant Load (1.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mRestaurant Destroy (0.6ms)[0m  [1m[31mDELETE FROM "restaurants" WHERE "restaurants"."id" = $1[0m  [["id", 1]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[36mActiveStorage::Attachment Load (1.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "photos"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mRestaurant Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" WHERE "restaurants"."name" = $1 LIMIT $2[0m  [["name", "Dinos"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mRestaurant Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" WHERE "restaurants"."phone_number" = $1 LIMIT $2[0m  [["phone_number", 123], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mRestaurant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" WHERE "restaurants"."executive_chef" = $1 LIMIT $2[0m  [["executive_chef", "James Koenig"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mRestaurant Create (1.1ms)[0m  [1m[32mINSERT INTO "restaurants" ("id", "name", "phone_number", "executive_chef", "city", "description", "created_at", "updated_at", "operation_hours") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["id", 1], ["name", "Dinos"], ["phone_number", 123], ["executive_chef", "James Koenig"], ["city", "Newark"], ["description", "GLANG"], ["created_at", "2021-03-24 20:58:19.498316"], ["updated_at", "2021-03-24 20:58:19.498316"], ["operation_hours", "10:00am - 4:00pm"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (1.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 25]]
+  ↳ db/seeds.rb:9
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "John Snow"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test123"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "iAjjbzQwqVbAKGf0B/+igAv1/g+SEPAgYTjH+iya9WYc1mZ5hmuAytlcQgC2MuPQ+ZLZgGYwsOpr/mykd88lhw=="], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (1.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "John Snow"], ["email", "test123"], ["password_digest", "$2a$12$Lcnzo1DKOVpBb5XV3Xx20uBpD4snOGVQRhvs48Qk3i9VGKBK9uUR."], ["session_token", "iAjjbzQwqVbAKGf0B/+igAv1/g+SEPAgYTjH+iya9WYc1mZ5hmuAytlcQgC2MuPQ+ZLZgGYwsOpr/mykd88lhw=="], ["created_at", "2021-03-24 20:59:22.421509"], ["updated_at", "2021-03-24 20:59:22.421509"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[36mRestaurant Load (2.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mRestaurant Destroy (1.6ms)[0m  [1m[31mDELETE FROM "restaurants" WHERE "restaurants"."id" = $1[0m  [["id", 1]]
+  ↳ db/seeds.rb:15
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[36mActiveStorage::Attachment Load (3.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "photos"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mRestaurant Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" WHERE "restaurants"."name" = $1 LIMIT $2[0m  [["name", "Dinos"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mRestaurant Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" WHERE "restaurants"."phone_number" = $1 LIMIT $2[0m  [["phone_number", 123], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mRestaurant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" WHERE "restaurants"."executive_chef" = $1 LIMIT $2[0m  [["executive_chef", "James Koenig"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mRestaurant Create (0.5ms)[0m  [1m[32mINSERT INTO "restaurants" ("id", "name", "phone_number", "executive_chef", "city", "description", "created_at", "updated_at", "operation_hours") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["id", 1], ["name", "Dinos"], ["phone_number", 123], ["executive_chef", "James Koenig"], ["city", "Newark"], ["description", "GLANG"], ["created_at", "2021-03-24 20:59:22.473439"], ["updated_at", "2021-03-24 20:59:22.473439"], ["operation_hours", "10:00am - 4:00pm"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[36mRestaurant Load (0.5ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" ORDER BY "restaurants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRestaurant Load (1.2ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" ORDER BY "restaurants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Exists (2.3ms)[0m  [1m[34mSELECT  1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "photos"], ["LIMIT", 1]]
+  [1m[35m (4.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Load (5.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (8.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 26]]
+  ↳ db/seeds.rb:9
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "John Snow"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test123"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "AX6pjk8cfsLITCOCXTAu5P0KIoI26KtElHCCJY3cPEq+6UL4S0v15j/UrqCJlbz8so/PRUl+fSEjL5DTGJLpYA=="], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (7.0ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "John Snow"], ["email", "test123"], ["password_digest", "$2a$12$M0id6C8Uq05XY9VVUfg.4OxUX4xYlTnaLxRRUjPO/eQBt5v444n/K"], ["session_token", "AX6pjk8cfsLITCOCXTAu5P0KIoI26KtElHCCJY3cPEq+6UL4S0v15j/UrqCJlbz8so/PRUl+fSEjL5DTGJLpYA=="], ["created_at", "2021-03-24 21:07:59.834706"], ["updated_at", "2021-03-24 21:07:59.834706"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[36mRestaurant Load (4.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mRestaurant Destroy (0.5ms)[0m  [1m[31mDELETE FROM "restaurants" WHERE "restaurants"."id" = $1[0m  [["id", 1]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[36mActiveStorage::Attachment Load (4.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "photos"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mRestaurant Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" WHERE "restaurants"."name" = $1 LIMIT $2[0m  [["name", "Dinos"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mRestaurant Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" WHERE "restaurants"."phone_number" = $1 LIMIT $2[0m  [["phone_number", 123], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mRestaurant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" WHERE "restaurants"."executive_chef" = $1 LIMIT $2[0m  [["executive_chef", "James Koenig"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mRestaurant Create (0.7ms)[0m  [1m[32mINSERT INTO "restaurants" ("id", "name", "phone_number", "executive_chef", "city", "description", "created_at", "updated_at", "operation_hours") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["id", 1], ["name", "Dinos"], ["phone_number", 123], ["executive_chef", "James Koenig"], ["city", "Newark"], ["description", "GLANG"], ["created_at", "2021-03-24 21:07:59.896336"], ["updated_at", "2021-03-24 21:07:59.896336"], ["operation_hours", "10:00am - 4:00pm"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+Started GET "/" for ::1 at 2021-03-24 17:09:47 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (14.6ms)
+Completed 200 OK in 51ms (Views: 47.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/api/restaurants" for ::1 at 2021-03-24 17:09:47 -0400
+Processing by Api::RestaurantsController#index as JSON
+  Rendering api/restaurants/index.json.jbuilder
+  [1m[36mRestaurant Load (13.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/api/restaurants/index.json.jbuilder:1
+  [1m[36mActiveStorage::Attachment Load (1.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "photos"]]
+  ↳ app/views/api/restaurants/index.json.jbuilder:11
+  Rendered api/restaurants/index.json.jbuilder (28.5ms)
+Completed 200 OK in 34ms (Views: 19.3ms | ActiveRecord: 14.9ms)
+
+
+  [1m[35m (25.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (9.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (7.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 27]]
+  ↳ db/seeds.rb:9
+  [1m[35m (7.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "John Snow"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test123"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "WfFxu/zmwD6/0w77+/dtJPdxqFihkbZHqsIX57xy0JpWBIhu99kIrDzeiGy4jEXOTi7pqd1QsPrQZSy/PlTNZw=="], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (35.0ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "John Snow"], ["email", "test123"], ["password_digest", "$2a$12$6BpFMIvB3Na01HQIfLKlCe/Tc3.r1gVIqs1Qn.HO3ssDgxlQFMWka"], ["session_token", "WfFxu/zmwD6/0w77+/dtJPdxqFihkbZHqsIX57xy0JpWBIhu99kIrDzeiGy4jEXOTi7pqd1QsPrQZSy/PlTNZw=="], ["created_at", "2021-03-24 21:15:27.545484"], ["updated_at", "2021-03-24 21:15:27.545484"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[36mRestaurant Load (4.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mRestaurant Destroy (1.4ms)[0m  [1m[31mDELETE FROM "restaurants" WHERE "restaurants"."id" = $1[0m  [["id", 1]]
+  ↳ db/seeds.rb:15
+  [1m[35m (20.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[36mActiveStorage::Attachment Load (1.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "photos"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mRestaurant Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" WHERE "restaurants"."name" = $1 LIMIT $2[0m  [["name", "Dinos"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mRestaurant Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" WHERE "restaurants"."phone_number" = $1 LIMIT $2[0m  [["phone_number", 123], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mRestaurant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" WHERE "restaurants"."executive_chef" = $1 LIMIT $2[0m  [["executive_chef", "James Koenig"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mRestaurant Create (4.1ms)[0m  [1m[32mINSERT INTO "restaurants" ("id", "name", "phone_number", "executive_chef", "city", "description", "created_at", "updated_at", "operation_hours") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["id", 1], ["name", "Dinos"], ["phone_number", 123], ["executive_chef", "James Koenig"], ["city", "Newark"], ["description", "GLANG"], ["created_at", "2021-03-24 21:15:27.659885"], ["updated_at", "2021-03-24 21:15:27.659885"], ["operation_hours", "10:00am - 4:00pm"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[36mRestaurant Load (2.3ms)[0m  [1m[34mSELECT  "restaurants".* FROM "restaurants" ORDER BY "restaurants"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Exists (3.0ms)[0m  [1m[34mSELECT  1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "photos"], ["LIMIT", 1]]
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Destroy (8.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 28]]
+  ↳ db/seeds.rb:9
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "John Snow"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test123"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "sIEn5Z1NJPUSJ3ILYXx8PmTvInZydl/KOZ1h2iX2FJ0tRYjxvnz1TUuS0Mkk+BGkaaTM2JJZ6GaDIvWchPsl4g=="], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (3.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "John Snow"], ["email", "test123"], ["password_digest", "$2a$12$zNlSn.BnoiQQVbadZ4d.QuQeTDKH6ML9jl7uNFCK5z9FnRm5yEuE2"], ["session_token", "sIEn5Z1NJPUSJ3ILYXx8PmTvInZydl/KOZ1h2iX2FJ0tRYjxvnz1TUuS0Mkk+BGkaaTM2JJZ6GaDIvWchPsl4g=="], ["created_at", "2021-03-24 21:22:50.808736"], ["updated_at", "2021-03-24 21:22:50.808736"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[36mRestaurant Load (2.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mRestaurant Destroy (1.2ms)[0m  [1m[31mDELETE FROM "restaurants" WHERE "restaurants"."id" = $1[0m  [["id", 1]]
+  ↳ db/seeds.rb:15
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[36mActiveStorage::Attachment Load (1.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "photos"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mRestaurant Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" WHERE "restaurants"."name" = $1 LIMIT $2[0m  [["name", "Dinos"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mRestaurant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" WHERE "restaurants"."phone_number" = $1 LIMIT $2[0m  [["phone_number", 123], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mRestaurant Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "restaurants" WHERE "restaurants"."executive_chef" = $1 LIMIT $2[0m  [["executive_chef", "James Koenig"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:17
+  [1m[36mRestaurant Create (0.7ms)[0m  [1m[32mINSERT INTO "restaurants" ("id", "name", "phone_number", "executive_chef", "city", "description", "created_at", "updated_at", "operation_hours") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["id", 1], ["name", "Dinos"], ["phone_number", 123], ["executive_chef", "James Koenig"], ["city", "Newark"], ["description", "GLANG"], ["created_at", "2021-03-24 21:22:50.867956"], ["updated_at", "2021-03-24 21:22:50.867956"], ["operation_hours", "10:00am - 4:00pm"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+[36m  S3 Storage (760.8ms) [0m[32mUploaded file to key: JRCMUqa7Mmbkwb1q1mTcTXZG (checksum: xZqF8ktiJqCHnvwBvYp/AQ==)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mActiveStorage::Blob Create (3.2ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["key", "JRCMUqa7Mmbkwb1q1mTcTXZG"], ["filename", "Jonathan_Diaz.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["byte_size", 1884442], ["checksum", "xZqF8ktiJqCHnvwBvYp/AQ=="], ["created_at", "2021-03-24 21:22:51.682057"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:28
+  [1m[36mActiveStorage::Attachment Create (14.4ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "photos"], ["record_type", "Restaurant"], ["record_id", 1], ["blob_id", 3], ["created_at", "2021-03-24 21:22:51.701122"]]
+  ↳ db/seeds.rb:28
+  [1m[36mRestaurant Update (1.3ms)[0m  [1m[33mUPDATE "restaurants" SET "updated_at" = $1 WHERE "restaurants"."id" = $2[0m  [["updated_at", "2021-03-24 21:22:51.716296"], ["id", 1]]
+  ↳ db/seeds.rb:28
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:28
+[ActiveJob]   [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob]   ↳ db/seeds.rb:28
+[ActiveJob] [ActiveStorage::AnalyzeJob] [225a958b-6917-4b1f-b1a1-eb3ef2dcdc78] Performing ActiveStorage::AnalyzeJob (Job ID: 225a958b-6917-4b1f-b1a1-eb3ef2dcdc78) from Inline(default) with arguments: #<GlobalID:0x00007fd4d03a8f98 @uri=#<URI::GID gid://table-open/ActiveStorage::Blob/3>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [225a958b-6917-4b1f-b1a1-eb3ef2dcdc78] [36m  S3 Storage (926.2ms) [0m[34mDownloaded file from key: JRCMUqa7Mmbkwb1q1mTcTXZG[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [225a958b-6917-4b1f-b1a1-eb3ef2dcdc78] Skipping image analysis because the mini_magick gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [225a958b-6917-4b1f-b1a1-eb3ef2dcdc78]   [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [225a958b-6917-4b1f-b1a1-eb3ef2dcdc78]   ↳ db/seeds.rb:28
+[ActiveJob] [ActiveStorage::AnalyzeJob] [225a958b-6917-4b1f-b1a1-eb3ef2dcdc78]   [1m[36mActiveStorage::Blob Update (1.3ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 3]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [225a958b-6917-4b1f-b1a1-eb3ef2dcdc78]   ↳ db/seeds.rb:28
+[ActiveJob] [ActiveStorage::AnalyzeJob] [225a958b-6917-4b1f-b1a1-eb3ef2dcdc78]   [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [225a958b-6917-4b1f-b1a1-eb3ef2dcdc78]   ↳ db/seeds.rb:28
+[ActiveJob] [ActiveStorage::AnalyzeJob] [225a958b-6917-4b1f-b1a1-eb3ef2dcdc78] Performed ActiveStorage::AnalyzeJob (Job ID: 225a958b-6917-4b1f-b1a1-eb3ef2dcdc78) from Inline(default) in 936.97ms
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 225a958b-6917-4b1f-b1a1-eb3ef2dcdc78) to Inline(default) with arguments: #<GlobalID:0x00007fd4c31cdc08 @uri=#<URI::GID gid://table-open/ActiveStorage::Blob/3>>
+Started GET "/" for ::1 at 2021-03-24 17:23:15 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 38ms (Views: 34.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/api/restaurants" for ::1 at 2021-03-24 17:23:15 -0400
+Processing by Api::RestaurantsController#index as JSON
+  Rendering api/restaurants/index.json.jbuilder
+  [1m[36mRestaurant Load (2.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/api/restaurants/index.json.jbuilder:1
+  [1m[36mActiveStorage::Attachment Load (1.9ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "photos"]]
+  ↳ app/views/api/restaurants/index.json.jbuilder:11
+  [1m[36mActiveStorage::Blob Load (1.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/api/restaurants/index.json.jbuilder:11
+  Rendered api/restaurants/index.json.jbuilder (282.3ms)
+Completed 200 OK in 288ms (Views: 228.4ms | ActiveRecord: 59.4ms)
+
+
+Started GET "/" for ::1 at 2021-03-24 17:24:57 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (13.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (20.6ms)
+Completed 200 OK in 413ms (Views: 398.8ms | ActiveRecord: 13.3ms)
+
+
+Started GET "/api/restaurants" for ::1 at 2021-03-24 17:24:57 -0400
+Processing by Api::RestaurantsController#index as JSON
+  Rendering api/restaurants/index.json.jbuilder
+  [1m[36mRestaurant Load (26.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/api/restaurants/index.json.jbuilder:1
+  [1m[36mActiveStorage::Attachment Load (10.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "photos"]]
+  ↳ app/views/api/restaurants/index.json.jbuilder:11
+  [1m[36mActiveStorage::Blob Load (26.9ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/api/restaurants/index.json.jbuilder:11
+  Rendered api/restaurants/index.json.jbuilder (123.4ms)
+Completed 200 OK in 132ms (Views: 67.1ms | ActiveRecord: 64.2ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--30668d7942e8119602d9cf46cb166fc12742c9ed/Jonathan_Diaz.jpg" for ::1 at 2021-03-24 17:24:58 -0400
+Processing by ActiveStorage::BlobsController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--30668d7942e8119602d9cf46cb166fc12742c9ed", "filename"=>"Jonathan_Diaz"}
+  [1m[36mActiveStorage::Blob Load (1.8ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /Users/jonathandiaz/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.5/lib/active_record/log_subscriber.rb:98
+[36m  S3 Storage (64.7ms) [0m[34mGenerated URL for file at key: JRCMUqa7Mmbkwb1q1mTcTXZG (https://table-open-dev.s3.amazonaws.com/JRCMUqa7Mmbkwb1q1mTcTXZG?response-content-disposition=inline%3B%20filename%3D%22Jonathan_Diaz.jpg%22%3B%20filename%2A%3DUTF-8%27%27Jonathan_Diaz.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5IVMDJCHKBEBDU5M%2F20210324%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210324T212458Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=dfca616b5f8eede217f996e34a8e722f435c4a03ccbb4877da36471c5a02c9f5)[0m
+Redirected to https://table-open-dev.s3.amazonaws.com/JRCMUqa7Mmbkwb1q1mTcTXZG?response-content-disposition=inline%3B%20filename%3D%22Jonathan_Diaz.jpg%22%3B%20filename%2A%3DUTF-8%27%27Jonathan_Diaz.jpg&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5IVMDJCHKBEBDU5M%2F20210324%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210324T212458Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=dfca616b5f8eede217f996e34a8e722f435c4a03ccbb4877da36471c5a02c9f5
+Completed 302 Found in 77ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/" for ::1 at 2021-03-24 17:28:39 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (10.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6
+  Rendered static_pages/root.html.erb within layouts/application (30.4ms)
+Completed 200 OK in 640ms (Views: 628.1ms | ActiveRecord: 10.1ms)
+
+
+Started GET "/api/restaurants" for ::1 at 2021-03-24 17:28:40 -0400
+Processing by Api::RestaurantsController#index as JSON
+  Rendering api/restaurants/index.json.jbuilder
+  [1m[36mRestaurant Load (22.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/api/restaurants/index.json.jbuilder:1
+  [1m[36mActiveStorage::Attachment Load (30.9ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "photos"]]
+  ↳ app/views/api/restaurants/index.json.jbuilder:11
+  [1m[36mActiveStorage::Blob Load (28.7ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/api/restaurants/index.json.jbuilder:11
+  Rendered api/restaurants/index.json.jbuilder (109.2ms)
+Completed 200 OK in 118ms (Views: 35.2ms | ActiveRecord: 82.3ms)
+
+

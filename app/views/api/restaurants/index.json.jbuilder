@@ -8,5 +8,6 @@
                         :city,
                         :operation_hours
         # json.photoUrls restaurant.map { |file| url_for(file) }
+        json.photoUrl url_for(restaurant.photos[0])
     end
 end

@@ -21,3 +21,8 @@ demo_restaurant = Restaurant.create!(id: 1,
                                     executive_chef: "James Koenig", 
                                     city: "Newark", 
                                     description: "GLANG")
+
+# photo1 = open('https://table-open-seeds.s3.amazonaws.com/Jonathan_Diaz.jpg')
+photo1 = open('/Users/jonathandiaz/Desktop/Jonathan_Diaz.jpg')
+
+demo_restaurant.photos.attach(io: photo1, filename: 'Jonathan_Diaz.jpg')
