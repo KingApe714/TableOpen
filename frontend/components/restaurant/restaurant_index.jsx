@@ -26,7 +26,7 @@ class RestaurantIndex extends React.Component {
                         <p>{restaurant.description} Description HERE!!</p>
                         <p>{restaurant.operation_hours}</p>
                     </div>
-                    <img src={restaurant.photoUrl}></img>
+                    <img src={restaurant.photoUrl} className="restaurant-image"></img>
             </Link>
         ))
 
