@@ -16,17 +16,15 @@ class RestaurantIndex extends React.Component {
                 key={restaurant.id}
                 id="restaurant-link"
                 to={`/restaurants/${restaurant.id}`}>
-                    <div>
-                        {restaurant.name}
+                    <div className="restaurant-card">
+                        <img src={restaurant.photoUrl} className="restaurant-image"></img>
+                        <div>
+                            <p className="rest-detail">{restaurant.name}</p>
+                        </div>
+                        <div>
+                            <p className="rest-detail">{restaurant.city}</p>
+                        </div>
                     </div>
-                    <div>
-                        <p>{restaurant.phone_number}</p>
-                        <p>{restaurant.executive_chef}</p>
-                        <p>{restaurant.city}</p>
-                        <p>{restaurant.description} Description HERE!!</p>
-                        <p>{restaurant.operation_hours}</p>
-                    </div>
-                    <img src={restaurant.photoUrl} className="restaurant-image"></img>
             </Link>
         ))
 
