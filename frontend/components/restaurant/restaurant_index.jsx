@@ -10,8 +10,18 @@ class RestaurantIndex extends React.Component {
         this.props.fetchRestaurants();
     }
 
+    shuffleArray(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            let temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+        return arr
+    }
+
     render() {
-        const restaurants = this.props.restaurants.map(restaurant => (
+        let restaurants = this.props.restaurants.map(restaurant => (
             <Link 
                 key={restaurant.id}
                 id="restaurant-link"
@@ -27,7 +37,7 @@ class RestaurantIndex extends React.Component {
                     </div>
             </Link>
         ))
-
+        restaurants = this.shuffleArray(restaurants);
         return (
             <div>
                 <div className="res-header">
