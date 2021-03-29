@@ -9,6 +9,7 @@ import Modal from './modal/modal_container'
 import NotFoundPage from './not_found.jsx'
 import SplashContainer from './splash_page/splash_container';
 import RestaurantIndexContainer from './restaurant/restaurant_index_container';
+import RestaurantShowContainer from './restaurant/restaurant_show_container'
 
 const App = () => (
     <div>
@@ -20,12 +21,8 @@ const App = () => (
             <GreetingContainer />
             <Modal />
         </header>
-        <Switch>
-            <Route exact path="/restaurants" component={RestaurantIndexContainer}/>
-            <Route exact path='/' component={SplashContainer}/>
-            {/* <Route path="/404" component={NotFoundPage} />
-            <Redirect to="/404" /> */}
-        </Switch>
+        <Route exact path="/" component={SplashContainer}/>
+        <Route exact path="/restaurants/:restaurantId" component={RestaurantShowContainer}/>
     </div>
 );
 
