@@ -19,10 +19,10 @@ class RestaurantIndex extends React.Component {
                     <div className="restaurant-card">
                         <img src={restaurant.photoUrl} className="restaurant-image"></img>
                         <div>
-                            <p className="rest-detail">{restaurant.name}</p>
+                            <p className="rest-title">{restaurant.name}</p>
                         </div>
                         <div>
-                            <p className="rest-detail">{restaurant.city}</p>
+                            <p className="rest-city">{restaurant.city}</p>
                         </div>
                     </div>
             </Link>
@@ -30,9 +30,24 @@ class RestaurantIndex extends React.Component {
 
         return (
             <div>
-                {/* {this.props.restaurants} */}
-                {restaurants}
-                Absolutely anything!!
+                <div className="res-header">
+                    <h2>Restaurants Nearby</h2>
+                </div>
+                <div className="res-icon-cont">
+                    {restaurants.slice(0, 5)}   
+                </div>
+                <div className="res-header">
+                    <h2>Most Popular</h2>
+                </div>
+                <div className="res-icon-cont">
+                    {restaurants.reverse().slice(0, 5)}
+                </div>
+                <div className="res-header">
+                    <h2>Top Rated</h2>
+                </div>
+                <div className="res-icon-cont">
+                    {restaurants.slice(3, 6).concat(restaurants.reverse().slice(3, 5))}
+                </div>
             </div>
         )
     }
