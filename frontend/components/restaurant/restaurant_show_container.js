@@ -1,4 +1,4 @@
-import connect from 'react-redux';
+import { connect } from 'react-redux';
 import { fetchRestaurant } from '../../actions/restaurant_actions';
 import { logout } from '../../actions/session_actions';
 import RestaurantShow from './restaurant_show';
