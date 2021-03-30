@@ -1,0 +1,26 @@
+.rest-background {
+    width: 900px;
+    height: 320px;
+    color: white;
+    font-weight: boldest;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3));
+    background-repeat: no-repeat;
+    background-position: 0% 75%;
+    background-size: cover;
+}
+
+.rest-show {
+    // display: flex;
+    // justify-content: center;
+    width: 80%;
+    height: 800px;
+    border: 1px solid black;
+    margin: 0 auto;
+}
+
+.show-title {
+    margin-top: 20px;
+    font-weight: boldest;
+    font-family: $montseratt;
+    font-size: 45px;
+}

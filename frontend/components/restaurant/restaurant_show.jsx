@@ -6,16 +6,17 @@ class RestaurantShow extends React.Component {
     }
 
     componentDidMount() {
-        // console.log(this.props.match.params.restaurantId)
-        // debugger
         this.props.fetchRestaurant(this.props.match.params.restaurantId);
-        console.log(this.props.restaurant)
     }
 
     render() {
+        if (!this.props.restaurant) return null;
         return (
             <div>
-                {/* {this.props.restaurant} */}
+                <img src={this.props.restaurant.photoUrls} className="rest-background"></img>
+                <div className="rest-show">
+                    <p className="show-title">{this.props.restaurant.name}</p>
+                </div>
             </div>
         )
     }

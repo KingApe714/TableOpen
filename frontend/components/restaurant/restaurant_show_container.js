@@ -5,7 +5,7 @@ import RestaurantShow from './restaurant_show';
 
 const mSTP = (state, ownProps) => {
     return {
-        restaurant: state.entities.restaurants[ownProps.match.params.restaurantId],
+        restaurant: state.entities.restaurants,
         currentUser: state.entities.users[state.session.id]
     }
 }

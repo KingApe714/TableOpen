@@ -10,7 +10,7 @@ const restaurantsReducer = (state={}, action) => {
             return action.restaurants
         case RECEIVE_RESTAURANT:
             newState[action.restaurant.id] = action.restaurant
-            return newState
+            return newState[action.restaurant.id]
         case SEARCH_RESTAURANTS:
             return action.searchResult
         case CLEAR_FORM:
