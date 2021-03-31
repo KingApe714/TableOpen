@@ -11,9 +11,9 @@
 .rest-show {
     width: 600px;
     height: 800px;
-    border: 1px solid black;
     margin: 0 auto;
     font-family: $montseratt;
+    // border: 1px solid black;
 }
 
 .show-title {
@@ -88,4 +88,31 @@
     line-height: 25px;
     width: 90%;
     margin: 0 auto;
+}
+
+.rest-details {
+    width: 90%;
+    margin: 0 auto;
+    font-size: 13px;
+    .det-title {
+        font-weight: bolder;
+        margin-top: 14px;
+    }
+    .det-detail {
+        font-weight: lighter;
+    }
+}
+
+.rest-menu {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-bottom: 1px solid $light-gray;
+}
+
+.rest-reviews {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-bottom: 1px solid $light-gray;
 }

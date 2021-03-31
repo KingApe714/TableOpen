@@ -42,9 +42,12 @@ class RestaurantShow extends React.Component {
                         {this.props.restaurant.description}
                     </div>
                     <div className="rest-details">
-                        {this.props.restaurant.city} <br/>
-                        {this.props.restaurant.operation_hours} <br/>
-                        {this.props.restaurant.phone_number} <br/>
+                        <p className="det-title">Neighborhood</p>
+                        <p className="det-detail">{this.props.restaurant.city}</p>
+                        <p className="det-title">Hours of Operation</p>
+                        <p className="det-detail">{this.props.restaurant.operation_hours}</p>
+                        <p className="det-title">Phone Number</p>
+                        <p className="det-detail">{this.props.restaurant.phone_number}</p>
                     </div>
                     <div className="rest-menu">
                         Menu
