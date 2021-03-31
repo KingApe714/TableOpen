@@ -12,7 +12,7 @@ import RestaurantIndexContainer from './restaurant/restaurant_index_container';
 import RestaurantShowContainer from './restaurant/restaurant_show_container'
 
 const App = () => (
-    <div>
+    <div className="app">
         <header className="header-container">
             <Link to='/' className="header-logo-container">
                 <img src={window.logoURL} className="header-logo"/>

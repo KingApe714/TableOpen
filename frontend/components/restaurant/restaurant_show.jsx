@@ -11,7 +11,6 @@ class RestaurantShow extends React.Component {
 
     render() {
         if (!this.props.restaurant) return null;
-        // debugger
         return (
             <div>
                 <img src={this.props.restaurant.photoUrls} className="rest-background"></img>
@@ -48,6 +47,11 @@ class RestaurantShow extends React.Component {
                         <p className="det-detail">{this.props.restaurant.operation_hours}</p>
                         <p className="det-title">Phone Number</p>
                         <p className="det-detail">{this.props.restaurant.phone_number}</p>
+                        {this.props.restaurant.executive_chef !== "N/A" ?
+                        <>
+                            <p className="det-title">Executive Chef</p>
+                            <p className="det-detail">{this.props.restaurant.executive_chef}</p> 
+                        </> : null }
                     </div>
                     <div className="rest-menu">
                         Menu
