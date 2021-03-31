@@ -8,11 +8,28 @@
 
 User.destroy_all
 Restaurant.destroy_all
+Resrvation.destroy_all
 
 demo_user = User.create!(username: "John Snow", 
                         email: "test123", 
                         password: "123456")
 
+user1 = User.create!(username: "Jonathan Diaz",
+                    email: "kingape@gmail.com",
+                    password: "123456")
+                    
+user2 = User.create!(username: "Michael Noble",
+                    email: "makonobo@gmail.com",
+                    password: "123456")
+
+user3 = User.create!(username: "Janette Tinoco",
+                    email: "janette@gmail.com",
+                    password: "123456")
+
+user4 = User.create!(username: "Alexey Sergieve",
+                    email: "alexey@gmail.com",
+                    password: "123456")
+                    
 r1 = Restaurant.create!(id: 1, 
                         name: "Michael's Pasteria", 
                         phone_number: "973-661-5252", 

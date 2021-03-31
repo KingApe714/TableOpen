@@ -7,4 +7,9 @@ class Restaurant < ApplicationRecord
     validates :description, presence: true, length: {maximum: 2000}
 
     has_many_attached :photos
+
+    has_many :resrvations,
+        primary_key: :id,
+        foreign_key: :restaurant_id,
+        class_name: :Resrvation
 end
