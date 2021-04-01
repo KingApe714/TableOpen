@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Redirect, Switch, Link } from 'react-router-dom';
-import { AuthRoute } from '../util/route_util';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 import GreetingContainer from './greeting/greeting_containter'
 import SignUpFormContainer from './session_form/signup_form_container';
@@ -9,7 +9,8 @@ import Modal from './modal/modal_container'
 import NotFoundPage from './not_found.jsx'
 import SplashContainer from './splash_page/splash_container';
 import RestaurantIndexContainer from './restaurant/restaurant_index_container';
-import RestaurantShowContainer from './restaurant/restaurant_show_container'
+import RestaurantShowContainer from './restaurant/restaurant_show_container';
+import UserShowContainer from './user/user_show_container'
 
 const App = () => (
     <div className="app">
@@ -23,6 +24,11 @@ const App = () => (
         </header>
         <Route exact path="/" component={SplashContainer}/>
         <Route exact path="/restaurants/:restaurantId" component={RestaurantShowContainer}/>
+        {/* <ProtectedRoute exact path="/restaurants/:restaurantId/reserve" component={ReservationFormContainer} /> */}
+        <ProtectedRoute exact path="/users/:userId" component={UserShowContainer}/>
+        {/* <ProtectedRoute exact path="/reservations/:reservationId/view" component={ViewReservationContainer} />
+        <Route exact path="/reservations/:reservationId/update" component={UpdateReservationContainer} />
+        <ProtectedRoute exact path="/reservations/:reservationId/delete" component={DeleteReservationContainer} /> */}
     </div>
 );
 
