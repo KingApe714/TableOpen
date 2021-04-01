@@ -329,3 +329,53 @@ r25 = Restaurant.create!(id: 25,
 p25 = open('https://table-open-seeds.s3.amazonaws.com/toros.jpeg')
 
 r25.photos.attach(io: p25, filename: 'toros.jpeg')
+
+demo_res0 = Resrvation.create!(restaurant_id: 1,
+                                guest_id: demo_user.id,
+                                guest_count: 1,
+                                reservation_date_time: Date.new)
+
+demo_res1 = Resrvation.create!(restaurant_id: 2,
+                                guest_id: demo_user.id,
+                                guest_count: 2,
+                                reservation_date_time: Date.new)
+
+demo_res2 = Resrvation.create!(restaurant_id: 3,
+                                guest_id: demo_user.id,
+                                guest_count: 1,
+                                reservation_date_time: Date.new)
+
+demo_res3 = Resrvation.create!(restaurant_id: 3,
+                                guest_id: demo_user.id,
+                                guest_count: 1,
+                                reservation_date_time: Date.new)
+
+demo_res4 = Resrvation.create!(restaurant_id: 4,
+                                guest_id: demo_user.id,
+                                guest_count: 4,
+                                reservation_date_time: Date.new)
+
+demo_res5 = Resrvation.create!(restaurant_id: 5,
+                                guest_id: demo_user.id,
+                                guest_count: 10,
+                                reservation_date_time: Date.new)
+
+demo_res6 = Resrvation.create!(restaurant_id: 10,
+                                guest_id: demo_user.id,
+                                guest_count: 4,
+                                reservation_date_time: Date.new)
+
+demo_res7 = Resrvation.create!(restaurant_id: 23,
+                                guest_id: demo_user.id,
+                                guest_count: 12,
+                                reservation_date_time: Date.new)
+
+demo_res8 = Resrvation.create!(restaurant_id: 1,
+                                guest_id: demo_user.id,
+                                guest_count: 6,
+                                reservation_date_time: Date.new)
+
+demo_res9 = Resrvation.create!(restaurant_id: 19,
+                                guest_id: demo_user.id,
+                                guest_count: 4,
+                                reservation_date_time: Date.new)
