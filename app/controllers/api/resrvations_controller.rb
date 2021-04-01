@@ -1,4 +1,4 @@
-class Api::ResrvationController < ApplicationController
+class Api::ResrvationsController < ApplicationController
 
     def show
         @reservation = Resrvation.find(params[:id])
@@ -14,10 +14,26 @@ class Api::ResrvationController < ApplicationController
         @reservation = Resrvation.new(reservation_params)
 
         if @reservation.save
-            render json: ['reservation created']
+            render :show
         else
-            render json:
+            render json: ['Unable to create reservation'], status: 404
         end
+    end
+
+    def update
+        @reservation = Resrvation.find(params[:id])
+
+        if @reservation && @reservation.update(reservation_params)
+            render :show
+        else
+            render json: ['Reservation did not update'], status: 404
+        end
+    end
+
+    def destroy
+        @reservation = Resrvation.find_by(id: params[:id])
+
+        @reservation.destroy
     end
     private
     def reservation_params
@@ -25,7 +41,7 @@ class Api::ResrvationController < ApplicationController
             :guest_id,
             :restaurant_id,
             :guest_count,
-            :reservation_datetime
+            :reservation_date_time
         )
     end
 end
