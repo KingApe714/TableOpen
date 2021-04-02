@@ -379,3 +379,63 @@ demo_res9 = Resrvation.create!(restaurant_id: 19,
                                 guest_id: demo_user.id,
                                 guest_count: 4,
                                 reservation_date_time: Date.new)
+
+demo_res10 = Resrvation.create!(restaurant_id: 25,
+                                guest_id: user1.id,
+                                guest_count: 1,
+                                reservation_date_time: Date.new)
+
+demo_res11 = Resrvation.create!(restaurant_id: 24,
+                                guest_id: user1.id,
+                                guest_count: 12,
+                                reservation_date_time: Date.new)
+
+demo_res12 = Resrvation.create!(restaurant_id: 23,
+                                guest_id: user1.id,
+                                guest_count: 10,
+                                reservation_date_time: Date.new)
+
+demo_res13 = Resrvation.create!(restaurant_id: 22,
+                                guest_id: user1.id,
+                                guest_count: 20,
+                                reservation_date_time: Date.new)
+
+demo_res14 = Resrvation.create!(restaurant_id: 21,
+                                guest_id: user1.id,
+                                guest_count: 3,
+                                reservation_date_time: Date.new)
+
+demo_res15 = Resrvation.create!(restaurant_id: 20,
+                                guest_id: user1.id,
+                                guest_count: 1,
+                                reservation_date_time: Date.new)
+
+demo_res16 = Resrvation.create!(restaurant_id: 1,
+                                guest_id: user2.id,
+                                guest_count: 11,
+                                reservation_date_time: Date.new)
+
+demo_res17 = Resrvation.create!(restaurant_id: 12,
+                                guest_id: user2.id,
+                                guest_count: 12,
+                                reservation_date_time: Date.new)
+
+demo_res18 = Resrvation.create!(restaurant_id: 13,
+                                guest_id: user2.id,
+                                guest_count: 13,
+                                reservation_date_time: Date.new)
+
+demo_res19 = Resrvation.create!(restaurant_id: 17,
+                                guest_id: user2.id,
+                                guest_count: 14,
+                                reservation_date_time: Date.new)
+
+demo_res20 = Resrvation.create!(restaurant_id: 14,
+                                guest_id: user2.id,
+                                guest_count: 15,
+                                reservation_date_time: Date.new)
+
+demo_res21 = Resrvation.create!(restaurant_id: 15,
+                                guest_id: user2.id,
+                                guest_count: 16,
+                                reservation_date_time: Date.new)
