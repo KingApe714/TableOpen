@@ -1,12 +1,13 @@
 .user-dropdown:hover .dropdown-list {
     // cursor: pointer;
-    font-family: 'Montserrat', sans-serif;
+    font-family: $montseratt;
+    line-height: 25px;
     display: block;
     position: relative;
     background-color: white;
     padding: 0px;
     width: 280px;
-    height: 150px;
+    height: 200px;
     border: solid $light-gray 1px;
     border-radius: 4px;
     left: -200px;
@@ -59,4 +60,20 @@
 .dropdown-greeting {
     padding: 15px;
     font-weight: 600;
+}
+
+.list-item {
+    padding-left: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    color: black;
+}
+
+.list-item:hover {
+    background-color: $light-gray;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }

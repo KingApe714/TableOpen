@@ -15,9 +15,9 @@ const Greeting = ({ currentUser, logout, openModal }) => {
       <img src={window.profileIcon} className="user-icon"/>
       <ul className="dropdown-list arrow">
         <li className="dropdown-greeting">Hello, {currentUser.username}!</li>
-        <li><Link to={`/users/${currentUser.id}`}>My Profile</Link></li>
-        <li><Link to={`/users/${currentUser.id}`}>My Dining History</Link></li>
-        <li><Link to={`/users/${currentUser.id}`}>My Saved Restaurants</Link></li>
+        <li className="list-item"><Link to={`/users/${currentUser.id}`}>My Profile</Link></li>
+        <li className="list-item"><Link to={`/users/${currentUser.id}`}>My Dining History</Link></li>
+        <li className="list-item"><Link to={`/users/${currentUser.id}`}>My Saved Restaurants</Link></li>
         <li className="dropdown-signout" onClick={logout}>Sign Out</li>
       </ul>
     </div>
