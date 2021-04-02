@@ -1,9 +1,18 @@
+.user-show-container {
+    background-color: $lightest-gray;
+}
+
 .past-reservations {
     background-color: white;
     border-radius: 7px;
     display: flex;
     flex-direction: column;
     font-family: $montseratt;
+    margin-top: 20px;
+    margin-left: 180px;
+    margin-right: 180px;
+    min-width: 500px;
+    border: 1px solid $light-gray;
 }
 
 .reservation-container {
@@ -34,6 +43,21 @@
     color: gray;
 }
 
-// .root {
-//     background-color: black;
-// }
+.username {
+    font-family: $montseratt;
+    font-size: 30px;
+    font-weight: bolder;
+    border-top: 1px solid $light-gray;
+    border-bottom: 1px solid $light-gray;
+    padding: 15px;
+    background-color: white;
+}
+
+.reservation-title {
+    font-size: 20px;
+    font-weight: bolder;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: right;
+}

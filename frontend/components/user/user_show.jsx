@@ -12,8 +12,13 @@ class UserShow extends React.Component {
 
     render() {
         const restaurants = this.props.restaurants;
-        const reservations = this.props.reservations.map(reservation => (
-            <div className="reservation-container">
+        const reservations = this.props.reservations.map(reservation => {
+            let arr = reservation.reservation_date_time.split("T")
+            let date = arr[0];
+            let time = arr[1];
+            date = date.split('-').join('/')
+            return <div className="reservation-container"
+                        key={reservation.id}>
                 <Link 
                     key={reservation.id}
                     id="reservation-link"
@@ -24,17 +29,25 @@ class UserShow extends React.Component {
                     <div>
                         {restaurants[reservation.restaurant_id].name}
                         <br/>
-                        {reservation.reservation_date_time}
+                        {date}
                     </div>
                     <p className="table-status">
                         Table for {reservation.guest_count} {reservation.guest_count === 1 ? <>person</> : <>people</>}
                     </p>
                 </div>
             </div>
-        ))
+        })
         return (
-            <div className="past-reservations">
-                {reservations}
+            <div className="user-show-container">
+                <div className="username">
+                    {this.props.currentUser.username}
+                </div>
+                <div className="past-reservations">
+                    <p className="reservation-title">
+                        Past Reservations
+                    </p>
+                    {reservations}
+                </div>
             </div>
         )
     }

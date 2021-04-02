@@ -4,7 +4,6 @@ import {CLEAR_FORM} from '../actions/search_actions'
 const restaurantsReducer = (state={}, action) => {
     Object.freeze(state)
     const newState = Object.assign({}, state)
-
     switch(action.type){
         case RECEIVE_ALL_RESTAURANTS:
             return action.restaurants

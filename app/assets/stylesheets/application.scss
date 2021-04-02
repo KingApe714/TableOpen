@@ -15,5 +15,7 @@
 
  @import "base/*";
  @import "components/*";
-//  @import "base/fonts.scss";
-//  @import 'base/reset.scss';
+
+ :root {
+     background-color: $lightest-gray;
+ }
