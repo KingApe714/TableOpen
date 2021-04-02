@@ -13,26 +13,27 @@ class UserShow extends React.Component {
     render() {
         const restaurants = this.props.restaurants;
         const reservations = this.props.reservations.map(reservation => (
-            <div>
+            <div className="reservation-container">
                 <Link 
                     key={reservation.id}
                     id="reservation-link"
                     to={`/restaurants/${reservation.restaurant_id}`}>
-                        <img src={restaurants[reservation.restaurant_id].photoUrl}></img>
+                        <img src={restaurants[reservation.restaurant_id].photoUrl} className="res-rest-image"></img>
                 </Link>
-                <div>
+                <div className="res-detail-container">
                     <div>
                         {restaurants[reservation.restaurant_id].name}
+                        <br/>
                         {reservation.reservation_date_time}
                     </div>
-                    <p>
+                    <p className="table-status">
                         Table for {reservation.guest_count} {reservation.guest_count === 1 ? <>person</> : <>people</>}
                     </p>
                 </div>
             </div>
         ))
         return (
-            <div>
+            <div className="past-reservations">
                 {reservations}
             </div>
         )

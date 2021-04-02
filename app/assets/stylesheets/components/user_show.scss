@@ -1,0 +1,39 @@
+.past-reservations {
+    background-color: white;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    font-family: $montseratt;
+}
+
+.reservation-container {
+    border-top: 1px solid $light-gray;
+    padding: 15px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.res-rest-image {
+    height: 90px;
+    width: 90px;
+    border-radius: 7px;
+}
+
+.res-detail-container {
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 900;
+    line-height: 30px;
+    padding-left: 15px;
+}
+
+.table-status {
+    font-size: 12px;
+    font-weight: 700;
+    color: gray;
+}
+
+// .root {
+//     background-color: black;
+// }
