@@ -33,9 +33,9 @@ class CreateReservation extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     <div>
                         <p>Party Size</p>
-                        <select onChange={this.handleChange('party-size')}
-                            defaultValue={}>
-                        </select>
+                        {/* <select onChange={this.handleChange('party-size')}> */}
+                             {/* defaultValue={} */}
+                        {/* </select> */}
                     </div>
                     <div>
                         <div>
