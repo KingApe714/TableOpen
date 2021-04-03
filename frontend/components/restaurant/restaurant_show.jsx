@@ -1,4 +1,5 @@
 import React from 'react';
+import CreateReservationContainer from '../reservation/create_reservation_container'
 
 class RestaurantShow extends React.Component {
     constructor(props) {
@@ -19,15 +20,7 @@ class RestaurantShow extends React.Component {
                     <div className="rest-rate-review">
                         Reviews | Price Range | Cuisine Type
                     </div>
-                    <div className="rest-reservation">
-                        <div className="reservation-title">
-                            Make a reservation
-                        </div>
-                        <div className="reservation-details">
-                            Party size<br/>
-                            Date | Time
-                        </div>
-                    </div>
+                    <CreateReservationContainer />
                     <div className="rest-delivery-takeout">
                         <div className="del-tak-title">
                             Order delivery or takeout 
