@@ -11,7 +11,11 @@ class CreateReservation extends React.Component {
     }
 
     handleSubmit(e) {
-
+        e.preventDefault()
+        this.props.CreateReservation(this.state)
+            .then((res) => {
+                // this.props.history.push(`/${}`)
+            })
     }
 
     handleChange(type) {

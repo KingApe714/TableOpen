@@ -7,7 +7,7 @@ const mSTP = (state) => ({
 })
 
 const mDTP = (dispatch) => ({
-
+    createReservation: reservation => dispatch(createReservation(reservation))
 })
 
 export default connect(mSTP, mDTP)(CreateReservation)
