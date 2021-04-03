@@ -39,7 +39,7 @@ class RestaurantIndex extends React.Component {
         ))
         restaurants = this.shuffleArray(restaurants);
         return (
-            <div>
+            <div className="rest-index-container">
                 <div className="res-header">
                     <h2>Restaurants Nearby</h2>
                 </div>
