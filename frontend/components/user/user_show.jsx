@@ -8,15 +8,20 @@ class UserShow extends React.Component {
 
     componentDidMount() {
         this.props.fetchReservations()
+        this.props.fetchRestaurants()
     }
 
     render() {
+        // debugger
         const restaurants = this.props.restaurants;
+        // if (!restaurants.length || !this.props.reservations.length) {
+        //     return null;
+        // }
         const reservations = this.props.reservations.map(reservation => {
             let arr = reservation.reservation_date_time.split("T")
             let date = arr[0];
             let time = arr[1];
-            date = date.split('-').join('/')
+            date = date.split('-').reverse().join('/')
             return <div className="reservation-container"
                         key={reservation.id}>
                 <Link 
