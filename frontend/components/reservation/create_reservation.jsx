@@ -12,6 +12,8 @@ class CreateReservation extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault()
+        console.log(this.props.restaurant)
+        console.log(this.state)
         this.props.CreateReservation(this.state)
             .then((res) => {
                 // this.props.history.push(`/${}`)
@@ -19,7 +21,7 @@ class CreateReservation extends React.Component {
     }
 
     handleChange(type) {
-        // console.log(`${type} selected`)
+        console.log(`${type} selected`)
         // console.log(this)
         return e => {
             // console.log(e.target.value)
@@ -89,6 +91,9 @@ class CreateReservation extends React.Component {
                             {/* <select name="" id="">
                                 <option value="" selected>Today</option>
                             </select> */}
+                            <input type="text" 
+                                    value={this.state.reservation_date_time}
+                                    onChange={this.handleChange('reservation_date_time')}/>
                         </div>
                         <div className="resi-detail">
                             <p>Time</p>
