@@ -20,7 +20,8 @@ class RestaurantShow extends React.Component {
                     <div className="rest-rate-review">
                         Reviews | Price Range | Cuisine Type
                     </div>
-                    <CreateReservationContainer />
+                    <CreateReservationContainer 
+                    restaurant={this.props.restaurant}/>
                     <div className="rest-delivery-takeout">
                         <div className="del-tak-title">
                             Order delivery or takeout 

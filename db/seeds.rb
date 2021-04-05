@@ -363,12 +363,12 @@ demo_res5 = Resrvation.create!(restaurant_id: 5,
 demo_res6 = Resrvation.create!(restaurant_id: 10,
                                 guest_id: demo_user.id,
                                 guest_count: 4,
-                                reservation_date_time: Time.new(2017, 10, 18, 14, 15, 00))
+                                reservation_date_time: Time.new(2017, 10, 18, 14, 30, 00))
 
 demo_res7 = Resrvation.create!(restaurant_id: 23,
                                 guest_id: demo_user.id,
                                 guest_count: 12,
-                                reservation_date_time: Time.new(2018, 12, 7, 19, 45, 00))
+                                reservation_date_time: Time.new(2018, 12, 7, 19, 00, 00))
 
 demo_res8 = Resrvation.create!(restaurant_id: 1,
                                 guest_id: demo_user.id,
@@ -383,7 +383,7 @@ demo_res9 = Resrvation.create!(restaurant_id: 19,
 demo_res10 = Resrvation.create!(restaurant_id: 25,
                                 guest_id: user1.id,
                                 guest_count: 1,
-                                reservation_date_time: Time.new(2018, 12, 4, 17, 15, 00))
+                                reservation_date_time: Time.new(2018, 12, 4, 17, 30, 00))
 
 demo_res11 = Resrvation.create!(restaurant_id: 24,
                                 guest_id: user1.id,
@@ -393,7 +393,7 @@ demo_res11 = Resrvation.create!(restaurant_id: 24,
 demo_res12 = Resrvation.create!(restaurant_id: 23,
                                 guest_id: user1.id,
                                 guest_count: 10,
-                                reservation_date_time: Time.new(2018, 9, 9, 10, 45, 00))
+                                reservation_date_time: Time.new(2018, 9, 9, 10, 00, 00))
 
 demo_res13 = Resrvation.create!(restaurant_id: 22,
                                 guest_id: user1.id,
@@ -403,7 +403,7 @@ demo_res13 = Resrvation.create!(restaurant_id: 22,
 demo_res14 = Resrvation.create!(restaurant_id: 21,
                                 guest_id: user1.id,
                                 guest_count: 3,
-                                reservation_date_time: Time.new(2019, 12, 17, 8, 15, 00))
+                                reservation_date_time: Time.new(2019, 12, 17, 8, 30, 00))
 
 demo_res15 = Resrvation.create!(restaurant_id: 20,
                                 guest_id: user1.id,
@@ -413,7 +413,7 @@ demo_res15 = Resrvation.create!(restaurant_id: 20,
 demo_res16 = Resrvation.create!(restaurant_id: 1,
                                 guest_id: user2.id,
                                 guest_count: 11,
-                                reservation_date_time: Time.new(2019, 7, 8, 21, 45, 00))
+                                reservation_date_time: Time.new(2019, 7, 8, 21, 00, 00))
 
 demo_res17 = Resrvation.create!(restaurant_id: 12,
                                 guest_id: user2.id,
@@ -428,7 +428,7 @@ demo_res18 = Resrvation.create!(restaurant_id: 13,
 demo_res19 = Resrvation.create!(restaurant_id: 17,
                                 guest_id: user2.id,
                                 guest_count: 14,
-                                reservation_date_time: Time.new(2019, 3, 12, 3, 15, 00))
+                                reservation_date_time: Time.new(2019, 3, 12, 3, 30, 00))
 
 demo_res20 = Resrvation.create!(restaurant_id: 14,
                                 guest_id: user2.id,
@@ -438,4 +438,4 @@ demo_res20 = Resrvation.create!(restaurant_id: 14,
 demo_res21 = Resrvation.create!(restaurant_id: 15,
                                 guest_id: user2.id,
                                 guest_count: 16,
-                                reservation_date_time: Time.new(2020, 11, 20, 10, 15, 00))
+                                reservation_date_time: Time.new(2020, 11, 20, 10, 30, 00))
