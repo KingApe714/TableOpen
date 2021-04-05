@@ -1,8 +1,9 @@
 .rest-reservation {
-    padding-left: 15px;
+    padding-inline: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: $montseratt;
 }
 
 .res-submit {
@@ -14,4 +15,30 @@
     font-family: inherit;
     color: white;
     margin-bottom: 15px;
+}
+
+.resi-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-weight: bolder;
+    margin-bottom: 25px;
+}
+
+.resi-form {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.resi-detail {
+    width: 30%;
+    height: 30px;
+    border-bottom: 1px solid $light-gray;
+    // padding-inline: 3px;
+    // margin-inline: 2px;
+}
+
+.resi-detail:hover {
+    cursor: pointer;
+    border-bottom: 2px solid $magenta;
 }

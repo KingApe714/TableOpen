@@ -30,19 +30,17 @@ class CreateReservation extends React.Component {
                 <div className="reservation-title">
                     Make a reservation
                 </div>
-                <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <p>Party Size</p>
-                        {/* <select onChange={this.handleChange('party-size')}> */}
-                             {/* defaultValue={} */}
-                        {/* </select> */}
-                    </div>
-                    <div>
-                        <div>
-                            Date
+                <form onSubmit={this.handleSubmit}
+                        className="resi-form">
+                    <div className="resi-info">
+                        <div className="resi-detail">
+                            <p>Party Size</p>
                         </div>
-                        <div>
-                            Time
+                        <div className="resi-detail">
+                            <p>Date</p>
+                        </div>
+                        <div className="resi-detail">
+                            <p>Time</p>
                         </div>
                     </div>
                     <button className="res-submit">Find a table</button>

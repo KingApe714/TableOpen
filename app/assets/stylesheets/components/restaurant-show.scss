@@ -42,9 +42,11 @@
 .reservation-title {
     display: flex;
     justify-content: center;
+    align-items: center;
     font-size: 18px;
     width: 94%;
     margin: 0 auto;
+    margin-bottom: 15px;
     padding-top: 9px;
     padding-bottom: 9px;
     border-bottom: 1px solid $light-gray;
