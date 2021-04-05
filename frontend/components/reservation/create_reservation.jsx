@@ -45,7 +45,7 @@ class CreateReservation extends React.Component {
                             Time
                         </div>
                     </div>
-                    <button >Find a table</button>
+                    <button className="res-submit">Find a table</button>
                 </form>
             </div>
         )
