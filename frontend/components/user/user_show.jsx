@@ -4,6 +4,14 @@ import { Link } from 'react-router-dom';
 class UserShow extends React.Component {
     constructor(props) {
         super(props)
+        let today = new Date()
+        let month = today.getMonth() + 1;
+        let day = today.getDate();
+        let year = today.getFullYear();
+        let time = month + "/" + day + "/" + year;
+        this.state = {
+            currentDateTime: time
+          }
     }
 
     componentDidMount() {
@@ -47,10 +55,11 @@ class UserShow extends React.Component {
                 <div className="username">
                     {this.props.currentUser.username}
                 </div>
-                <div>
-                    <p>
+                <div className="past-reservations">
+                    <p className="past-resi-title">
                         Upcoming Reservations
                     </p>
+                    <p>{ this.state.currentDateTime }</p>
                 </div>
                 <div className="past-reservations">
                     <p className="past-resi-title">
