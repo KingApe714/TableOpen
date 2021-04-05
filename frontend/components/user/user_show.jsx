@@ -47,6 +47,11 @@ class UserShow extends React.Component {
                 <div className="username">
                     {this.props.currentUser.username}
                 </div>
+                <div>
+                    <p>
+                        Upcoming Reservations
+                    </p>
+                </div>
                 <div className="past-reservations">
                     <p className="past-resi-title">
                         Past Reservations

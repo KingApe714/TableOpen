@@ -3,6 +3,7 @@ import React from 'react';
 class CreateReservation extends React.Component {
     constructor(props) {
         super(props)
+        // debugger
         this.state = {
             guest_count: 0,
             reservation_date_time: 0
@@ -12,9 +13,13 @@ class CreateReservation extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault()
+        debugger
         console.log(this.props.restaurant)
-        console.log(this.state)
-        this.props.CreateReservation(this.state)
+        let reservation = Object.assign({}, this.state)
+        reservation.restaurant_id = this.props.restaurant.id;
+        reservation.guest_id = this.props.currentUser.id;
+        console.log(reservation)
+        this.props.createReservation(reservation)
             .then((res) => {
                 // this.props.history.push(`/${}`)
             })
