@@ -11,7 +11,10 @@ class UserShow extends React.Component {
         let hour = today.getHours();
         let minute = today.getMinutes();
         let date = month + "/" + day + "/" + year;
+
+        console.log(today)
         this.state = {
+            today: today,
             currentDateTime: date,
             year: year,
             month: month,
@@ -27,16 +30,19 @@ class UserShow extends React.Component {
     }
 
     render() {
-        console.log(this.state.year)
-        
+        // console.log(this.state.year)
         const restaurants = this.props.restaurants;
 
         const reservations = this.props.reservations.map(reservation => {
             let arr = reservation.reservation_date_time.split("T")
             let date = arr[0];
             let time = arr[1];
+            let [year, month, day] = date;
+            let [hour, minute, second] = time;
+            let past = true;
+            if (this.state.year > year || this.state.month > month || this.state.day > day)
             date = date.split('-').reverse().join('/')
-            return <div className="reservation-container"
+            return [<div className="reservation-container"
                         key={reservation.id}>
                         <Link 
                             key={reservation.id}
@@ -49,12 +55,14 @@ class UserShow extends React.Component {
                                 {restaurants[reservation.restaurant_id].name}
                                 <br/>
                                 {date}
+                                <br/>
+                                {time}
                             </div>
                             <p className="table-status">
                                 Table for {reservation.guest_count} {reservation.guest_count === 1 ? <>person</> : <>people</>}
                             </p>
                         </div>
-                    </div>
+                    </div>]
         })
         return (
             <div className="user-show-container">
