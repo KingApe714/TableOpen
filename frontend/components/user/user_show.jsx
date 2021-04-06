@@ -35,14 +35,18 @@ class UserShow extends React.Component {
 
         const reservations = this.props.reservations.map(reservation => {
             let arr = reservation.reservation_date_time.split("T")
-            let date = arr[0];
-            let time = arr[1];
-            let [year, month, day] = date;
-            let [hour, minute, second] = time;
-            let past = true;
-            if (this.state.year > year || this.state.month > month || this.state.day > day)
-            date = date.split('-').reverse().join('/')
-            return [<div className="reservation-container"
+            let date = arr[0].split('-');
+            let time = arr[1].split(':');
+            let year, month, day, hour, minute, second;
+            [year, month, day] = date;
+            [hour, minute, second] = time;
+            let pastResi = true;
+            if (year >= this.state.year || month >= this.state.month || day >= this.state.day || hour >= this.state.hour || minute >= this.state.minute) {
+                pastResi = false;
+            }
+            // debugger
+            // date = date.split('-').reverse().join('/')
+            return [pastResi, <div className="reservation-container"
                         key={reservation.id}>
                         <Link 
                             key={reservation.id}
@@ -64,6 +68,11 @@ class UserShow extends React.Component {
                         </div>
                     </div>]
         })
+        // debugger
+
+        const past = reservations.filter(res => res[0] === true);
+        const upcoming = reservations.filter(res => res[0] === false);
+        // console.log(upcoming)
         return (
             <div className="user-show-container">
                 <div className="username">
@@ -73,13 +82,15 @@ class UserShow extends React.Component {
                     <p className="past-resi-title">
                         Upcoming Reservations
                     </p>
+                    {upcoming}
                     {/* <p>{ this.state.currentDateTime }</p> */}
                 </div>
                 <div className="past-reservations">
                     <p className="past-resi-title">
                         Past Reservations
                     </p>
-                    {reservations}
+                    {past}
+                    {/* {reservations} */}
                 </div>
             </div>
         )

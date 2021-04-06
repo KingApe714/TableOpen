@@ -16,7 +16,7 @@ const receiveReservation = (reservation) => ({
     reservation
 })
 
-const removeReservations = (reservationId) => ({
+const removeReservation = (reservationId) => ({
     type: REMOVE_RESERVATION,
     reservationId
 })
