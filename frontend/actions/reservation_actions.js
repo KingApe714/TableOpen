@@ -12,7 +12,7 @@ const receiveAllReservations = (reservations) => ({
 })
 
 const receiveReservation = (reservation) => ({
-    type: RECEIVE_RESERVATIONS,
+    type: RECEIVE_ALL_RESERVATIONS,
     reservation
 })
 

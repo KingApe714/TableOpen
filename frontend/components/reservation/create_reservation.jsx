@@ -13,7 +13,7 @@ class CreateReservation extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault()
-        debugger
+        // debugger
         console.log(this.props.restaurant)
         let reservation = Object.assign({}, this.state)
         reservation.restaurant_id = this.props.restaurant.id;
