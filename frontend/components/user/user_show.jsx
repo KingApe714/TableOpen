@@ -39,13 +39,15 @@ class UserShow extends React.Component {
             let time = arr[1]
             let year, month, day, hour, minute, second;
             [year, month, day] = date.split('-');
-            [hour, minute, second] = time.split(':');;
-            let resiDateTime = new Date(year, month, day, hour, minute);
+            [hour, minute, second] = time.split(':');
+            //we do month -1 because js computes months from 0 - 11
+            let resiDateTime = new Date(year, month - 1, day, hour, minute);
             let currentDateTime = new Date()
             let pastResi = true;
             if (resiDateTime.getTime() - currentDateTime.getTime() >= 0) {
                 pastResi = false
             }
+            // debugger
             return [pastResi, <div className="reservation-container"
                         key={reservation.id}>
                         <Link 
@@ -58,13 +60,18 @@ class UserShow extends React.Component {
                             <div>
                                 {restaurants[reservation.restaurant_id].name}
                                 <br/>
-                                {date}
+                                {reservation.reservation_date_time}
                                 <br/>
-                                {time}
+                                {month}/{day}/{year}
                             </div>
                             <p className="table-status">
                                 Table for {reservation.guest_count} {reservation.guest_count === 1 ? <>person</> : <>people</>}
                             </p>
+                            {pastResi === false ?
+                                <div>
+                                    Showing something else
+                                </div>
+                                : null}
                         </div>
                     </div>]
         })
@@ -79,8 +86,8 @@ class UserShow extends React.Component {
                     {this.props.currentUser.username}
                 </div>
                 <div className="past-reservations">
-                    <p>{ this.state.currentDateTime }</p>
-                    <p>{ this.state.today.getTime() }</p>
+                    {/* <p>{ this.state.currentDateTime }</p>
+                    <p>{ this.state.today.getTime() }</p> */}
                     <p className="past-resi-title">
                         Upcoming Reservations
                     </p>

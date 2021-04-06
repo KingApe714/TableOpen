@@ -333,7 +333,7 @@ r25.photos.attach(io: p25, filename: 'toros.jpeg')
 demo_res0 = Resrvation.create!(restaurant_id: 1,
                                 guest_id: demo_user.id,
                                 guest_count: 1,
-                                reservation_date_time: Time.new(2017, 1, 30, 14, 00, 00))
+                                reservation_date_time: Time.new(2021, 04, 10, 14, 00, 00))
 
 demo_res1 = Resrvation.create!(restaurant_id: 2,
                                 guest_id: demo_user.id,
