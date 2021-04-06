@@ -35,17 +35,17 @@ class UserShow extends React.Component {
 
         const reservations = this.props.reservations.map(reservation => {
             let arr = reservation.reservation_date_time.split("T")
-            let date = arr[0].split('-');
-            let time = arr[1].split(':');
+            let date = arr[0];
+            let time = arr[1]
             let year, month, day, hour, minute, second;
-            [year, month, day] = date;
-            [hour, minute, second] = time;
+            [year, month, day] = date.split('-');
+            [hour, minute, second] = time.split(':');;
+            let resiDateTime = new Date(year, month, day, hour, minute);
+            let currentDateTime = new Date()
             let pastResi = true;
-            if (year >= this.state.year || month >= this.state.month || day >= this.state.day || hour >= this.state.hour || minute >= this.state.minute) {
-                pastResi = false;
+            if (resiDateTime.getTime() - currentDateTime.getTime() >= 0) {
+                pastResi = false
             }
-            // debugger
-            // date = date.split('-').reverse().join('/')
             return [pastResi, <div className="reservation-container"
                         key={reservation.id}>
                         <Link 
@@ -79,11 +79,12 @@ class UserShow extends React.Component {
                     {this.props.currentUser.username}
                 </div>
                 <div className="past-reservations">
+                    <p>{ this.state.currentDateTime }</p>
+                    <p>{ this.state.today.getTime() }</p>
                     <p className="past-resi-title">
                         Upcoming Reservations
                     </p>
                     {upcoming}
-                    {/* <p>{ this.state.currentDateTime }</p> */}
                 </div>
                 <div className="past-reservations">
                     <p className="past-resi-title">
