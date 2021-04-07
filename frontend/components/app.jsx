@@ -26,9 +26,8 @@ const App = () => (
         <Route exact path="/restaurants/:restaurantId" component={RestaurantShowContainer}/>
         {/* <ProtectedRoute exact path="/restaurants/:restaurantId/reserve" component={ReservationFormContainer} /> */}
         <ProtectedRoute exact path="/users/:userId" component={UserShowContainer}/>
-        {/* <ProtectedRoute exact path="/reservations/:reservationId/view" component={ViewReservationContainer} />
-        <Route exact path="/reservations/:reservationId/update" component={UpdateReservationContainer} />
-        <ProtectedRoute exact path="/reservations/:reservationId/delete" component={DeleteReservationContainer} /> */}
+        <ProtectedRoute exact path="/reservations/:reservationId/view" component={ViewReservationContainer} />
+        <ProtectedRoute exact path="/reservations/:reservationId/delete" component={DeleteReservationContainer} />
     </div>
 );
 

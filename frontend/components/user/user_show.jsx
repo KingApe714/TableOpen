@@ -44,32 +44,48 @@ class UserShow extends React.Component {
             let resiDateTime = new Date(year, month - 1, day, hour, minute);
             let currentDateTime = new Date()
             let pastResi = true;
+            let resiTime = null;
             if (resiDateTime.getTime() - currentDateTime.getTime() >= 0) {
-                pastResi = false
+                pastResi = false;
+                let suffix = "AM";
+                if (hour >= 12) {
+                    suffix = "PM";
+                    hour -= 12;
+                }
+                resiTime = hour + ":" + minute + " " + suffix;
             }
             // debugger
             return [pastResi, <div className="reservation-container"
                         key={reservation.id}>
                         <Link 
-                            key={reservation.id}
-                            id="reservation-link"
+                            key={reservation.restaurant_id}
+                            id="restaurant-link"
                             to={`/restaurants/${reservation.restaurant_id}`}>
-                                <img src={restaurants[reservation.restaurant_id].photoUrl} className="res-rest-image"></img>
+                            <img src={restaurants[reservation.restaurant_id].photoUrl} className="res-rest-image"></img>
                         </Link>
                         <div className="res-detail-container">
                             <div>
                                 {restaurants[reservation.restaurant_id].name}
                                 <br/>
-                                {reservation.reservation_date_time}
-                                <br/>
-                                {month}/{day}/{year}
+                                {month}/{day}/{year} {resiTime ? <>at {resiTime}.</> : null}
                             </div>
                             <p className="table-status">
                                 Table for {reservation.guest_count} {reservation.guest_count === 1 ? <>person</> : <>people</>}
                             </p>
                             {pastResi === false ?
                                 <div>
-                                    Showing something else
+                                    <Link
+                                        key={reservation.id}
+                                        id="reservation-link"
+                                        to={`/reservations/${reservation.id}`}>
+                                        View
+                                    </Link>
+                                    <Link
+                                        key={reservation.id}
+                                        id="reservation-link"
+                                        to={`/reservations/${reservation.id}`}>
+                                        Modify
+                                    </Link>
                                 </div>
                                 : null}
                         </div>
