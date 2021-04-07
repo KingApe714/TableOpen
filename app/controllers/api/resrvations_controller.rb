@@ -12,7 +12,7 @@ class Api::ResrvationsController < ApplicationController
 
     def create
         @reservation = Resrvation.new(reservation_params)
-        debugger
+        # debugger
         if @reservation.save
             render :show
         else

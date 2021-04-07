@@ -31,8 +31,9 @@ class UserShow extends React.Component {
 
     render() {
         // console.log(this.state.year)
-        const restaurants = this.props.restaurants;
 
+        const restaurants = this.props.restaurants;
+        if (Object.keys(restaurants).length === 0) return null
         const reservations = this.props.reservations.map(reservation => {
             let arr = reservation.reservation_date_time.split("T")
             let date = arr[0];

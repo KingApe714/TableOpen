@@ -41,8 +41,8 @@ export const handleTime = (currentUserId, restaurantId, state) => {
     minute = minute[0] + minute[1];
     let time = hour + ' ' + minute;
     // let reservation_date_time = state.date.split('-').join(' ') + ' ' + time;
-    let reservation_date_time = new Date(year, month, day, hour, minute)
-    debugger
+    let reservation_date_time = new Date(year, month - 1, day, hour, minute)
+    // debugger
     return {
         restaurant_id: restaurantId,
         guest_id: currentUserId,
