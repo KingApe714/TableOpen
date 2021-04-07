@@ -11,6 +11,8 @@ import SplashContainer from './splash_page/splash_container';
 import RestaurantIndexContainer from './restaurant/restaurant_index_container';
 import RestaurantShowContainer from './restaurant/restaurant_show_container';
 import UserShowContainer from './user/user_show_container'
+import ViewReservationContainer from './reservation/view_reservation_container';
+import DeleteReservationContainer from './reservation/delete_reservation_container';
 
 const App = () => (
     <div className="app">

@@ -77,14 +77,20 @@ class UserShow extends React.Component {
                                     <Link
                                         key={reservation.id}
                                         id="reservation-link"
-                                        to={`/reservations/${reservation.id}`}>
+                                        to={`/reservations/${reservation.id}/view`}>
                                         View
                                     </Link>
                                     <Link
                                         key={reservation.id}
                                         id="reservation-link"
-                                        to={`/reservations/${reservation.id}`}>
+                                        to={`/reservations/${reservation.id}/view`}>
                                         Modify
+                                    </Link>
+                                    <Link
+                                        key={reservation.id}
+                                        id="reservation-link"
+                                        to={`/reservations/${reservation.id}/delete`}>
+                                        Cancel
                                     </Link>
                                 </div>
                                 : null}

@@ -5,10 +5,12 @@ class ViewReservation extends React.Component {
         super(props)
     }
 
-    return() {
-        render (
+    render() {
+        return (
             <>
             </>
         )
     }
 }
+
+export default ViewReservation
