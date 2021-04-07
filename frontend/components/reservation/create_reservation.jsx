@@ -1,4 +1,5 @@
 import React from 'react';
+import { timeInterval } from '../../util/util_functions'
 
 class CreateReservation extends React.Component {
     constructor(props) {
@@ -34,27 +35,11 @@ class CreateReservation extends React.Component {
         }
     }
 
-    time_interval(hours_of_op) {
-        // console.log(hours_of_op)
-        if (hours_of_op) {
-            let [start, end] = hours_of_op.split(' - ');
-            let [startHour, startMinute] = start.split(':');
-            let [endHour, endMinute] = end.split(':');
-            if (startMinute[2] === 'p') startHour = (parseInt(startHour) + 12).toString();
-            if (endMinute[2] === 'p') endHour = (parseInt(endHour) + 12).toString();
-            console.log(startHour)
-            console.log(startMinute)
-            console.log(endHour)
-            console.log(endMinute)
-            let times = [];
-            for (let i = parseInt(startHour); i <= parseInt(endHour); i++) {
-                
-            }
-        }
-    }
-
     render() {
-        this.time_interval(this.props.restaurant.operation_hours)
+        let options = null;
+        if (this.props.restaurant.operation_hours) {
+            options = timeInterval(this.props.restaurant.operation_hours)
+        }
         return (
             <div className="rest-reservation">
                 <div className="reservation-title">
@@ -65,7 +50,9 @@ class CreateReservation extends React.Component {
                     <div className="resi-info">
                         <div className="resi-detail">
                             <p>Party Size</p>
-                            <select value={this.state.guest_count} onChange={this.handleChange('guest_count')}>
+                            <select value={this.state.guest_count} 
+                                    onChange={this.handleChange('guest_count')}
+                                    className="resi-dropdown">
                                 <option value="1">1 person</option>
                                 <option value="2">2 people</option>
                                 <option value="3">3 people</option>
@@ -78,27 +65,21 @@ class CreateReservation extends React.Component {
                         </div>
                         <div className="resi-detail">
                             <p>Date</p>
-                            {/* <select name="" id="">
-                                <option value="" selected>Today</option>
-                            </select> */}
                             <input type="date" 
                                     value={this.state.reservation_date_time}
+                                    className="resi-dropdown"
                                     // onChange={this.handleChange('reservation_date_time')}
                                     />
                         </div>
                         <div className="resi-detail">
                             <p>Time</p>
-                            {/* <select name="" id="">
-                                <option value=""></option>
-                            </select> */}
-                            <input type="time"/>
+                            <select className="resi-dropdown">
+                                {options}
+                            </select>
                         </div>
                     </div>
                     <button className="res-submit">Find a table</button>
                 </form>
-                {/* {times} */}
-                <br/>
-                {this.props.restaurant.operation_hours}
             </div>
         )
     }

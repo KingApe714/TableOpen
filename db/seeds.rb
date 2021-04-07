@@ -69,7 +69,7 @@ r3.photos.attach(io: p3, filename: 'blue-steel.jpg')
 r4 = Restaurant.create!(id: 4, 
                         name: "Brix", 
                         phone_number: "973-751-7001", 
-                        operation_hours: "11:00am - 1:00am", 
+                        operation_hours: "11:00am - 11:00pm", 
                         executive_chef: "Brix Matrix", 
                         city: "Montclair", 
                         description: "Nestled in the middle of prestigious Essex County, New Jersey, Brix offers a dining experience were casual comfort meets sophistication, all in one experience. American cuisine with influences of Italy , cocktails, brick oven pizza, and a warm knowledgeable staff are what have the neighborhood raving about Brix Restaurant & Pizza Bar.")
@@ -81,7 +81,7 @@ r4.photos.attach(io: p4, filename: 'brix.jpg')
 r5 = Restaurant.create!(id: 5, 
                         name: "Joe's Crab Shack", 
                         phone_number: "973-777-5114", 
-                        operation_hours: "11:00am - 1:00am", 
+                        operation_hours: "11:00am - 11:00pm", 
                         executive_chef: "Joe", 
                         city: "Clifton", 
                         description: "Joe’s Crab Shack offers a variety of favorites from all parts of the sea and shore. From its extensive menu, guests can choose from buckets of seasonal seafood, fried shrimp platters and fish dishes, as well as options from the “mainland” that include steak, sandwiches, and chicken. Guests can indulge in over-sized and creative cocktails, such as the Shark Bite which is playfully garnished with a shark toy. Since its inception, Joe’s popularity has stemmed not only from its menu, but also its retail store. With various pieces of merchandise for purchase, including the ever-popular tie-dye T-shirt with the phrase “Peace, Love and Crabs,” Joe’s has become synonymous with the word “fun.”")
@@ -189,7 +189,7 @@ r13.photos.attach(io: p13, filename: 'sayola.jpeg')
 r14 = Restaurant.create!(id: 14, 
                         name: "Alto", 
                         phone_number: "973-329-5600", 
-                        operation_hours: "4:00pm - 12:00am", 
+                        operation_hours: "4:00pm - 11:30pm", 
                         executive_chef: "N/A", 
                         city: "Montclair", 
                         description: "Montclairs only rooftop! Sip on a cocktail and grab a bite; soak in stunning views of the NYC skyline. Due to our current limited floor plan capacity for large parties or private events please email info@themchotel.com. Please call 973-329 5600 ALTO Rooftop after 3:00 pm for any questions. No Kids or Infants, you must be 21 years of age for admission.")
@@ -249,7 +249,7 @@ r18.photos.attach(io: p18, filename: 'spuntino.jpeg')
 r19 = Restaurant.create!(id: 19, 
                         name: "The Shannon Rose of Clifton", 
                         phone_number: "973-284-0200", 
-                        operation_hours: "11:00am - 1:00am", 
+                        operation_hours: "11:00am - 11:30pm", 
                         executive_chef: "N/A", 
                         city: "Clifton", 
                         description: "Before you even step foot into The Shannon Rose Irish Pub, the pub-shop exterior architecture and Gaelic phrases will make you feel like you’ve been transported to Dublin. Inside you'll find four bars, large dining rooms, and a friendly staff. In our traditional pub atmosphere, you’ll feel continents away from America! The Shannon Rose features an abundance of mouthwatering appetizers and traditional Irish fare, including corned beef and cabbage, shepherd’s pie, and Guinness beef stew. You'll want to try them all! The pub is open daily for lunch and dinner. Each pub features over 20 beers on tap, including Guinness, craft beers and your favorite domestics, along with great scotch malts, Irish whiskeys, signature cocktails & wine.")
