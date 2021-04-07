@@ -12,6 +12,7 @@ class RestaurantShow extends React.Component {
 
     render() {
         if (!this.props.restaurant) return null;
+        // debugger
         return (
             <div>
                 <img src={this.props.restaurant.photoUrls} className="rest-background"></img>

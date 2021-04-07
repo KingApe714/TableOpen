@@ -35,41 +35,26 @@ class CreateReservation extends React.Component {
     }
 
     time_interval(hours_of_op) {
-        // debugger
-        console.log(hours_of_op)
-        let times = hours_of_op.split(" - ")
-        let [s1, s2] = times[0].split(":");
-        let [e1, e2] = times[1].split(":");
-        if (s2[2] === "p") s1 += 12; //if it is a pm add 12 to hour to make military time
-        if (e2[2] === "p") e1 += 12; //if it is a pm add 12 to hour to make military time
-
-        let items = [];
-        for (var hour = s1; hour < e1; hour++) {
-            items.push([hour, 0]);
-            items.push([hour, 30]);
+        // console.log(hours_of_op)
+        if (hours_of_op) {
+            let [start, end] = hours_of_op.split(' - ');
+            let [startHour, startMinute] = start.split(':');
+            let [endHour, endMinute] = end.split(':');
+            if (startMinute[2] === 'p') startHour = (parseInt(startHour) + 12).toString();
+            if (endMinute[2] === 'p') endHour = (parseInt(endHour) + 12).toString();
+            console.log(startHour)
+            console.log(startMinute)
+            console.log(endHour)
+            console.log(endMinute)
+            let times = [];
+            for (let i = parseInt(startHour); i <= parseInt(endHour); i++) {
+                
+            }
         }
-
-        const date = new Date();
-        const formatter = new Intl.DateTimeFormat('en-US', {
-            hour: 'numeric',
-            minute: 'numeric',
-            hour12: false
-        });
-
-        const range = items.map(time => {
-            const [hour, minute] = time;
-            date.setHours(hour);
-            date.setMinutes(minute);
-
-            return formatter.format(date);
-        });
-        return range
     }
 
     render() {
-        // debugger
-        const time = this.props.restaurant.operation_hours
-        // const times = this.time_interval(time)[0]
+        this.time_interval(this.props.restaurant.operation_hours)
         return (
             <div className="rest-reservation">
                 <div className="reservation-title">
@@ -96,15 +81,17 @@ class CreateReservation extends React.Component {
                             {/* <select name="" id="">
                                 <option value="" selected>Today</option>
                             </select> */}
-                            <input type="text" 
+                            <input type="date" 
                                     value={this.state.reservation_date_time}
-                                    onChange={this.handleChange('reservation_date_time')}/>
+                                    // onChange={this.handleChange('reservation_date_time')}
+                                    />
                         </div>
                         <div className="resi-detail">
                             <p>Time</p>
                             {/* <select name="" id="">
                                 <option value=""></option>
                             </select> */}
+                            <input type="time"/>
                         </div>
                     </div>
                     <button className="res-submit">Find a table</button>
