@@ -30,3 +30,23 @@ export const timeInterval = (hoursOfOp) => {
         return times;
     }
 }
+
+export const handleTime = (currentUserId, restaurantId, state) => {
+    //return an object with the correct key names and correct values
+    //state has guest_count in it and date and time separately
+    //lets bring it all together
+    let [year, month, day] = state.date.split('-')
+    let [hour, minute] = state.time.split(':');
+    if (minute[2] === 'p') hour = parseInt(hour) + 12;
+    minute = minute[0] + minute[1];
+    let time = hour + ' ' + minute;
+    // let reservation_date_time = state.date.split('-').join(' ') + ' ' + time;
+    let reservation_date_time = new Date(year, month, day, hour, minute)
+    debugger
+    return {
+        restaurant_id: restaurantId,
+        guest_id: currentUserId,
+        guest_count: state.guest_count,
+        reservation_date_time: reservation_date_time
+    }
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { timeInterval } from '../../util/util_functions'
+import { timeInterval, handleTime } from '../../util/util_functions'
 
 class CreateReservation extends React.Component {
     constructor(props) {
@@ -7,7 +7,8 @@ class CreateReservation extends React.Component {
         // debugger
         this.state = {
             guest_count: 0,
-            reservation_date_time: 0
+            date: 0,
+            time: 0
         }
         this.handleSubmit = this.handleSubmit.bind(this)
     }
@@ -16,9 +17,14 @@ class CreateReservation extends React.Component {
         e.preventDefault()
         // debugger
         console.log(this.props.restaurant)
-        let reservation = Object.assign({}, this.state)
-        reservation.restaurant_id = this.props.restaurant.id;
-        reservation.guest_id = this.props.currentUser.id;
+        // let reservation = Object.assign({}, this.state)
+        // reservation.restaurant_id = this.props.restaurant.id;
+        // reservation.guest_id = this.props.currentUser.id;
+        let reservation = handleTime(
+            this.props.currentUser.id,
+            this.props.restaurant.id,
+            this.state
+        )
         console.log(reservation)
         this.props.createReservation(reservation)
             .then((res) => {
@@ -28,9 +34,9 @@ class CreateReservation extends React.Component {
 
     handleChange(type) {
         console.log(`${type} selected`)
-        // console.log(this)
+        console.log(this.state)
         return e => {
-            // console.log(e.target.value)
+            console.log(e.target.value)
             this.setState({ [type]: e.target.value })
         }
     }
@@ -66,14 +72,16 @@ class CreateReservation extends React.Component {
                         <div className="resi-detail">
                             <p>Date</p>
                             <input type="date" 
-                                    value={this.state.reservation_date_time}
+                                    value={this.state.date}
+                                    onChange={this.handleChange('date')}
                                     className="resi-dropdown"
-                                    // onChange={this.handleChange('reservation_date_time')}
                                     />
                         </div>
                         <div className="resi-detail">
                             <p>Time</p>
-                            <select className="resi-dropdown">
+                            <select value={this.state.time}
+                                    onChange={this.handleChange('time')}
+                                    className="resi-dropdown">
                                 {options}
                             </select>
                         </div>
