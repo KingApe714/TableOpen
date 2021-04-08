@@ -43,7 +43,7 @@ export const handleTime = (currentUserId, restaurantId, state) => {
     console.log(hour)
     // let reservation_date_time = state.date.split('-').join(' ') + ' ' + time;
     // let reservation_date_time = new Date(year, month - 1, day, hour, minute)
-    let reservation_date_time = `${year}-${month - 1}-${day}T${hour}:${minute}:00.000Z`
+    let reservation_date_time = `${year}-${month}-${day}T${hour}:${minute}:00.000Z`
     // let reservation_date_time = new Date()
     console.log(reservation_date_time)
     // debugger
@@ -54,11 +54,3 @@ export const handleTime = (currentUserId, restaurantId, state) => {
         reservation_date_time: reservation_date_time
     }
 }
-
-let time = new Date(2020, 11, 30, 12, 30)
-let time1 = new Date('2020-11-30T17:30:00.000Z')
-console.log(time)
-console.log(time.toJSON())
-console.log(time.toString())
-console.log(time.getUTCHours())
-console.log(time1)
