@@ -20,7 +20,7 @@ const mapDispatchToProps = dispatch => {
     processForm: (user) => dispatch(login(user)),
     otherForm: (
       <label>New to TableOpen? &nbsp;
-        <Link to='signup' 
+        <Link to='/' 
               onClick={() => dispatch(openModal('signup'))}
               className="create-account"
               >

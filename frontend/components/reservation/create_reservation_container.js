@@ -3,7 +3,7 @@ import { createReservation } from '../../actions/reservation_actions';
 import CreateReservation from './create_reservation';
 
 const mSTP = (state) => ({
-    currentUser: state.entities.users[state.session.id]
+    currentUser: Object.values(state.session)[0]
 })
 
 const mDTP = (dispatch) => ({

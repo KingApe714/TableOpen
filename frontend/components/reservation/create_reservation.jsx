@@ -16,10 +16,11 @@ class CreateReservation extends React.Component {
     handleSubmit(e) {
         e.preventDefault()
         // debugger
-        console.log(this.props.restaurant)
+        // console.log(this.props.restaurant)
         // let reservation = Object.assign({}, this.state)
         // reservation.restaurant_id = this.props.restaurant.id;
         // reservation.guest_id = this.props.currentUser.id;
+        // debugger
         let reservation = handleTime(
             this.props.currentUser.id,
             this.props.restaurant.id,

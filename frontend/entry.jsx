@@ -5,7 +5,6 @@ import Root from './components/root'
 
 document.addEventListener('DOMContentLoaded', () => {
     let preloadedState = undefined;
-    debugger
     if (window.currentUser) {
         preloadedState = {
             session: {

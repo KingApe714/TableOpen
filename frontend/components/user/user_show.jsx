@@ -33,8 +33,9 @@ class UserShow extends React.Component {
         // console.log(this.state.year)
 
         const restaurants = this.props.restaurants;
-        if (Object.keys(restaurants).length === 0) return null
+        if (Object.keys(restaurants).length <= 1) return null
         const reservations = this.props.reservations.map(reservation => {
+            let restaurant = restaurants[reservation.restaurant_id]
             let arr = reservation.reservation_date_time.split("T")
             let date = arr[0];
             let time = arr[1]
@@ -57,16 +58,15 @@ class UserShow extends React.Component {
             }
             // debugger
             return [pastResi, <div className="reservation-container"
-                        key={reservation.id}>
+                                    key={reservation.reservation_date_time}>
                         <Link 
-                            key={reservation.restaurant_id}
                             id="restaurant-link"
                             to={`/restaurants/${reservation.restaurant_id}`}>
-                            <img src={restaurants[reservation.restaurant_id].photoUrl} className="res-rest-image"></img>
+                            <img src={restaurant.photoUrl} className="res-rest-image"></img>
                         </Link>
                         <div className="res-detail-container">
                             <div>
-                                {restaurants[reservation.restaurant_id].name}
+                                {restaurant.name}
                                 <br/>
                                 {month}/{day}/{year} {resiTime ? <>at {resiTime}.</> : null}
                             </div>
@@ -76,19 +76,26 @@ class UserShow extends React.Component {
                             {pastResi === false ?
                                 <div>
                                     <Link
-                                        key={reservation.id}
                                         id="reservation-link"
                                         to={`/reservations/${reservation.id}/view`}>
                                         View
                                     </Link>
-                                    <Link
-                                        key={reservation.id}
+                                    {/* <Link
                                         id="reservation-link"
-                                        to={`/reservations/${reservation.id}/view`}>
+                                        to={`/reservations/${reservation.id}/modify`}
+                                        state={
+                                            reservation=reservation
+                                        }>
                                         Modify
-                                    </Link>
+                                    </Link> */}
+                                    <Link to={{
+                                        pathname: `/reservations/${reservation.id}/modify`,
+                                        state: {
+                                            reservation: reservation,
+                                            restaurant: restaurant
+                                        }
+                                        }}>Modify</Link>
                                     <Link
-                                        key={reservation.id}
                                         id="reservation-link"
                                         to={`/reservations/${reservation.id}/delete`}>
                                         Cancel
