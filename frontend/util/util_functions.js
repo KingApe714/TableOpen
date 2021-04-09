@@ -41,16 +41,21 @@ export const handleTime = (currentUserId, restaurantId, state) => {
     minute = minute[0] + minute[1];
     let time = hour + ' ' + minute;
     console.log(hour)
-    // let reservation_date_time = state.date.split('-').join(' ') + ' ' + time;
-    // let reservation_date_time = new Date(year, month - 1, day, hour, minute)
     let reservation_date_time = `${year}-${month}-${day}T${hour}:${minute}:00.000Z`
-    // let reservation_date_time = new Date()
-    console.log(reservation_date_time)
-    // debugger
     return {
         restaurant_id: restaurantId,
         guest_id: currentUserId,
         guest_count: state.guest_count,
         reservation_date_time: reservation_date_time
     }
+}
+
+export const renderTime = (time) => {
+    let [hour, minute, second] = time.split(':');
+    let suffix = 'AM';
+    if (hour >= 12) {
+        suffix = 'PM'
+        hour -= 12
+    }
+    return hour + ':' + minute + ' ' + suffix
 }
