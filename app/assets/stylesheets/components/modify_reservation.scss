@@ -1,3 +1,44 @@
 .edit-resi-container {
     font-family: inherit;
+    width: auto;
+    height: 200px;
+    padding-left: 30px;
+    padding-right: 24px;
+}
+
+.edit-resi-title {
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.edit-resi-detail-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid $light-gray;
+}
+
+.resi-edit-rest-image {
+    height: 120px;
+    width: 120px;
+    border-radius: 6px;
+}
+
+.edit-resi-detail {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-resi-rest-name {
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+.edit-resi-info {
+    display: flex;
+    flex-direction: row;
+}
+
+.edit-resi-content {
+    width: 150px;
 }

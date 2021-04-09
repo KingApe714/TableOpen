@@ -47,9 +47,9 @@ class ModifyReservation extends React.Component {
                             {restaurant.name}
                         </div>
                         <div className="edit-resi-info">
-                            <div>{date}</div>
-                            <div>{time}</div>
-                            <div>{reservation.guest_count}</div>
+                            <div className="edit-resi-content">{date}</div>
+                            <div className="edit-resi-content">{time}</div>
+                            <div className="edit-resi-content">{reservation.guest_count}</div>
                         </div>
                     </div>
                 </div>
