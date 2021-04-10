@@ -1,5 +1,5 @@
 import React from 'react';
-import { renderTime, timeInterval } from '../../util/util_functions'
+import { renderTime, timeInterval, handleTime } from '../../util/util_functions'
 
 class ModifyReservation extends React.Component {
     constructor(props) {
@@ -11,17 +11,22 @@ class ModifyReservation extends React.Component {
     }
 
     componentDidMount() {
-        // debugger
-        // this.props.fetchRestaurants();
-        // this.props.fetchReservations()
-        // debugger
         if (this.props.location.state) {
             this.setState({
                 restaurant: this.props.location.state.restaurant,
                 reservation: this.props.location.state.reservation
             })
         }
-        // console.log(this.state)
+    }
+
+    handleSubmit(e) {
+        e.preventDefault()
+
+        let reservation = handleTime(
+            this.state.reservation.guest_id,
+            this.state.restaurant.id,
+            
+        )
     }
 
     render() {
@@ -66,7 +71,7 @@ class ModifyReservation extends React.Component {
                 </div>
                 <div>
                     <div>Modify your reservation</div>
-                    <div>
+                    <form>
                         <div>
                             <input type="date"/>
                             <select className="resi-dropdown">
@@ -84,7 +89,7 @@ class ModifyReservation extends React.Component {
                             </select>
                         </div>
                         <button>Find a new table</button>
-                    </div>
+                    </form>
                 </div>
             </div>
         )
