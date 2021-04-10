@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { renderTime } from '../../util/util_functions'
 
 class UserShow extends React.Component {
     constructor(props) {
@@ -30,8 +31,6 @@ class UserShow extends React.Component {
     }
 
     render() {
-        // console.log(this.state.year)
-
         const restaurants = this.props.restaurants;
         if (Object.keys(restaurants).length <= 1) return null
         const reservations = this.props.reservations.map(reservation => {
@@ -49,12 +48,7 @@ class UserShow extends React.Component {
             let resiTime = null;
             if (resiDateTime.getTime() - currentDateTime.getTime() >= 0) {
                 pastResi = false;
-                let suffix = "AM";
-                if (hour >= 12) {
-                    suffix = "PM";
-                    hour -= 12;
-                }
-                resiTime = hour + ":" + minute + " " + suffix;
+                resiTime = renderTime(time);
             }
             // debugger
             return [pastResi, <div className="reservation-container"
