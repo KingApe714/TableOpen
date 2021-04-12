@@ -21,11 +21,11 @@ export const createReservation = resrvation => {
     })
 }
 
-export const updateReservation = reservation => {
+export const updateReservation = resrvation => {
     return $.ajax({
         method: 'PATCH',
-        url: `api/resrvations/${reservation.id}`,
-        data: {reservation}
+        url: `api/resrvations/${resrvation.id}`,
+        data: {resrvation}
     })
 }
 
