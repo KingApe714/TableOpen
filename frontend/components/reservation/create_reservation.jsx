@@ -4,7 +4,6 @@ import { timeInterval, handleTime } from '../../util/util_functions'
 class CreateReservation extends React.Component {
     constructor(props) {
         super(props)
-        // debugger
         this.state = {
             guest_count: 0,
             date: 0,
@@ -20,7 +19,6 @@ class CreateReservation extends React.Component {
             this.props.restaurant.id,
             this.state
         )
-        console.log(reservation)
         this.props.createReservation(reservation)
             .then((res) => {
                 // this.props.history.push(`/${}`)
