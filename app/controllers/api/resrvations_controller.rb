@@ -22,11 +22,10 @@ class Api::ResrvationsController < ApplicationController
 
     def update
         @reservation = Resrvation.find(params[:id])
-
         if @reservation && @reservation.update(reservation_params)
             render :show
         else
-            render json: ['Reservation did not update'], status: 404
+            render json: @reservation.errors.full_messages, status: 404c
         end
     end
 

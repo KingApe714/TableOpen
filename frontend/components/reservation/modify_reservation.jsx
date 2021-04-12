@@ -6,8 +6,12 @@ class ModifyReservation extends React.Component {
         super(props)
         this.state = {
             restaurant: null,
-            reservation: null
+            reservation: null,
+            guest_count: 0,
+            date: 0,
+            time: 0
         }
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     componentDidMount() {
@@ -19,14 +23,34 @@ class ModifyReservation extends React.Component {
         }
     }
 
+    handleChange(type) {
+        console.log(`${type} selected`)
+        console.log(this.state)
+        return e => {
+            console.log(e.target.value)
+            this.setState({ [type]: e.target.value })
+        }
+    }
+
     handleSubmit(e) {
         e.preventDefault()
-
+        const guest_count = this.state.guest_count;
+        const date = this.state.date;
+        const time = this.state.time;
+        const obj = {
+            guest_count,
+            date,
+            time
+        }
         let reservation = handleTime(
             this.state.reservation.guest_id,
             this.state.restaurant.id,
-            
+            obj
         )
+
+        reservation.id = this.state.reservation.id
+
+        this.props.updateReservation(reservation)
     }
 
     render() {
@@ -71,13 +95,20 @@ class ModifyReservation extends React.Component {
                 </div>
                 <div>
                     <div>Modify your reservation</div>
-                    <form>
+                    <form onSubmit={this.handleSubmit}>
                         <div>
-                            <input type="date"/>
-                            <select className="resi-dropdown">
+                            <input type="date"
+                                    value={this.state.date}
+                                    onChange={this.handleChange('date')}
+                                    className="resi-dropdown"/>
+                            <select value={this.state.time}
+                                    onChange={this.handleChange('time')}
+                                    className="resi-dropdown">
                                 {options}
                             </select>
-                            <select className="resi-dropdown">
+                            <select value={this.state.guest_count} 
+                                    onChange={this.handleChange('guest_count')}
+                                    className="resi-dropdown">
                                 <option value="1">1 person</option>
                                 <option value="2">2 people</option>
                                 <option value="3">3 people</option>
@@ -88,7 +119,7 @@ class ModifyReservation extends React.Component {
                                 <option value="8">8 people</option>
                             </select>
                         </div>
-                        <button>Find a new table</button>
+                        <button className="res-submit">Find a new table</button>
                     </form>
                 </div>
             </div>

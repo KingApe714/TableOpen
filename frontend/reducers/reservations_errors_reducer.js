@@ -5,6 +5,7 @@ const reservationsErrorsReducer = (state = [], action) => {
 
     switch (action.type) {
         case RECEIVE_RESERVATION_ERRORS:
+            debugger
             return action.errors
         case RECEIVE_RESERVATION:
             return []
