@@ -35,12 +35,20 @@
     font-weight: 900;
     line-height: 30px;
     padding-left: 15px;
+    width: 16vw;
 }
 
 .table-status {
     font-size: 12px;
     font-weight: 700;
     color: gray;
+}
+
+.resi-links {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    color: $blue-green;
 }
 
 .username {

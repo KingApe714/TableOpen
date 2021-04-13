@@ -1,7 +1,7 @@
 .edit-resi-container {
     font-family: inherit;
     width: auto;
-    height: 200px;
+    height: 40vh;
     padding-left: 100px;
     padding-right: 100px;
     margin-top: 40px;
@@ -89,6 +89,7 @@
 }
 
 .edit-res-submit {
+    cursor: pointer;
     background-color: #da3743;
     border-style: none;
     border-radius: 3px;

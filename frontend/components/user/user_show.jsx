@@ -70,20 +70,14 @@ class UserShow extends React.Component {
                                 Table for {reservation.guest_count} {reservation.guest_count === 1 ? <>person</> : <>people</>}
                             </p>
                             {pastResi === false ?
-                                <div>
-                                    <Link
-                                        id="reservation-link"
-                                        to={`/reservations/${reservation.id}/view`}>
-                                        View
-                                    </Link>
-                                    {/* <Link
-                                        id="reservation-link"
-                                        to={`/reservations/${reservation.id}/modify`}
-                                        state={
-                                            reservation=reservation
-                                        }>
-                                        Modify
-                                    </Link> */}
+                                <div className="resi-links">
+                                    <Link to={{
+                                        pathname: `/reservations/${reservation.id}/view`,
+                                        state: {
+                                            reservation: reservation,
+                                            restaurant: restaurant
+                                        }
+                                        }}>View</Link>
                                     <Link to={{
                                         pathname: `/reservations/${reservation.id}/modify`,
                                         state: {
@@ -91,11 +85,13 @@ class UserShow extends React.Component {
                                             restaurant: restaurant
                                         }
                                         }}>Modify</Link>
-                                    <Link
-                                        id="reservation-link"
-                                        to={`/reservations/${reservation.id}/delete`}>
-                                        Cancel
-                                    </Link>
+                                    <Link to={{
+                                        pathname: `/reservations/${reservation.id}/delete`,
+                                        state: {
+                                            reservation: reservation,
+                                            restaurant: restaurant
+                                        }
+                                        }}>Cancel</Link>
                                 </div>
                                 : null}
                         </div>

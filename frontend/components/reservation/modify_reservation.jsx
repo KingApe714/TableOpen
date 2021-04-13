@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { renderTime, timeInterval, handleTime } from '../../util/util_functions'
 
 class ModifyReservation extends React.Component {
@@ -24,10 +25,10 @@ class ModifyReservation extends React.Component {
     }
 
     handleChange(type) {
-        console.log(`${type} selected`)
-        console.log(this.state)
+        // console.log(`${type} selected`)
+        // console.log(this.state)
         return e => {
-            console.log(e.target.value)
+            // console.log(e.target.value)
             this.setState({ [type]: e.target.value })
         }
     }
@@ -56,8 +57,8 @@ class ModifyReservation extends React.Component {
     render() {
         let options = null;
 
-        console.log(`through state: ${this.state.restaurant}`)
-        console.log(`through location: ${this.props.location.state.restaurant}`)
+        // console.log(`through state: ${this.state.restaurant}`)
+        // console.log(`through location: ${this.props.location.state.restaurant}`)
         let restaurant = this.props.location.state.restaurant
         let reservation = this.props.location.state.reservation
         if (restaurant.operation_hours) {
@@ -66,18 +67,20 @@ class ModifyReservation extends React.Component {
         let [date, time] = reservation.reservation_date_time.split('T');
         let d = new Date(reservation.reservation_date_time).toDateString()
         time = renderTime(time)
-        let test = renderTime(reservation.reservation_date_time)
+        // let test = renderTime(reservation.reservation_date_time)
         return (
             <div className="edit-resi-container">
                 <div className="edit-resi-title">
                     Your current reservation
                 </div>
                 <div className="edit-resi-detail-container">
-                    {/* <div className="edit-resi-image"> */}
+                    <Link 
+                        id="restaurant-link"
+                        to={`/restaurants/${reservation.restaurant_id}`}>   
                         <img src={restaurant.photoUrl} 
                             alt="Restaurant Image"
                             className="resi-edit-rest-image" />
-                    {/* </div> */}
+                    </Link>
                     <div className="edit-resi-detail">
                         <div className="edit-resi-rest-name">
                             {restaurant.name}
