@@ -11,16 +11,20 @@
 }
 
 .delete-resi-outer-container {
-    border-bottom: 1px solid #e2e2e2;
+    -webkit-box-shadow: 0 1px 0 #e2e2e2;
+    box-shadow: 0 1px 0 #e2e2e2;
+    border-radius: 6px;
     background-color: white;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     margin: 20px;
-    padding: 30px;
 }
 
 .delete-resi-inner-container {
-    
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #e2e2e2;
+    padding: 30px;
 }
 
 .resi-delete-rest-image {
@@ -34,4 +38,43 @@
     display: flex;
     justify-content: space-between;
     margin-left: 20px;
+}
+
+.delete-resi-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.delete-resi-detail {
+    font-weight: 900;
+    font-size: larger;
+    padding-bottom: 15px;
+}
+
+.delete-resi-name {
+    font-weight: 900;
+    font-size: larger;
+    padding-bottom: 15px;
+    color: $blue-green;
+}
+
+.delete-resi-name:hover {
+    cursor: pointer;
+    filter: brightness(70%);
+}
+
+.delete-resi-form {
+    padding: 25px;
+}
+
+.delete-resi-submit {
+    cursor: pointer;
+    background-color: #da3743;
+    border-style: none;
+    border-radius: 3px;
+    height: 4vh;
+    width: 14vw;
+    font-family: inherit;
+    color: white;
 }

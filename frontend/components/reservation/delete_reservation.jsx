@@ -51,30 +51,35 @@ class DeleteReservation extends React.Component {
                                 className="resi-delete-rest-image"/>
                         </Link>
                         <div className="delete-resi-content">
-                            <div>
+                            <div className="delete-resi-info">
                                 <p>GUESTS</p>
-                                <p>
+                                <p className="delete-resi-detail">
                                     {reservation.guest_count}
                                     &nbsp;
                                     {reservation.guest_count === 1 ? <>person</> : <>people</>}
                                 </p>
                             </div>
-                            <div>
+                            <div className="delete-resi-info">
                                 <p>DATE</p>
-                                <p>{d}</p>
+                                <p className="delete-resi-detail">{d}</p>
                             </div>
-                            <div>
+                            <div className="delete-resi-info">
                                 <p>TIME</p>
-                                <p>{time}</p>
+                                <p className="delete-resi-detail">{time}</p>
                             </div>
-                            <div>
+                            <div className="delete-resi-info">
                                 <p>RESTAURANT</p>
-                                <p>{restaurant.name}</p>
+                                <Link
+                                    id="restaurant-link"
+                                    to={`/restaurants/${reservation.restaurant_id}`}>
+                                    <p className="delete-resi-name">{restaurant.name}</p>
+                                </Link>
                             </div>
                         </div>
                     </div>
-                    <form onSubmit={this.handleSubmit}>
-                        <button>Cancel Reservation</button>
+                    <form onSubmit={this.handleSubmit}
+                            className="delete-resi-form">
+                        <button className="delete-resi-submit">Cancel Reservation</button>
                     </form>
                 </div>
             </div>
