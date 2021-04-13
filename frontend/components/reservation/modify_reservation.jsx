@@ -70,61 +70,63 @@ class ModifyReservation extends React.Component {
         // let test = renderTime(reservation.reservation_date_time)
         return (
             <div className="edit-resi-container">
-                <div className="edit-resi-title">
-                    Your current reservation
-                </div>
-                <div className="edit-resi-detail-container">
-                    <Link 
-                        id="restaurant-link"
-                        to={`/restaurants/${reservation.restaurant_id}`}>   
-                        <img src={restaurant.photoUrl} 
-                            alt="Restaurant Image"
-                            className="resi-edit-rest-image" />
-                    </Link>
-                    <div className="edit-resi-detail">
-                        <div className="edit-resi-rest-name">
-                            {restaurant.name}
-                        </div>
-                        <div className="edit-resi-info">
-                            <div className="edit-resi-content">{d}</div>
-                            <div className="edit-resi-content">{time}</div>
-                            <div className="edit-resi-content">
-                                {reservation.guest_count}
-                                &nbsp;
-                                {reservation.guest_count === 1 ? <>person</> : <>people</>}
+                <div className="edit-resi-inner-container">
+                    <div className="edit-resi-title">
+                        Your current reservation
+                    </div>
+                    <div className="edit-resi-detail-container">
+                        <Link 
+                            id="restaurant-link"
+                            to={`/restaurants/${reservation.restaurant_id}`}>   
+                            <img src={restaurant.photoUrl} 
+                                alt="Restaurant Image"
+                                className="resi-edit-rest-image" />
+                        </Link>
+                        <div className="edit-resi-detail">
+                            <div className="edit-resi-rest-name">
+                                {restaurant.name}
+                            </div>
+                            <div className="edit-resi-info">
+                                <div className="edit-resi-content">{d}</div>
+                                <div className="edit-resi-content">{time}</div>
+                                <div className="edit-resi-content">
+                                    {reservation.guest_count}
+                                    &nbsp;
+                                    {reservation.guest_count === 1 ? <>person</> : <>people</>}
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="edit-resi-form-container">
-                    <div className="edit-resi-form-title">Modify your reservation</div>
-                    <form onSubmit={this.handleSubmit}
-                            className="edit-resi-form">
-                        <div className="edit-resi-div">
-                            <input type="date"
-                                    value={this.state.date}
-                                    onChange={this.handleChange('date')}
-                                    className="edit-resi-dropdown"/>
-                            <select value={this.state.time}
-                                    onChange={this.handleChange('time')}
-                                    className="edit-resi-dropdown">
-                                {options}
-                            </select>
-                            <select value={this.state.guest_count} 
-                                    onChange={this.handleChange('guest_count')}
-                                    className="edit-resi-dropdown">
-                                <option value="1">1 person</option>
-                                <option value="2">2 people</option>
-                                <option value="3">3 people</option>
-                                <option value="4">4 people</option>
-                                <option value="5">5 people</option>
-                                <option value="6">6 people</option>
-                                <option value="7">7 people</option>
-                                <option value="8">8 people</option>
-                            </select>
-                        </div>
-                        <button className="edit-res-submit">Find a new table</button>
-                    </form>
+                    <div className="edit-resi-form-container">
+                        <div className="edit-resi-form-title">Modify your reservation</div>
+                        <form onSubmit={this.handleSubmit}
+                                className="edit-resi-form">
+                            <div className="edit-resi-div">
+                                <input type="date"
+                                        value={this.state.date}
+                                        onChange={this.handleChange('date')}
+                                        className="edit-resi-dropdown"/>
+                                <select value={this.state.time}
+                                        onChange={this.handleChange('time')}
+                                        className="edit-resi-dropdown">
+                                    {options}
+                                </select>
+                                <select value={this.state.guest_count} 
+                                        onChange={this.handleChange('guest_count')}
+                                        className="edit-resi-dropdown">
+                                    <option value="1">1 person</option>
+                                    <option value="2">2 people</option>
+                                    <option value="3">3 people</option>
+                                    <option value="4">4 people</option>
+                                    <option value="5">5 people</option>
+                                    <option value="6">6 people</option>
+                                    <option value="7">7 people</option>
+                                    <option value="8">8 people</option>
+                                </select>
+                            </div>
+                            <button className="edit-res-submit">Find a new table</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         )

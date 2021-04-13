@@ -1,10 +1,15 @@
 .edit-resi-container {
+    // background-color: $lightest-gray;
     font-family: inherit;
     width: auto;
     height: 40vh;
     padding-left: 100px;
     padding-right: 100px;
     margin-top: 40px;
+}
+
+.edit-resi-inner-container {
+    // background-color: white;
 }
 
 .edit-resi-title {
@@ -53,7 +58,7 @@
 }
 
 .edit-resi-form-container {
-    margin-top: inherit;
+    margin-top: 20px;
 }
 
 .edit-resi-form-title {
