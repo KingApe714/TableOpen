@@ -52,6 +52,13 @@ class ModifyReservation extends React.Component {
         reservation.id = this.state.reservation.id
 
         this.props.updateReservation(reservation)
+            .then(this.props.history.push({
+                pathname: `/reservations/${this.state.reservation.id}/view`,
+                state: {
+                    reservation: reservation,
+                    restaurant: this.state.restaurant
+                }
+            }))
     }
 
     render() {
