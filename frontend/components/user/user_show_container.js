@@ -4,7 +4,6 @@ import { fetchReservations, deleteReservation } from '../../actions/reservation_
 import { fetchRestaurant, fetchRestaurants } from '../../actions/restaurant_actions'
 
 const mSTP = (state, ownProps) => {
-    // debugger
     return{
     currentUser: Object.values(state.session)[0],
     reservations: Object.values(state.entities.reservations),

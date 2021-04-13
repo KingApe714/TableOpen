@@ -25,7 +25,7 @@ class Api::ResrvationsController < ApplicationController
         if @reservation && @reservation.update(reservation_params)
             render :show
         else
-            render json: @reservation.errors.full_messages, status: 404c
+            render json: @reservation.errors.full_messages, status: 404
         end
     end
 

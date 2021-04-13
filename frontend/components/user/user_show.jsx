@@ -33,6 +33,8 @@ class UserShow extends React.Component {
     render() {
         const restaurants = this.props.restaurants;
         if (Object.keys(restaurants).length <= 1) return null
+        if (this.props.reservations.length === 0) return null
+        // debugger
         const reservations = this.props.reservations.map(reservation => {
             let restaurant = restaurants[reservation.restaurant_id]
             let arr = reservation.reservation_date_time.split("T")
