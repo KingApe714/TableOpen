@@ -13,6 +13,7 @@ class ViewReservation extends React.Component {
         let [date, time] = reservation.reservation_date_time.split('T');
         let d = new Date(reservation.reservation_date_time).toDateString()
         time = renderTime(time)
+        debugger
         console.log(restaurant)
         console.log(reservation)
         return (

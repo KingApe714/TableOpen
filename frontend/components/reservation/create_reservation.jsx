@@ -19,15 +19,16 @@ class CreateReservation extends React.Component {
             this.props.restaurant.id,
             this.state
         )
-        // debugger
+        debugger
+        const restaurant = this.props.restaurant
+        restaurant.photoUrl = this.props.restaurant.photoUrls
         this.props.createReservation(reservation)
         .then((res) => {
-            console.log(res)
             this.props.history.push({
                 pathname: `/reservations/${res.reservation.id}/view`,
                 state: {
                     reservation: res.reservation,
-                    restaurant: this.props.restaurant
+                    restaurant: restaurant
                 }
             })
         })

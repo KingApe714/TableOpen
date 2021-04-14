@@ -5,24 +5,24 @@ import { renderTime } from '../../util/util_functions'
 class UserShow extends React.Component {
     constructor(props) {
         super(props)
-        let today = new Date()
-        let month = today.getMonth() + 1;
-        let day = today.getDate();
-        let year = today.getFullYear();
-        let hour = today.getHours();
-        let minute = today.getMinutes();
-        let date = month + "/" + day + "/" + year;
+        // let today = new Date()
+        // let month = today.getMonth() + 1;
+        // let day = today.getDate();
+        // let year = today.getFullYear();
+        // let hour = today.getHours();
+        // let minute = today.getMinutes();
+        // let date = month + "/" + day + "/" + year;
 
-        console.log(today)
-        this.state = {
-            today: today,
-            currentDateTime: date,
-            year: year,
-            month: month,
-            day: day,
-            hour: hour,
-            minute: minute
-          }
+        // console.log(today)
+        // this.state = {
+        //     today: today,
+        //     currentDateTime: date,
+        //     year: year,
+        //     month: month,
+        //     day: day,
+        //     hour: hour,
+        //     minute: minute
+        //   }
     }
 
     componentDidMount() {
