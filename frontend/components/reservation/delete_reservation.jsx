@@ -26,6 +26,12 @@ class DeleteReservation extends React.Component {
         e.preventDefault()
         // debugger
         this.props.deleteReservation(this.state.reservation.id)
+            .then(this.props.history.push({
+                pathname: `/restaurants/${this.state.restaurant.id}/cancel-confirm`,
+                state: {
+                    restaurant: this.state.restaurant
+                }
+            }))
     }
 
     render() {

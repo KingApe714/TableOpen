@@ -14,6 +14,7 @@ import UserShowContainer from './user/user_show_container'
 import ViewReservationContainer from './reservation/view_reservation_container';
 import DeleteReservationContainer from './reservation/delete_reservation_container';
 import ModifyReservationContainer from './reservation/modify_reservation_container';
+import CancelConfirmContainer from './reservation/cancel_confirm_container';
 
 const App = () => (
     <div className="app">
@@ -30,8 +31,9 @@ const App = () => (
         {/* <ProtectedRoute exact path="/restaurants/:restaurantId/reserve" component={ReservationFormContainer} /> */}
         <ProtectedRoute exact path="/users/:userId" component={UserShowContainer}/>
         <ProtectedRoute exact path="/reservations/:reservationId/view" component={ViewReservationContainer} />
-        <ProtectedRoute exact path="/reservations/:reservationId/delete" component={DeleteReservationContainer} />
         <ProtectedRoute exact path="/reservations/:reservationId/modify" component={ModifyReservationContainer} />
+        <ProtectedRoute exact path="/reservations/:reservationId/delete" component={DeleteReservationContainer} />
+        <ProtectedRoute exact path="/restaurants/:restaurantId/cancel-confirm" component={CancelConfirmContainer} />
     </div>
 );
 

@@ -1,0 +1,38 @@
+.cancel-resi-container {
+    border-top: 1px solid #e2e2e2;
+    padding-top: 30px;
+    padding-inline: 150px;
+    padding-bottom: 30px;
+    height: 100%;
+    width: 640px;
+}
+
+.cancel-resi-message {
+    margin-bottom: 35px;
+    font-size: x-large;
+    font-weight: 900;
+}
+
+.cancel-resi-support {
+    font-size: larger;
+    margin-bottom: 20px;
+}
+
+.cancel-takeout-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 50px;
+    border: 1px solid #e2e2e2;
+    border-radius: 4px;
+    padding: 12px;
+}
+
+.cancel-takeout-title {
+    font-size: medium;
+    font-weight: 900;
+}
+
+.cancel-takeout-order {
+    font-size: small;
+}
