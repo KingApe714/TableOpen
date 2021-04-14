@@ -12,4 +12,8 @@ class Restaurant < ApplicationRecord
         primary_key: :id,
         foreign_key: :restaurant_id,
         class_name: :Resrvation
+
+    has_one :menu,
+        foreign_key: :restaurant_id,
+        class_name: :Menu
 end
