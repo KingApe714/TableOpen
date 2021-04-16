@@ -9,6 +9,7 @@
 User.destroy_all
 Restaurant.destroy_all
 Resrvation.destroy_all
+Menu.destroy_all
 
 demo_user = User.create!(username: "John Snow", 
                         email: "test123", 
@@ -439,3 +440,33 @@ demo_res21 = Resrvation.create!(restaurant_id: 15,
                                 guest_id: user2.id,
                                 guest_count: 16,
                                 reservation_date_time: Time.new(2020, 11, 20, 10, 30, 00))
+
+menu1 = Menu.create!(restaurant_id: 1,
+                    menu_items: [
+                        "Margherita Pizza",
+                        "Puttanesca Pizza",
+                        "Meat Lovers Pizza",
+                        "Broccoli Bri Pizza",
+                        "Zingada Pizza",
+                        "Quattro Formaggi Rossa Pizza",
+                        "Michael's Pizza",
+                        "Vodka Pizza"
+                    ],
+                    drink_items: [])
+
+#Michael's Pasteria no menu photos
+#Michael's PAsteria no drink items
+
+menu2 = Menu.create!(restaurant_id: 2,
+                    menu_items: [
+
+                    ],
+                    drink_items: [])
+
+m2p1 = open('https://table-open-seeds.s3.amazonaws.com/uncle-momo1.jpg')
+m2p2 = open('https://table-open-seeds.s3.amazonaws.com/uncle-momo2.jpg')
+m2p3 = open('https://table-open-seeds.s3.amazonaws.com/uncle-momo3.jpg')
+
+menu2.photos.attach(io: m2p1, filename: 'uncle-momo1.jpg')
+menu2.photos.attach(io: m2p2, filename: 'uncle-momo2.jpg')
+menu2.photos.attach(io: m2p3, filename: 'uncle-momo3.jpg')

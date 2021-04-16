@@ -19,7 +19,6 @@ class CreateReservation extends React.Component {
             this.props.restaurant.id,
             this.state
         )
-        debugger
         const restaurant = this.props.restaurant
         restaurant.photoUrl = this.props.restaurant.photoUrls
         this.props.createReservation(reservation)
