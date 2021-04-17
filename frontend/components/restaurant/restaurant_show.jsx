@@ -14,6 +14,7 @@ class RestaurantShow extends React.Component {
     render() {
         if (!this.props.restaurant) return null;
         console.log(`Menu photo urls ${this.props.menu.photoUrls}`)
+        debugger
         let photo0, photo1, photo2
         if (this.props.menu.photoUrls) {
             photo0 = this.props.menu.photoUrls[0];

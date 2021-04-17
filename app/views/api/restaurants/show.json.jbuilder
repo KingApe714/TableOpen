@@ -1,5 +1,4 @@
-# <h1><%= @restaurant.name %></h1>
-# <img src="<%= url_for(@restaurant.photos)%>">
+# need to keep testing with menu here to send up the photoUrls.
 json.extract! @restaurant, 
                 :id,
                 :name,
@@ -7,5 +6,6 @@ json.extract! @restaurant,
                 :executive_chef, 
                 :city, 
                 :description,
-                :operation_hours
+                :operation_hours,
+                :menu
 json.photoUrls @restaurant.photos.map { |file| url_for(file) }

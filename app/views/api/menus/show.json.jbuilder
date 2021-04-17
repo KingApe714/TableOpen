@@ -1,3 +1,5 @@
+# debugger
+
 json.extract! @menu,
     :id,
     :menu_items,
