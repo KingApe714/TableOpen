@@ -8,23 +8,22 @@ class RestaurantShow extends React.Component {
 
     componentDidMount() {
         this.props.fetchRestaurant(this.props.match.params.restaurantId);
-        this.props.fetchMenu(this.props.match.params.restaurantId);
+        // this.props.fetchMenu(this.props.match.params.restaurantId);
     }
 
     render() {
         if (!this.props.restaurant) return null;
-        console.log(`Menu photo urls ${this.props.menu.photoUrls}`)
-        debugger
+        // debugger
         let photo0, photo1, photo2
-        if (this.props.menu.photoUrls) {
-            photo0 = this.props.menu.photoUrls[0];
-            photo1 = this.props.menu.photoUrls[1];
-            photo2 = this.props.menu.photoUrls[2];
+        if (this.props.restaurant.photoUrls) {
+            photo0 = this.props.restaurant.photoUrls[0];
+            photo1 = this.props.restaurant.photoUrls[1];
+            photo2 = this.props.restaurant.photoUrls[2];
         }
         // debugger
         return (
             <div>
-                <img src={this.props.restaurant.photoUrls} className="rest-background"></img>
+                <img src={this.props.restaurant.photoUrl} className="rest-background"></img>
                 <div className="rest-show">
                     <p className="show-title">{this.props.restaurant.name}</p>
                     <div className="rest-rate-review">
