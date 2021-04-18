@@ -105,16 +105,21 @@
     }
 }
 
-.rest-menu {
-    width: 90%;
-    margin: 0 auto;
-    margin-top: 20px;
-    border-bottom: 1px solid $light-gray;
+.rest-show-titles {
+    margin-bottom: 15px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    border-bottom: 1px solid #e2e2e2;
 }
 
-.rest-reviews {
-    width: 90%;
-    margin: 0 auto;
-    margin-top: 20px;
-    border-bottom: 1px solid $light-gray;
+.menu-images-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-image {
+    width: 150px;
+    height: 150px;
+    margin-right: 2px;
 }

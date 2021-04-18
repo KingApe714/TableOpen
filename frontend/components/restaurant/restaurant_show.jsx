@@ -19,6 +19,8 @@ class RestaurantShow extends React.Component {
             photo0 = this.props.restaurant.photoUrls[0];
             photo1 = this.props.restaurant.photoUrls[1];
             photo2 = this.props.restaurant.photoUrls[2];
+        } else {
+            return null
         }
         // debugger
         return (
@@ -56,15 +58,22 @@ class RestaurantShow extends React.Component {
                             <p className="det-detail">{this.props.restaurant.executive_chef}</p> 
                         </> : null }
                     </div>
-                    <div className="rest-menu">
+                    <div className="rest-image-outer-container">
+                        <p className="rest-show-titles">
+                            {this.props.restaurant.photoUrls.length} Photos
+                        </p>
+                        <div className="menu-images-container">
+                            <img className="menu-image" src={photo0}/>
+                            <img className="menu-image" src={photo1}/>
+                            <img className="menu-image" src={photo2}/>
+                        </div>
+                    </div>
+                    <p className="rest-show-titles">
                         Menu
-                        <img src={photo0}/>
-                        <img src={photo1}/>
-                        <img src={photo2}/>
-                    </div>
-                    <div className="rest-reviews">
+                    </p>
+                    <p className="rest-show-titles">
                         Reviews
-                    </div>
+                    </p>
                 </div>
             </div>
         )
