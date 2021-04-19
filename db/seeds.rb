@@ -1032,3 +1032,33 @@ m24p3 = open('https://table-open-seeds.s3.amazonaws.com/chef-yang3.jpg')
 menu24.photos.attach(io: m24p1, filename: 'chef-yang1.jpg')
 menu24.photos.attach(io: m24p2, filename: 'chef-yang2.jpg')
 menu24.photos.attach(io: m24p3, filename: 'chef-yang3.jpg')
+
+menu25 = Menu.create!(restaurant_id: 25,
+                    menu_items: [
+                        "Pirzola & Sis (Lamb Chops & Shish Kebab)",
+                        "Karides Sote (Shrimp Saute)",
+                        "Levrek (Mediterranean Branzino)",
+                        "Tilapia (St. Peter's Fish)",
+                        "Yogurtlu Doner (Doner with Yogurt)",
+                        "Yogurtlu Adana (Adana Kebab with Yogurt)",
+                        "Toros Chicken Salad",
+                        "Has Has Kebab",
+                        "Toros Karisik (Toros Combination Plate)"
+                    ],
+                    drink_items: [
+                        "Seabreeze",
+                        "Cosmopolitan",
+                        "Strawberry Daiquiri",
+                        "Apple Martini",
+                        "Pomegranate Martini",
+                        "Tequila Sunrise",
+                        "Long Island Ice Tea"
+                    ])
+
+m25p1 = open('https://table-open-seeds.s3.amazonaws.com/toros1.jpg')
+m25p2 = open('https://table-open-seeds.s3.amazonaws.com/toros2.jpg')
+m25p3 = open('https://table-open-seeds.s3.amazonaws.com/toros3.jpg')
+
+menu25.photos.attach(io: m25p1, filename: 'toros1.jpg')
+menu25.photos.attach(io: m25p2, filename: 'toros2.jpg')
+menu25.photos.attach(io: m25p3, filename: 'toros3.jpg')
