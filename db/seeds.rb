@@ -951,8 +951,24 @@ menu20.photos.attach(io: m20p1, filename: 'anthonys1.jpg')
 
 menu21 = Menu.create!(restaurant_id: 21,
                     menu_items: [
-
+                        "Buffalo Wings",
+                        "Mozzarella Sticks",
+                        "Chicken Fingers",
+                        "Shell Steak Salad",
+                        "Caesar Salad with Shrimp",
+                        "Sirloin Burger",
+                        "Gnocchi Bolognese",
+                        "Chicken Scarparello",
+                        "Veal Francese"
                     ],
                     drink_items: [
-                        
+
                     ])
+
+m21p1 = open('https://table-open-seeds.s3.amazonaws.com/jamies1.jpg')
+m21p2 = open('https://table-open-seeds.s3.amazonaws.com/jamies2.jpg')
+m21p3 = open('https://table-open-seeds.s3.amazonaws.com/jamies3.jpg')
+
+menu21.photos.attach(io: m21p1, filename: 'jamies1.jpg')
+menu21.photos.attach(io: m21p2, filename: 'jamies2.jpg')
+menu21.photos.attach(io: m21p3, filename: 'jamies3.jpg')
