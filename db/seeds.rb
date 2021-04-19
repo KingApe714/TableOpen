@@ -613,8 +613,94 @@ menu7.photos.attach(io: m7p2, filename: 'villalobos2.jpg')
 
 menu8 = Menu.create!(restaurant_id: 8,
                     menu_items: [
-
+                        "Veal and Beef Meatball",
+                        "PEI Mussels",
+                        "House Made Ravioli",
+                        "Baby Arugula",
+                        "Idaho Rainbow Trout",
+                        "Fresh Rigatoni Pasta",
+                        "Hand Rolled Ricotta Cavatelli",
+                        "Steak Frites"
                     ],
                     drink_items: [
-                        
+
+                    ])
+
+m8p1 = open('https://table-open-seeds.s3.amazonaws.com/laboratorio1.jpg')
+m8p2 = open('https://table-open-seeds.s3.amazonaws.com/laboratorio2.jpg')
+m8p3 = open('https://table-open-seeds.s3.amazonaws.com/laboratorio3.jpg')
+
+menu8.photos.attach(io: m8p1, filename: 'laboratorio1.jpg')
+menu8.photos.attach(io: m8p2, filename: 'laboratorio2.jpg')
+menu8.photos.attach(io: m8p3, filename: 'laboratorio3.jpg')
+
+menu9 = Menu.create!(restaurant_id: 9,
+                    menu_items: [
+                        "Half Dozen East Coast Oysters",
+                        "Romaine Wedge",
+                        "Charred Octopus",
+                        "Mascarpone Polenta Fries",
+                        "Ricotta Gnocchi",
+                        "Papa Mac's Cavatelli",
+                        "Squid Ink Pappardelle",
+                        "Buttermilk Baked Chicken"
+                    ],
+                    drink_items: [
+
+                    ])
+
+m9p1 = open('https://table-open-seeds.s3.amazonaws.com/fascino1.jpg')
+m9p2 = open('https://table-open-seeds.s3.amazonaws.com/fascino2.jpg')
+m9p3 = open('https://table-open-seeds.s3.amazonaws.com/fascino3.jpg')
+
+menu9.photos.attach(io: m9p1, filename: 'fascino1.jpg')
+menu9.photos.attach(io: m9p2, filename: 'fascino2.jpg')
+menu9.photos.attach(io: m9p3, filename: 'fascino3.jpg')
+
+menu10 = Menu.create!(restaurant_id: 10,
+                    menu_items: [
+                        "Hummus",
+                        "Pumpkin Muhammara",
+                        "Babaganoush",
+                        "Beet Falafel",
+                        "Sheperd's Salad",
+                        "In House Smoked Salmon",
+                        "Medi Omelet",
+                        "Z-Premium Medi Breakfast Platter"
+                    ],
+                    drink_items: [
+                        "Blend for Sangria",
+                        "Fresh Squeezed (FSQ) Orange Juice",
+                        "Mimosa (w/ FSQ OJ)",
+                        "Montclair Orange: FSQ OJ, Cinnamon, Nutmeg",
+                        "POG: Passion Fruit, FSQ 0J, Guava"
+                    ])
+
+m10p1 = open('https://table-open-seeds.s3.amazonaws.com/zeugma1.jpg')
+m10p2 = open('https://table-open-seeds.s3.amazonaws.com/zeugma2.jpg')
+m10p3 = open('https://table-open-seeds.s3.amazonaws.com/zeugma3.jpg')
+
+menu10.photos.attach(io: m10p1, filename: 'zeugma1.jpg')
+menu10.photos.attach(io: m10p2, filename: 'zeugma2.jpg')
+menu10.photos.attach(io: m10p3, filename: 'zeugma3.jpg')
+
+menu11 = Menu.create!(restaurant_id: 11,
+                    menu_items: [
+                        "French Onion Soup",
+                        "Crispy Oysters + Harissa + Tobiko",
+                        "3 Spicy BBQ Pork Lollipop Wings",
+                        "Bavarian Pretzel + Beer Cheese",
+                        "Salumi & Cheeses*",
+                        "Chicken Paillard*",
+                        "Burrata Ravioli",
+                        "Cannelloni"
+                    ],
+                    drink_items: [
+                        "The Ginger Snap",
+                        "The Man-Garita",
+                        "The Hop-A-Long",
+                        "The Sangria on Tap",
+                        "The Sazerac",
+                        "Blueberry Lemonade",
+                        "It's Fa Har"
                     ])
