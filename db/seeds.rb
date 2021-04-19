@@ -768,8 +768,60 @@ menu13.photos.attach(io: m13p3, filename: 'sayola3.jpg')
 
 menu14 = Menu.create!(restaurant_id: 14,
                     menu_items: [
-
+                        "House Popped Corn",
+                        "Alto Fries",
+                        "Warm Bavarian Pretzle",
+                        "Caramel Apple Fondue",
+                        "Mc Burger Sliders",
+                        "Ahi Tuna Tartare",
+                        "Avocado Dip",
+                        "Mc Burger Sliders",
+                        "Raclette Fondue"
                     ],
                     drink_items: [
-                        
+                        "Rose Sangria",
+                        "Fallin' Slowly",
+                        "Wanna Lackawanna",
+                        "Paloma",
+                        "Cider I Knew Her Well",
+                        "Miller Lite, Milwaukee, Wisconsin, ABV",
+                        "Magnify Brewing House Rules IPA",
+                        "Bolero Snort Orange Creamsicle IPA"
                     ])
+
+m14p1 = open('https://table-open-seeds.s3.amazonaws.com/alfo1.jpg')
+m14p2 = open('https://table-open-seeds.s3.amazonaws.com/alfo2.jpg')
+m14p3 = open('https://table-open-seeds.s3.amazonaws.com/alfo3.jpg')
+
+menu14.photos.attach(io: m14p1, filename: 'alfo1.jpg')
+menu14.photos.attach(io: m14p2, filename: 'alfo2.jpg')
+menu14.photos.attach(io: m14p3, filename: 'alfo3.jpg')
+
+menu15 = Menu.create!(restaurant_id: 15,
+                    menu_items: [
+                        "Brazilian Sausage",
+                        "Shrimp in Garlic Sauce",
+                        "Clams in Sauce",
+                        "Fried Pork with Yucca",
+                        "Brazilian Fried Chicken",
+                        "Octopus Salad",
+                        "Chicken Parmigiana",
+                        "Grilled Chicken Marsala",
+                        "Pork Chops 3"
+                    ],
+                    drink_items: [
+                        "Guarana",
+                        "Lg. Pellegrino",
+                        "Espresso",
+                        "Soda",
+                        "Cappuccino",
+                        "Cafezinho"
+                    ])
+
+m15p1 = open('https://table-open-seeds.s3.amazonaws.com/brasil-paradise1.jpg')
+m15p2 = open('https://table-open-seeds.s3.amazonaws.com/brasil-paradise2.jpg')
+m15p3 = open('https://table-open-seeds.s3.amazonaws.com/brasil-paradise3.jpg')
+
+menu15.photos.attach(io: m15p1, filename: 'brasil-paradise1.jpg')
+menu15.photos.attach(io: m15p2, filename: 'brasil-paradise2.jpg')
+menu15.photos.attach(io: m15p3, filename: 'brasil-paradise3.jpg')
