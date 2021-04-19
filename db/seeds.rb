@@ -972,3 +972,63 @@ m21p3 = open('https://table-open-seeds.s3.amazonaws.com/jamies3.jpg')
 menu21.photos.attach(io: m21p1, filename: 'jamies1.jpg')
 menu21.photos.attach(io: m21p2, filename: 'jamies2.jpg')
 menu21.photos.attach(io: m21p3, filename: 'jamies3.jpg')
+
+menu22 = Menu.create!(restaurant_id: 22,
+                    menu_items: [
+                        "Picadillo a Caballo",
+                        "Un Poquito de Todo",
+                        "El Pescador",
+                        "Paella Rumbera",
+                        "Ropa Vieja",
+                        "Churrasco Rumbero",
+                        "Bistec de Palomilla",
+                        "Pechuga de Pollo Empanizada",
+                        "Trio de Empanadas"
+                    ],
+                    drink_items: [
+                        "Coca Cola",
+                        "Diet Coke",
+                        "Fanta Orange",
+                        "Materva",
+                        "Snapple Iced Tea"
+                    ])
+
+menu23 = Menu.create!(restaurant_id: 23,
+                    menu_items: [
+                        "Whole Dungeness Crab",
+                        "Alaskan King Crab Legs",
+                        "Argentinian Shrimp",
+                        "Crawfish Live Mar - Jun",
+                        "Snow Crab Legs",
+                        "Whole Lobster",
+                        "Blue Crab",
+                        "Clams",
+                        "Mussels"
+                    ],
+                    drink_items: [
+
+                    ])
+
+menu24 = Menu.create!(restaurant_id: 24,
+                    menu_items: [
+                        "Asparagus w. Scallion Oil",
+                        "Sliced Pork Belly w. Fresh Garlic*",
+                        "Bean Curd Mixed w. Chopped Scallion",
+                        "Chill Braised Eggplant**",
+                        "Sliced Beef w. Cilantro*",
+                        "Steamed or Pan Fried (6)",
+                        "Little Juicy Pork Buns (6)",
+                        "Crispy Chicken Wings (4)",
+                        "Roast Pork Bun (2)"
+                    ],
+                    drink_items: [
+
+                    ])
+
+m24p1 = open('https://table-open-seeds.s3.amazonaws.com/chef-yang1.jpg')
+m24p2 = open('https://table-open-seeds.s3.amazonaws.com/chef-yang2.jpg')
+m24p3 = open('https://table-open-seeds.s3.amazonaws.com/chef-yang3.jpg')
+
+menu24.photos.attach(io: m24p1, filename: 'chef-yang1.jpg')
+menu24.photos.attach(io: m24p2, filename: 'chef-yang2.jpg')
+menu24.photos.attach(io: m24p3, filename: 'chef-yang3.jpg')
