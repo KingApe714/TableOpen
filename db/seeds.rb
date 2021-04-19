@@ -735,3 +735,41 @@ m12p3 = open('https://table-open-seeds.s3.amazonaws.com/bareburger3.jpg')
 menu12.photos.attach(io: m12p1, filename: 'bareburger1.jpg')
 menu12.photos.attach(io: m12p2, filename: 'bareburger2.jpg')
 menu12.photos.attach(io: m12p3, filename: 'bareburger3.jpg')
+
+menu13 = Menu.create!(restaurant_id: 13,
+                    menu_items: [
+                        "Croquetas de Jamon",
+                        "Pulpo a la Plancha",
+                        "Callos Guisados aI Estilo Espanol",
+                        "Gambas al Ajillo",
+                        "Almejas en Salsa Verde",
+                        "Salpicon de Mariscos y Aguacate",
+                        "Tabla de Iberlca",
+                        "Pulpo a la Gallega",
+                        "Mi-Cult Foie Gras Casero"
+                    ],
+                    drink_items: [
+                        "Double Espresso",
+                        "Double Decaf Espresso",
+                        "Decaf Cappuccino",
+                        "Caffe Latte",
+                        "Diet Coke",
+                        "Cranberry",
+                        "Cortadito"
+                    ])
+
+m13p1 = open('https://table-open-seeds.s3.amazonaws.com/sayola1.jpg')
+m13p2 = open('https://table-open-seeds.s3.amazonaws.com/sayola2.jpg')
+m13p3 = open('https://table-open-seeds.s3.amazonaws.com/sayola3.jpg')
+
+menu13.photos.attach(io: m13p1, filename: 'sayola1.jpg')
+menu13.photos.attach(io: m13p2, filename: 'sayola2.jpg')
+menu13.photos.attach(io: m13p3, filename: 'sayola3.jpg')
+
+menu14 = Menu.create!(restaurant_id: 14,
+                    menu_items: [
+
+                    ],
+                    drink_items: [
+                        
+                    ])
