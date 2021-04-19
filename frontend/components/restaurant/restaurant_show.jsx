@@ -22,6 +22,7 @@ class RestaurantShow extends React.Component {
         } else {
             return null
         }
+        console.log(this.props.restaurant.menu.menu_items)
         // debugger
         return (
             <div>
@@ -68,9 +69,19 @@ class RestaurantShow extends React.Component {
                             <img className="menu-image" src={photo2}/>
                         </div>
                     </div>
-                    <p className="rest-show-titles">
-                        Menu
-                    </p>
+                    <div className="rest-menu-outer-container">
+                        <p className="rest-show-titles">
+                            Menu
+                        </p>
+                        <div className="rest-menu-inner-container">
+                            <div className="rest-menu-items-container">
+                                {this.props.restaurant.menu.menu_items}
+                            </div>
+                            <div className="rest-drink-items-container">
+                                {this.props.restaurant.menu.drink_items}
+                            </div>
+                        </div>
+                    </div>
                     <p className="rest-show-titles">
                         Reviews
                     </p>
