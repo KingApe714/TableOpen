@@ -825,3 +825,134 @@ m15p3 = open('https://table-open-seeds.s3.amazonaws.com/brasil-paradise3.jpg')
 menu15.photos.attach(io: m15p1, filename: 'brasil-paradise1.jpg')
 menu15.photos.attach(io: m15p2, filename: 'brasil-paradise2.jpg')
 menu15.photos.attach(io: m15p3, filename: 'brasil-paradise3.jpg')
+
+menu16 = Menu.create!(restaurant_id: 16,
+                    menu_items: [
+                        "Sweet Fennel Sausage",
+                        "Arancini",
+                        "Arugula",
+                        "Di Cesare",
+                        "Di Barbabietole",
+                        "Caprese",
+                        "Chicken Milanese",
+                        "Veal Milanese",
+                        "Broccoli Rabe & Sausage"
+                    ],
+                    drink_items: [
+
+                    ])
+
+m16p1 = open('https://table-open-seeds.s3.amazonaws.com/bella-luce1.jpg')
+m16p2 = open('https://table-open-seeds.s3.amazonaws.com/bella-luce2.jpg')
+m16p3 = open('https://table-open-seeds.s3.amazonaws.com/bella-luce3.jpg')
+
+menu16.photos.attach(io: m16p1, filename: 'bella-luce1.jpg')
+menu16.photos.attach(io: m16p2, filename: 'bella-luce2.jpg')
+menu16.photos.attach(io: m16p3, filename: 'bella-luce3.jpg')
+
+menu17 = Menu.create!(restaurant_id: 17,
+                    menu_items: [
+                        "Mini Rice Balls",
+                        "Sautéed Spinach",
+                        "Steamers",
+                        "Garlic Bread",
+                        "Prince Edward Mussels",
+                        "Pasta Fagioli",
+                        "Stacciatella Romana",
+                        "Caesar Salad"
+                    ],
+                    drink_items: [
+
+                    ])
+
+menu18 = Menu.create!(restaurant_id: 18,
+                    menu_items: [
+                        "Tomato & Basil",
+                        "Gorgonzola, Apple & Walnut",
+                        "Grilled Shrimp Scampi",
+                        "Seared Tuna",
+                        "Wild Mushroom",
+                        "Prosciutto Mozzarella",
+                        "Arancini",
+                        "Caesar",
+                        "Spuntino Ribeye"
+                    ],
+                    drink_items: [
+                        "Peroni Pale Lager, Lombardy, Italy, ABV 4.7%",
+                        "Ghost Hawk Brewing Rotating Special, Clifton, NJ",
+                        "Blue Moon Belgium White, Colorado, USA, ABV 5.4%",
+                        "Evil Twin Low Life Pilsner, Brooklyn, NY, ABV 5.5%",
+                        "Westbrook Gose, Mount Pleasant, SC, ABV 4%",
+                        "Chardonnay, Laguna '15",
+                        "Red Blend, Charles & Charles '13",
+                        "Malbec Blend, Norton Privada '16",
+                        "Pinot Grigio, La Vite, Veneto"
+                    ])
+
+m18p1 = open('https://table-open-seeds.s3.amazonaws.com/spuntino1.jpg')
+m18p2 = open('https://table-open-seeds.s3.amazonaws.com/spuntino2.jpg')
+m18p3 = open('https://table-open-seeds.s3.amazonaws.com/spuntino3.jpg')
+
+menu18.photos.attach(io: m18p1, filename: 'spuntino1.jpg')
+menu18.photos.attach(io: m18p2, filename: 'spuntino2.jpg')
+menu18.photos.attach(io: m18p3, filename: 'spuntino3.jpg')
+
+menu19 = Menu.create!(restaurant_id: 19,
+                    menu_items: [
+                        "Corned Beef Spring Rolls",
+                        "Bacon Cheddar Boxty",
+                        "Fried Cheese Curds",
+                        "Pulled Pork Poutine",
+                        "Shannon Rose",
+                        "Meatless Gardein",
+                        "Grilled Chicken Caesar Salad**",
+                        "Corned Beef & Cabbage",
+                        "Irish Breakfast"
+                    ],
+                    drink_items: [
+                        "Weyerbacher Blithering Idiot",
+                        "Killian Irish Red",
+                        "Dogfish Head 60 Min",
+                        "Deschutes Fresh Squeezed",
+                        "Brooklyn Bel Air",
+                        "Allagash White",
+                        "Paulner Hefe Weiss",
+                        "Pabst Blue Ribbon"
+                    ])
+
+m19p1 = open('https://table-open-seeds.s3.amazonaws.com/shanon-rose1.jpg')
+m19p2 = open('https://table-open-seeds.s3.amazonaws.com/shanon-rose2.jpg')
+m19p3 = open('https://table-open-seeds.s3.amazonaws.com/shanon-rose3.jpg')
+
+menu19.photos.attach(io: m19p1, filename: 'shanon-rose1.jpg')
+menu19.photos.attach(io: m19p2, filename: 'shanon-rose2.jpg')
+menu19.photos.attach(io: m19p3, filename: 'shanon-rose3.jpg')
+
+menu20 = Menu.create!(restaurant_id: 20,
+                    menu_items: [
+                        "Lunch Size Traditional Cheese Pizza",
+                        "Lunch Size Specialty Pizza",
+                        "Coal Oven Roasted Chicken Wings",
+                        "Eggplant Marino",
+                        "Pork Ribs with Vinegar Peppers",
+                        "Broccoli Rabe & Sausage",
+                        "Traditional Calzone",
+                        "Fresh Mozzarella, Sliced Tomato & Basil",
+                        "The Square Margherita"
+                    ],
+                    drink_items: [
+                        "Espresso",
+                        "Cappuccino"
+                    ])
+
+m20p1 = open('https://table-open-seeds.s3.amazonaws.com/anthonys1.jpg')
+
+menu20.photos.attach(io: m20p1, filename: 'anthonys1.jpg')
+
+menu21 = Menu.create!(restaurant_id: 21,
+                    menu_items: [
+
+                    ],
+                    drink_items: [
+                        
+                    ])
