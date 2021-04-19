@@ -459,9 +459,21 @@ menu1 = Menu.create!(restaurant_id: 1,
 
 menu2 = Menu.create!(restaurant_id: 2,
                     menu_items: [
-
+                        "Lentil Soup",
+                        "Fattouch",
+                        "Tabouleh",
+                        "Falafel Plate",
+                        "Hummus",
+                        "Babagannouj",
+                        "Spinach Pie"
                     ],
-                    drink_items: [])
+                    drink_items: [
+                        "Coke, Diet Coke, Sprite",
+                        "San Pellegrino Orange",
+                        "Bottle of Water",
+                        "Loomi (Citrus Drink)",
+                        "Fresh Lemonade"
+                    ])
 
 m2p1 = open('https://table-open-seeds.s3.amazonaws.com/uncle-momo1.jpg')
 m2p2 = open('https://table-open-seeds.s3.amazonaws.com/uncle-momo2.jpg')
@@ -470,3 +482,139 @@ m2p3 = open('https://table-open-seeds.s3.amazonaws.com/uncle-momo3.jpg')
 menu2.photos.attach(io: m2p1, filename: 'uncle-momo1.jpg')
 menu2.photos.attach(io: m2p2, filename: 'uncle-momo2.jpg')
 menu2.photos.attach(io: m2p3, filename: 'uncle-momo3.jpg')
+
+menu3 = Menu.create!(restaurant_id: 3,
+                    menu_items: [
+                        "Chili Shrimp",
+                        "Roasted Sweet Potato",
+                        "Wedge Salad",
+                        "Tuna Tostada",
+                        "Butternut Squash",
+                        "Maccheroni + Vodka",
+                        "Seafood Paella",
+                        "Duck Ramen"
+                    ],
+                    drink_items: [
+                        "Tom Collins",
+                        "Manhattan",
+                        "Mexican Fire Squad",
+                        "Pisco Sour",
+                        "Smokey Mirrors",
+                        "Not Your Grandmas Cider"
+                    ])
+
+m3p1 = open('https://table-open-seeds.s3.amazonaws.com/blue-steel1.jpg')
+m3p2 = open('https://table-open-seeds.s3.amazonaws.com/blue-steel2.jpg')
+m3p3 = open('https://table-open-seeds.s3.amazonaws.com/blue-steel3.jpg')
+
+menu3.photos.attach(io: m3p1, filename: 'blue-steel1.jpg')
+menu3.photos.attach(io: m3p2, filename: 'blue-steel2.jpg')
+menu3.photos.attach(io: m3p3, filename: 'blue-steel3.jpg')
+
+menu4 = Menu.create!(restaurant_id: 4,
+                    menu_items: [
+                        "East Coast Oysters",
+                        "Little Neck Clams",
+                        "Colossal Shrimp Cocktail",
+                        "Principessa Tower",
+                        "Potatoes, Sausage & Longhots",
+                        "Shrimp Arrabiatta",
+                        "Calamari Fritti",
+                        "Lobster Mac & Cheese",
+                        "Meat & Cheese Antipasto Board"
+                    ],
+                    drink_items: [
+                        "Heineken",
+                        "Michelob Ultra",
+                        "Corona",
+                        "Cucumber Ricky",
+                        "Margarita el Fuego"
+                    ])
+
+#Brix doesn't have any menu photos
+
+menu5 = Menu.create!(restaurant_id: 5,
+                    menu_items: [
+                        "PEEL ‘N EAT SHRIMP",
+                        "CRISPY CALAMARI",
+                        "GARLIC BREAD",
+                        "MOZZARELLA BRICKS",
+                        "VOODOO CHICKEN FINGERS",
+                        "NEW ENGLAND CLAM CHOWDER",
+                        "JOE’S GARDEN SALAD",
+                        "ALL-AMERICAN BURGER"
+                    ],
+                    drink_items: [
+                        "BOOZY IN BORA BORA",
+                        "WATERMELON SANGRIA",
+                        "STAGE DIVE",
+                        "CRANBERRY CRUSH",
+                        "JAMAICAN ME THIRSTY"
+                    ])
+
+m5p1 = open('https://table-open-seeds.s3.amazonaws.com/joes1.jpg')
+m5p2 = open('https://table-open-seeds.s3.amazonaws.com/joes2.jpg')
+m5p3 = open('https://table-open-seeds.s3.amazonaws.com/joes3.jpg')
+
+menu5.photos.attach(io: m5p1, filename: 'joes1.jpg')
+menu5.photos.attach(io: m5p2, filename: 'joes2.jpg')
+menu5.photos.attach(io: m5p3, filename: 'joes3.jpg')
+
+menu6 = Menu.create!(restaurant_id: 6,
+                    menu_items: [
+                        "Numero Uno",
+                        "Prima Pepperoni",
+                        "Chicago Meat Market",
+                        "Chicago Classic",
+                        "Cheese & Tomato",
+                        "Chicago Thin Crust",
+                        "BBQ Chicken",
+                        "Veggie Extravaganza"
+                    ],
+                    drink_items: [
+                        "American Lager",
+                        "Porter & Stout",
+                        "Beer 101",
+                        "American Pale Ale",
+                        "Mango Blush Sangria",
+                        "Ruby Red Sangria"
+                    ])
+
+m6p1 = open('https://table-open-seeds.s3.amazonaws.com/uno1.jpg')
+m6p2 = open('https://table-open-seeds.s3.amazonaws.com/uno2.jpg')
+m6p3 = open('https://table-open-seeds.s3.amazonaws.com/uno3.jpg')
+
+menu6.photos.attach(io: m6p1, filename: 'uno1.jpg')
+menu6.photos.attach(io: m6p2, filename: 'uno2.jpg')
+menu6.photos.attach(io: m6p3, filename: 'uno3.jpg')
+
+menu7 = Menu.create!(restaurant_id: 7,
+                    menu_items: [
+                        "Traditional Guacamole",
+                        "Jonah Crab Salad Guacamole",
+                        "Beet and Arugula Salad",
+                        "Tuna Tostadas",
+                        "Elote",
+                        "Octopus Ceviche",
+                        "Vegetarian Enchiladas"
+                    ],
+                    drink_items: [
+
+                    ])
+
+m7p1 = open('https://table-open-seeds.s3.amazonaws.com/villalobos1.jpg')
+m7p2 = open('https://table-open-seeds.s3.amazonaws.com/villalobos2.jpg')
+
+menu7.photos.attach(io: m7p1, filename: 'villalobos1.jpg')
+menu7.photos.attach(io: m7p2, filename: 'villalobos2.jpg')
+
+#Villalobos doesn't have a drink menu
+#Villalobos only has two menu photos
+
+menu8 = Menu.create!(restaurant_id: 8,
+                    menu_items: [
+
+                    ],
+                    drink_items: [
+                        
+                    ])
