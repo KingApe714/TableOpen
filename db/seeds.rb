@@ -704,3 +704,34 @@ menu11 = Menu.create!(restaurant_id: 11,
                         "Blueberry Lemonade",
                         "It's Fa Har"
                     ])
+
+#The Crosby has no photos
+
+menu12 = Menu.create!(restaurant_id: 12,
+                    menu_items: [
+                        "American",
+                        "Buckaroo",
+                        "El Matador",
+                        "Paul Bunyan",
+                        "So Cal",
+                        "Flamin' Bacon",
+                        "Buttermilk Buffalo",
+                        "Triple Decker BLT",
+                        "Santa Fe"
+                    ],
+                    drink_items: [
+                        "Organic Unsweetened Iced Teas",
+                        "Organic Lemonades",
+                        "Be My Milkshake",
+                        "Cola",
+                        "Ginger Beer (10oz)",
+                        "Black Cherry"
+                    ])
+
+m12p1 = open('https://table-open-seeds.s3.amazonaws.com/bareburger1.jpg')
+m12p2 = open('https://table-open-seeds.s3.amazonaws.com/bareburger2.jpg')
+m12p3 = open('https://table-open-seeds.s3.amazonaws.com/bareburger3.jpg')
+
+menu12.photos.attach(io: m12p1, filename: 'bareburger1.jpg')
+menu12.photos.attach(io: m12p2, filename: 'bareburger2.jpg')
+menu12.photos.attach(io: m12p3, filename: 'bareburger3.jpg')
