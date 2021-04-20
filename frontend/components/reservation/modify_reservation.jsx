@@ -21,6 +21,11 @@ class ModifyReservation extends React.Component {
                 restaurant: this.props.location.state.restaurant,
                 reservation: this.props.location.state.reservation
             })
+        } else {
+            this.setState({
+                restaurant: JSON.parse(localStorage.getItem('restaurant')),
+                reservation: JSON.parse(localStorage.getItem('reservation'))
+            })
         }
     }
 
@@ -43,6 +48,7 @@ class ModifyReservation extends React.Component {
             date,
             time
         }
+
         let reservation = handleTime(
             this.state.reservation.guest_id,
             this.state.restaurant.id,
@@ -73,9 +79,11 @@ class ModifyReservation extends React.Component {
             localStorage.setItem('reservation', JSON.stringify(reservation))
         } else {
             restaurant = JSON.parse(localStorage.getItem('restaurant'))
-
             reservation = JSON.parse(localStorage.getItem('reservation'))
         }
+
+        console.log(restaurant)
+        console.log(reservation)
 
         if (restaurant.operation_hours) {
             options = timeInterval(restaurant.operation_hours)

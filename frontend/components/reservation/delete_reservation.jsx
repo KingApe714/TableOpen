@@ -19,6 +19,11 @@ class DeleteReservation extends React.Component {
                 restaurant: this.props.location.state.restaurant,
                 reservation: this.props.location.state.reservation
             })
+        } else {
+            this.setState({
+                restaurant: JSON.parse(localStorage.getItem('restaurant')),
+                reservation: JSON.parse(localStorage.getItem('reservation'))
+            })
         }
     }
 
@@ -48,7 +53,7 @@ class DeleteReservation extends React.Component {
 
             reservation = JSON.parse(localStorage.getItem('reservation'))
         }
-        
+
         let [date, time] = reservation.reservation_date_time.split('T');
         let d = new Date(reservation.reservation_date_time).toDateString()
         time = renderTime(time)
