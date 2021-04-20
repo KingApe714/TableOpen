@@ -5,7 +5,7 @@ export const timeInterval = (hoursOfOp) => {
         let [start, end] = hoursOfOp.split(' - ');
         let [startHour, startMinute] = start.split(':');
         let [endHour, endMinute] = end.split(':');
-        if (startMinute[2] === 'p') startHour = parseInt(startHour) + 12
+        if (startMinute[2] === 'p' && startHour[0] !== '1' && startHour[1] !== '2') startHour = parseInt(startHour) + 12
         if (endMinute[2] === 'p') endHour = parseInt(endHour) + 12
         let times = [];
         for (let i = startHour; i <= endHour; i++) {

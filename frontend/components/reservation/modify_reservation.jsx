@@ -63,18 +63,27 @@ class ModifyReservation extends React.Component {
 
     render() {
         let options = null;
+        let restaurant, reservation
 
-        // console.log(`through state: ${this.state.restaurant}`)
-        // console.log(`through location: ${this.props.location.state.restaurant}`)
-        let restaurant = this.props.location.state.restaurant
-        let reservation = this.props.location.state.reservation
+        if (this.props.location.state) {
+            restaurant = this.props.location.state.restaurant
+            localStorage.setItem('restaurant', JSON.stringify(restaurant))
+
+            reservation = this.props.location.state.reservation
+            localStorage.setItem('reservation', JSON.stringify(reservation))
+        } else {
+            restaurant = JSON.parse(localStorage.getItem('restaurant'))
+
+            reservation = JSON.parse(localStorage.getItem('reservation'))
+        }
+
         if (restaurant.operation_hours) {
             options = timeInterval(restaurant.operation_hours)
         }
         let [date, time] = reservation.reservation_date_time.split('T');
         let d = new Date(reservation.reservation_date_time).toDateString()
         time = renderTime(time)
-        // let test = renderTime(reservation.reservation_date_time)
+
         return (
             <div className="edit-resi-container">
                 <div className="edit-resi-inner-container">

@@ -35,8 +35,20 @@ class DeleteReservation extends React.Component {
     }
 
     render() {
-        let restaurant = this.props.location.state.restaurant;
-        let reservation = this.props.location.state.reservation;
+        let restaurant, reservation
+
+        if (this.props.location.state) {
+            restaurant = this.props.location.state.restaurant
+            localStorage.setItem('restaurant', JSON.stringify(restaurant))
+
+            reservation = this.props.location.state.reservation
+            localStorage.setItem('reservation', JSON.stringify(reservation))
+        } else {
+            restaurant = JSON.parse(localStorage.getItem('restaurant'))
+
+            reservation = JSON.parse(localStorage.getItem('reservation'))
+        }
+        
         let [date, time] = reservation.reservation_date_time.split('T');
         let d = new Date(reservation.reservation_date_time).toDateString()
         time = renderTime(time)

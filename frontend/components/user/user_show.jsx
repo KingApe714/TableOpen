@@ -32,9 +32,8 @@ class UserShow extends React.Component {
 
     render() {
         const restaurants = this.props.restaurants;
-        if (Object.keys(restaurants).length <= 1) return null
+        if (!restaurants || Object.keys(restaurants).length < 25) return null
         if (this.props.reservations.length === 0) return null
-        // debugger
         const reservations = this.props.reservations.map(reservation => {
             let restaurant = restaurants[reservation.restaurant_id]
             let arr = reservation.reservation_date_time.split("T")
@@ -52,7 +51,7 @@ class UserShow extends React.Component {
                 pastResi = false;
                 resiTime = renderTime(time);
             }
-            // debugger
+
             return [pastResi, <div className="reservation-container"
                                     key={reservation.reservation_date_time}>
                         <Link 
@@ -97,19 +96,15 @@ class UserShow extends React.Component {
                         </div>
                     </div>]
         })
-        // debugger
 
         const past = reservations.filter(res => res[0] === true);
         const upcoming = reservations.filter(res => res[0] === false);
-        // console.log(upcoming)
         return (
             <div className="user-show-container">
                 <div className="username">
                     {this.props.currentUser.username}
                 </div>
                 <div className="past-reservations">
-                    {/* <p>{ this.state.currentDateTime }</p>
-                    <p>{ this.state.today.getTime() }</p> */}
                     <p className="past-resi-title">
                         Upcoming Reservations
                     </p>
@@ -120,7 +115,6 @@ class UserShow extends React.Component {
                         Past Reservations
                     </p>
                     {past}
-                    {/* {reservations} */}
                 </div>
             </div>
         )
