@@ -12,8 +12,6 @@ class RestaurantShow extends React.Component {
     }
 
     render() {
-        if (!this.props.restaurant) return null;
-        // debugger
         let photo0, photo1, photo2
         if (this.props.restaurant.photoUrls) {
             photo0 = this.props.restaurant.photoUrls[0];
@@ -22,8 +20,28 @@ class RestaurantShow extends React.Component {
         } else {
             return null
         }
-        console.log(this.props.restaurant.menu.menu_items)
-        // debugger
+        let menu_key = 0;
+        const menu_items = this.props.restaurant.menu.menu_items.map(menu_item => {
+            menu_key++;
+            return <div key={menu_key} className="menu-items">
+                {menu_item}
+            </div>
+        })
+        
+        let drink_container = null;
+        if (this.props.restaurant.menu.drink_items.length !== 0) {
+            let drink_key = 0;
+            const drink_items = this.props.restaurant.menu.drink_items.map(drink_item => {
+                drink_key++;
+                return <div key={drink_key} className="menu-items">
+                    {drink_item}
+                </div>
+            })
+            drink_container = <div className="rest-menu-items-container">
+                                <p className="items-title">Drink Menu</p>
+                                {drink_items}
+                            </div>
+        }
         return (
             <div>
                 <img src={this.props.restaurant.photoUrl} className="rest-background"></img>
@@ -75,11 +93,10 @@ class RestaurantShow extends React.Component {
                         </p>
                         <div className="rest-menu-inner-container">
                             <div className="rest-menu-items-container">
-                                {this.props.restaurant.menu.menu_items}
+                                <p className="items-title">Dinner Menu</p>
+                                {menu_items}
                             </div>
-                            <div className="rest-drink-items-container">
-                                {this.props.restaurant.menu.drink_items}
-                            </div>
+                            {drink_container}
                         </div>
                     </div>
                     <p className="rest-show-titles">
