@@ -14,9 +14,15 @@ class RestaurantShow extends React.Component {
     render() {
         let photo0, photo1, photo2
         if (this.props.restaurant.photoUrls) {
-            photo0 = this.props.restaurant.photoUrls[0];
-            photo1 = this.props.restaurant.photoUrls[1];
-            photo2 = this.props.restaurant.photoUrls[2];
+            photo0 = this.props.restaurant.photoUrls[0] ? 
+                <img className="menu-image" 
+                    src={this.props.restaurant.photoUrls[0]}/> : null;
+            photo1 = this.props.restaurant.photoUrls[1] ?
+                <img className="menu-image" 
+                    src={this.props.restaurant.photoUrls[1]}/> : null;
+            photo2 = this.props.restaurant.photoUrls[2] ?
+                <img className="menu-image" 
+                    src={this.props.restaurant.photoUrls[2]}/> : null;;
         } else {
             return null
         }
@@ -82,9 +88,9 @@ class RestaurantShow extends React.Component {
                             {this.props.restaurant.photoUrls.length} Photos
                         </p>
                         <div className="menu-images-container">
-                            <img className="menu-image" src={photo0}/>
-                            <img className="menu-image" src={photo1}/>
-                            <img className="menu-image" src={photo2}/>
+                            {photo0}
+                            {photo1}
+                            {photo2}
                         </div>
                     </div>
                     <div className="rest-menu-outer-container">
