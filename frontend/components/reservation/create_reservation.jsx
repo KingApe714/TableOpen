@@ -20,7 +20,6 @@ class CreateReservation extends React.Component {
             this.state
         )
         const restaurant = this.props.restaurant
-        restaurant.photoUrl = this.props.restaurant.photoUrls
         this.props.createReservation(reservation)
         .then((res) => {
             this.props.history.push({
