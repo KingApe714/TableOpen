@@ -65,6 +65,7 @@ class PolyTreeNode {
         this.value = value;
         this.parent = null;
         this.children = [];
+        this.complete = false;
     }
 
     parentEquals(node) {
@@ -132,7 +133,7 @@ class PolyTreeNode {
         let words = [];
 
         while (queueArray.length > 0) {
-            if (queueArray[0].children.length === 0) {
+            if (queueArray[0].children.length === 0 || queueArray[0].complete) {
                 words.push(this.currentWord(queueArray[0]));
             }
 
@@ -157,7 +158,9 @@ class TrieTree {
 
         this.filter.forEach(word => {
             currentNode = this.rootNode
-            word.split('').forEach(chr => {
+            //I need to know that I've reached the end of a word to turn 'complete to true'
+            for (let i = 0; i < word.length; i++) {
+                let chr = word[i];
                 let previousNode = currentNode;
                 if (currentNode.children.length > 0) {
                     for (let child of currentNode.children) {
@@ -169,10 +172,11 @@ class TrieTree {
                 }
                 if (currentNode === previousNode) {
                     let newNode = new PolyTreeNode(chr);
+                    if (i === word.length - 1) newNode.complete = true;
                     currentNode.addChild(newNode);
                     currentNode = newNode
                 }
-            })
+            }
         })
     }
 }
