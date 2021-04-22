@@ -6,7 +6,7 @@ class Search extends React.Component {
     }
 
     componentDidMount() {
-        this.props.searchRestaurants('cuban')
+        this.props.searchRestaurants('Clifton')
     }
 
     render() {
