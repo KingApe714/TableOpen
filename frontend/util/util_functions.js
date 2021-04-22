@@ -127,7 +127,8 @@ class TrieTree {
 
     //the purpose of this function is to return an array with all of the filtered words
     filteredWords(fragment) {
-
+        let arr = [];
+        
     }
 }
 
