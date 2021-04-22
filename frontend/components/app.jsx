@@ -15,6 +15,7 @@ import ViewReservationContainer from './reservation/view_reservation_container';
 import DeleteReservationContainer from './reservation/delete_reservation_container';
 import ModifyReservationContainer from './reservation/modify_reservation_container';
 import CancelConfirmContainer from './reservation/cancel_confirm_container';
+import SearchContainer from './search/search_container'
 
 const App = () => (
     <div className="app">
@@ -27,6 +28,7 @@ const App = () => (
             <Modal />
         </header>
         <Route exact path="/" component={SplashContainer}/>
+        <Route exact path="/search" component={SearchContainer}/>
         <Route exact path="/restaurants/:restaurantId" component={RestaurantShowContainer}/>
         {/* <ProtectedRoute exact path="/restaurants/:restaurantId/reserve" component={ReservationFormContainer} /> */}
         <ProtectedRoute exact path="/users/:userId" component={UserShowContainer}/>
