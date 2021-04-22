@@ -132,16 +132,11 @@ class PolyTreeNode {
         let words = [];
 
         while (queueArray.length > 0) {
-            queueArray[0].children.forEach(child => {
-                //I've reached a leaf node
-                if (child.children.length === 0) {
-                    //push the completed word to the resulting words array
-                    words.push(this.currentWord(child));
-                }
-                console.log(queueArray[0].value)
-                console.log(child.value)
-                if (queueArray[0]) queueArray = queueArray.concat(queueArray[0].children);
-            })
+            if (queueArray[0].children.length === 0) {
+                words.push(this.currentWord(queueArray[0]));
+            }
+
+            queueArray = queueArray.concat(queueArray[0].children);
             queueArray.shift();
         }
 
@@ -182,7 +177,7 @@ class TrieTree {
     }
 }
 
-let trie = new TrieTree(['abc', 'abcd', 'abcde', 'add', 'baa', 'bad', 'back'])
+let trie = new TrieTree(['abc', 'abcd', 'abcde', 'add', 'baa', 'bad', 'back', 'baq', 'baaaaaaa'])
 
 let check = trie.rootNode.children[1].children[0].children[2]
 
