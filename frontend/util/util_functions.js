@@ -59,3 +59,46 @@ export const renderTime = (time) => {
     }
     return hour + ':' + minute + ' ' + suffix
 }
+
+class PolyTreeNode {
+    constructor(value) {
+        this.value = value;
+        this.parent = null;
+        this.children = [];
+    }
+
+    parentEquals(node) {
+        if ( this.parent !== null ) {
+            let idx = this.parent.children.indexOf(this)
+            this.parent.children.splice(idx)
+        }
+
+        this.parent = node;
+
+        if (node === null) return
+
+        if (!this.children.includes(this)) {
+            node.children.push(this)
+        }
+    }
+
+    addChild(child) {
+        if (!this.children.includes(child)) {
+            this.children.push(child)
+            child.parentEquals(this)
+        }
+    }
+
+    removeChild(child) {
+        if (this.children.includes(child)) {
+            child.parentEquals(null)
+        }
+    }
+}
+
+let a = new PolyTreeNode('a')
+let a = new PolyTreeNode('b')
+let a = new PolyTreeNode('c')
+let a = new PolyTreeNode('d')
+let a = new PolyTreeNode('e')
+let a = new PolyTreeNode('f')
