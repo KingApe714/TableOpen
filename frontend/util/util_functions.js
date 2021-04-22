@@ -70,7 +70,7 @@ class PolyTreeNode {
     parentEquals(node) {
         if ( this.parent !== null ) {
             let idx = this.parent.children.indexOf(this)
-            this.parent.children.splice(idx)
+            this.parent.children.splice(idx, 1)
         }
         this.parent = node;
         if (node === null) return
@@ -90,6 +90,31 @@ class PolyTreeNode {
         if (this.children.includes(child)) {
             child.parentEquals(null)
         }
+    }
+
+    //dfs through the node that I pass to this function
+    //return the remaining tree once we've reached the end of the fragment
+    //I need a way to hold the node that I am currently at to make efficient searches
+    dfs(node, frag) {
+        // console.log(frag)
+        if (frag.length === 0) {
+            console.log('in here')
+            return node
+        }
+        node.children.forEach(child => {
+            // console.log(`child.value = ${child.value}`)
+            // console.log(`frag[0] = ${frag[0]}`)
+            if (child.value === frag[0]) {
+                frag = frag.slice(1);
+                let result = this.dfs(child, frag)
+                console.log(result)
+                if (result !== null) {
+                    return result
+                }
+            }
+        })
+
+        return null
     }
 }
 
@@ -124,17 +149,10 @@ class TrieTree {
             })
         })
     }
-
-    //the purpose of this function is to return an array with all of the filtered words
-    filteredWords(fragment) {
-        let arr = [];
-
-        return arr;
-    }
 }
 
 let trie = new TrieTree(['abc', 'abcd', 'abcde', 'add', 'baa', 'bad', 'back'])
 
-trie.rootNode.children.forEach(child => {
-    console.log(child)
-})
+let check = trie.rootNode.children[1].children[0].children[2]
+
+console.log(trie.rootNode.dfs(trie.rootNode, 'bac'))
