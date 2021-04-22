@@ -94,11 +94,8 @@ class PolyTreeNode {
 }
 
 class TrieTree {
-    rootNode() {
-        return this.rootNode
-    }
-
     constructor(filter) {
+        //rootNode will have populated in it the entire tree
         this.rootNode = new PolyTreeNode(null);
         this.filter = filter;
         this.buildTree()
@@ -126,6 +123,11 @@ class TrieTree {
                 }
             })
         })
+    }
+
+    //the purpose of this function is to return an array with all of the filtered words
+    filteredWords(fragment) {
+
     }
 }
 
