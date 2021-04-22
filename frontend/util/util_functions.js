@@ -138,10 +138,11 @@ class PolyTreeNode {
                     //push the completed word to the resulting words array
                     words.push(this.currentWord(child));
                 }
-                console.log(queueArray[0])
-                queueArray.concat(queueArray[0].children);
-                queueArray.shift();
+                console.log(queueArray[0].value)
+                console.log(child.value)
+                if (queueArray[0]) queueArray = queueArray.concat(queueArray[0].children);
             })
+            queueArray.shift();
         }
 
         return words;
