@@ -72,11 +72,8 @@ class PolyTreeNode {
             let idx = this.parent.children.indexOf(this)
             this.parent.children.splice(idx)
         }
-
         this.parent = node;
-
         if (node === null) return
-
         if (!node.children.includes(this)) {
             node.children.push(this)
         }
@@ -96,19 +93,18 @@ class PolyTreeNode {
     }
 }
 
-let a = new PolyTreeNode('a')
-let b = new PolyTreeNode('b')
-let c = new PolyTreeNode('c')
-let d = new PolyTreeNode('d')
-let e = new PolyTreeNode('e')
-let f = new PolyTreeNode('f')
+class TrieTree {
+    rootNode() {
+        return this.rootNode
+    }
 
-a.addChild(b)
-a.addChild(c)
+    constructor(filter) {
+        this.rootNode = new PolyTreeNode(null);
+        this.filter = filter;
+        this.buildTree()
+    }
 
-console.log(a)
-console.log(b)
-console.log(c)
-console.log(d)
-console.log(e)
-console.log(f)
+    buildTree() {
+        let currentNode = null;
+    }
+}
