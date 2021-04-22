@@ -106,5 +106,31 @@ class TrieTree {
 
     buildTree() {
         let currentNode = null;
+
+        this.filter.forEach(word => {
+            currentNode = this.rootNode
+            word.split('').forEach(chr => {
+                let previousNode = currentNode;
+                if (currentNode.children.length > 0) {
+                    for (let child of currentNode.children) {
+                        if (child.value === chr) {
+                            currentNode = child;
+                            break
+                        }
+                    }
+                }
+                if (currentNode === previousNode) {
+                    let newNode = new PolyTreeNode(chr);
+                    currentNode.addChild(newNode);
+                    currentNode = newNode
+                }
+            })
+        })
     }
 }
+
+let trie = new TrieTree(['abc', 'abcd', 'abcde', 'add', 'baa', 'bad', 'back'])
+
+trie.rootNode.children.forEach(child => {
+    console.log(child)
+})
