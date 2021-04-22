@@ -10,4 +10,15 @@ class Api::RestaurantsController < ApplicationController
         @restaurants = Restaurant.all
         render :index
     end
+
+    def search
+        search = params[:search]
+
+        @restaurants = Restaurant.where(
+                        'city ILIKE :search 
+                        OR name ILIKE :search',
+                        {search: "%#{search}"})
+
+        render :index
+    end
 end
