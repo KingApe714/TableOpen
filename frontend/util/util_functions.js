@@ -96,23 +96,18 @@ class PolyTreeNode {
     //return the remaining tree once we've reached the end of the fragment
     //I need a way to hold the node that I am currently at to make efficient searches
     dfs(node, frag) {
-        // console.log(frag)
         if (frag.length === 0) {
-            console.log('in here')
             return node
         }
-        node.children.forEach(child => {
-            // console.log(`child.value = ${child.value}`)
-            // console.log(`frag[0] = ${frag[0]}`)
+        for (let child of node.children) {
             if (child.value === frag[0]) {
                 frag = frag.slice(1);
                 let result = this.dfs(child, frag)
-                console.log(result)
                 if (result !== null) {
                     return result
                 }
             }
-        })
+        }
 
         return null
     }
