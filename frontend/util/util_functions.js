@@ -95,21 +95,56 @@ class PolyTreeNode {
     //dfs through the node that I pass to this function
     //return the remaining tree once we've reached the end of the fragment
     //I need a way to hold the node that I am currently at to make efficient searches
-    dfs(node, frag) {
+    dfsFrag(node, frag) {
         if (frag.length === 0) {
             return node
         }
         for (let child of node.children) {
             if (child.value === frag[0]) {
                 frag = frag.slice(1);
-                let result = this.dfs(child, frag)
+                let result = this.dfsFrag(child, frag)
                 if (result !== null) {
+                    //result is the tree that I want
+                    //it will have the nodes that I want
                     return result
                 }
             }
         }
 
         return null
+    }
+
+    currentWord(currentNode) {
+        let nodeCheck = currentNode;
+        let wordFrag = '';
+        while(nodeCheck.parent !== null) {
+            wordFrag = nodeCheck.value + wordFrag;
+            nodeCheck = nodeCheck.parent;
+        }
+
+        return wordFrag;
+    }
+
+    //I just need all of the leaf nodes to return all of the possible words from the current node
+    filterWords(node, frag) {
+        let currentNode = this.dfsFrag(node, frag);
+        let queueArray = [currentNode];
+        let words = [];
+
+        while (queueArray.length > 0) {
+            queueArray[0].children.forEach(child => {
+                //I've reached a leaf node
+                if (child.children.length === 0) {
+                    //push the completed word to the resulting words array
+                    words.push(this.currentWord(child));
+                }
+                console.log(queueArray[0])
+                queueArray.concat(queueArray[0].children);
+                queueArray.shift();
+            })
+        }
+
+        return words;
     }
 }
 
@@ -150,4 +185,8 @@ let trie = new TrieTree(['abc', 'abcd', 'abcde', 'add', 'baa', 'bad', 'back'])
 
 let check = trie.rootNode.children[1].children[0].children[2]
 
-console.log(trie.rootNode.dfs(trie.rootNode, 'bac'))
+// console.log(trie.rootNode.dfsFrag(trie.rootNode, 'bac'))
+
+let test = trie.rootNode.filterWords(trie.rootNode, 'ba')
+
+console.log(test)
