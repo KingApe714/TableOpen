@@ -181,14 +181,14 @@ class TrieTree {
     }
 }
 
-// export default TrieTree
+export default TrieTree
 
-let trie = new TrieTree(['abc', 'abcd', 'abcde', 'add', 'baa', 'bad', 'back', 'baq', 'baaaaaaa'])
+// let trie = new TrieTree(['abc', 'abcd', 'abcde', 'add', 'baa', 'bad', 'back', 'baq', 'baaaaaaa'])
 
 // let check = trie.rootNode.children[1].children[0].children[2]
 
 // console.log(trie.rootNode.dfsFrag(trie.rootNode, 'bac'))
 
-let test = trie.rootNode.filterWords(trie.rootNode, 'ab')
+// let test = trie.rootNode.filterWords(trie.rootNode, 'ab')
 
-console.log(test)
+// console.log(test)
