@@ -131,14 +131,11 @@ class PolyTreeNode {
         let currentNode = this.dfsFrag(node, frag);
         let queueArray = [currentNode];
         let words = [];
-
-        while (queueArray.length > 0) {
-            if (queueArray[0].children.length === 0 || queueArray[0].complete) {
+        let i = 0;
+        while (queueArray[0] && queueArray.length > 0) {
+            if (queueArray[0] && (queueArray[0].children.length === 0 || queueArray[0].complete)) {
                 words.push(this.currentWord(queueArray[0]));
-            } else {
-                // return ""
             }
-
             queueArray = queueArray.concat(queueArray[0].children);
             queueArray.shift();
         }
