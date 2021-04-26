@@ -27,13 +27,17 @@ class Search extends React.Component {
             trie = new TrieTree(this.props.restaurants.map(restaurant => {
                 return restaurant.name
             }))
-            // console.log(trie.rootNode.filterWords(trie.rootNode, 'S'))
-            // console.log(trie.rootNode.filterWords(trie.rootNode, 'U'))
-            // console.log(trie.rootNode.filterWords(trie.rootNode, 'Unc'))
         } else {
             return null
         }
-        const restaurantNames = trie.rootNode.filterWords(trie.rootNode, this.state.searchTerm);
+        let i = 0;
+        const restaurantNames = trie.rootNode.filterWords(trie.rootNode, this.state.searchTerm).map(name => {
+            i += 1
+            return  <div key={i}>
+                        {name}
+                        {name.id}
+                    </div>
+        });
 
 
         // console.log(this.state.searchTerm)
