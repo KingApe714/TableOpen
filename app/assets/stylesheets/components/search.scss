@@ -1,0 +1,35 @@
+.search-dropdown:hover .search-dropdown-list {
+    font-family: $montseratt;
+    line-height: 25px;
+    display: block;
+    position: relative;
+    background-color: white;
+    padding: 0px;
+    width: 400px;
+    // height: 200px;
+    border: solid $light-gray 1px;
+    border-radius: 4px;
+    // left: -200px;
+    // top: 35px;
+    position: absolute;
+}
+
+.search-dropdown-list {
+    display: none;
+}
+
+.search-dropdown {
+    position: relative;
+    width: 400px;
+}
+
+.search-list-item {
+    color: $dark-gray;
+    width: 400px;
+}
+
+.search-list-item:hover {
+    cursor: pointer;
+    background-color: $magenta;
+    color: white;
+}

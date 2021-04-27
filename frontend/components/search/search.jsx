@@ -36,17 +36,24 @@ class Search extends React.Component {
         let i = 0;
         const restaurantNames = trieNames.rootNode.filterWords(trieNames.rootNode, this.state.searchTerm).map(name => {
             i += 1;
-            return  <div key={i}>
+            return  <li key={i}
+                        className="search-list-item">
                         {name}
-                    </div>
+                    </li>
+            //below is the built in method
+            // return <option key={i} value={name}/>
         });
 
         let j = 0;
         const restaurantCities = trieCities.rootNode.filterWords(trieCities.rootNode, this.state.searchTerm).map(city => {
             j += 1;
-            return  <div key={j}>
+            //each of these guys should be a link to the search page with the searchTerm
+            //passed in as a prop through state. This way we can dispatch restaurants/search
+            //with the searchTerm. that should render on the search show page.
+            return  <li key={j}
+                        className="search-list-item">
                         {city}
-                    </div>
+                    </li>
         })
 
 
@@ -54,16 +61,28 @@ class Search extends React.Component {
         // debugger
         return (
             <div>
-                <input  type="text"
-                        value={this.state.searchTerm}
-                        onChange={this.update('searchTerm')}
-                        placeholder="Location, Restaurant, or Cuisine"/>
-                <div>
-                    {restaurantNames}
+                <div className="search-dropdown">
+                    <input  type="text"
+                            className="search-text-box"
+                            value={this.state.searchTerm}
+                            onChange={this.update('searchTerm')}
+                            placeholder="Location, Restaurant, or Cuisine"/>
+                    <ul className="search-dropdown-list">
+                        {this.state.searchTerm.length >= 1 ? 
+                            <li key={0}
+                                className="search-list-item">
+                                    Search: "{this.state.searchTerm}"
+                            </li> : <>Your recent searches</>}
+                        {this.state.searchTerm.length >= 1 ? restaurantNames : null}
+                    </ul>
                 </div>
-                <div>
+                <ul>
                     {restaurantCities}
-                </div>
+                </ul>
+                {/* <input type="text" list="data" onChange={this.update('searchTerm')} /> */}
+                {/* <datalist id="data">
+                    {restaurantNames}
+                </datalist> */}
             </div>
         )
     }

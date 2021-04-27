@@ -1,5 +1,5 @@
 .user-dropdown:hover .dropdown-list {
-    // cursor: pointer;
+    cursor: pointer;
     font-family: $montseratt;
     line-height: 25px;
     display: block;
@@ -14,15 +14,6 @@
     top: 35px;
     position: absolute;
 }
-.dropdown-list.arrow {
-    content: " ";
-    width: 2px;
-    height: 2px;
-    border-top: none;
-    border-right: 10px solid transparent;
-    border-left: 10px solid transparent;
-    border-bottom: 10px solid #ECEEEF;
-}
 
 .dropdown-list {
     display: none;
@@ -36,6 +27,16 @@
     margin-right: 35px;
     float: right;
 }
+
+// .dropdown-list.arrow {
+//     content: " ";
+//     width: 2px;
+//     height: 2px;
+//     border-top: none;
+//     border-right: 10px solid transparent;
+//     border-left: 10px solid transparent;
+//     border-bottom: 10px solid #ECEEEF;
+// }
 
 .dropdown-signout {
     border-top: solid $light-gray 1px;
@@ -70,6 +71,7 @@
 }
 
 .list-item:hover {
+    cursor: pointer;
     background-color: $light-gray;
 }
 
