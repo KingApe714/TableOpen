@@ -81,24 +81,26 @@ class Search extends React.Component {
                 Locations
             </li>
         )
-        restaurantCities = restaurantCities.concat(this.props.restaurants.filter(restaurant => {
-            // console.log(restaurant.city)
-            // console.log(searchCity)
-            return restaurant.city === searchCity
-        }).map(restaurant => {
-            // console.log(restaurant)
-            j += 1;
-            return  <li key={j}
-                        className="search-list-item">
-                        {restaurant.name}
-                        <div className="search-list-item-city">
-                            {restaurant.city}, New Jersey
-                        </div>
-                    </li>
-        }))
-        console.log(restaurantCities)
-        // console.log(this.state.searchTerm)
-        // debugger
+        if (restaurantNames.length < 2) {
+            restaurantCities.push(
+                <li key={j+=1}
+                className="list-item-title">
+                    Restaurants
+                </li>
+            )
+            restaurantCities = restaurantCities.concat(this.props.restaurants.filter(restaurant => {
+                return restaurant.city === searchCity
+            }).map(restaurant => {
+                j += 1;
+                return  <li key={j}
+                            className="search-list-item">
+                            {restaurant.name}
+                            <div className="search-list-item-city">
+                                {restaurant.city}, New Jersey
+                            </div>
+                        </li>
+            }))
+        }
         return (
             <div>
                 <div className="search-dropdown">
@@ -119,7 +121,7 @@ class Search extends React.Component {
                             </li>}
                         {this.state.searchTerm.length >= 1 && restaurantNames.length > 1 ? 
                             restaurantNames : null}
-                        {this.state.searchTerm.length >= 1 && restaurantCities.length > 1 ? 
+                        {this.state.searchTerm.length >= 1 && restaurantCities.length > 2 ? 
                             restaurantCities : null}
                     </ul>
                 </div>
