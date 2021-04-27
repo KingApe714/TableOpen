@@ -101,7 +101,7 @@ class PolyTreeNode {
             return node
         }
         for (let child of node.children) {
-            if (child.value === frag[0]) {
+            if (child.value.toLowerCase() === frag[0].toLowerCase()) {
                 frag = frag.slice(1);
                 let result = this.dfsFrag(child, frag)
                 if (result !== null) {
