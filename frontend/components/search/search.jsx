@@ -21,7 +21,6 @@ class Search extends React.Component {
     }
 
     render() {
-        console.log(this.props.restaurants)
         // debugger
         //I've now set up a Trie Tree with all of the restaurant names
         let trieNames, trieCities;
@@ -60,8 +59,10 @@ class Search extends React.Component {
         )
 
         let j = 0;
-        const restaurantCities = trieCities.rootNode.filterWords(trieCities.rootNode, this.state.searchTerm).map(city => {
+        let searchCity = null;
+        let restaurantCities = trieCities.rootNode.filterWords(trieCities.rootNode, this.state.searchTerm).map(city => {
             j += 1;
+            searchCity = city;
             //each of these guys should be a link to the search page with the searchTerm
             //passed in as a prop through state. This way we can dispatch restaurants/search
             //with the searchTerm. that should render on the search show page.
@@ -80,7 +81,22 @@ class Search extends React.Component {
                 Locations
             </li>
         )
-
+        restaurantCities = restaurantCities.concat(this.props.restaurants.filter(restaurant => {
+            // console.log(restaurant.city)
+            // console.log(searchCity)
+            return restaurant.city === searchCity
+        }).map(restaurant => {
+            // console.log(restaurant)
+            j += 1;
+            return  <li key={j}
+                        className="search-list-item">
+                        {restaurant.name}
+                        <div className="search-list-item-city">
+                            {restaurant.city}, New Jersey
+                        </div>
+                    </li>
+        }))
+        console.log(restaurantCities)
         // console.log(this.state.searchTerm)
         // debugger
         return (
