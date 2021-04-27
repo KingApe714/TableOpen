@@ -22,22 +22,32 @@ class Search extends React.Component {
 
     render() {
         //I've now set up a Trie Tree with all of the restaurant names
-        let trie;
+        let trieNames, trieCities;
         if (this.props.restaurants.length > 0) {
-            trie = new TrieTree(this.props.restaurants.map(restaurant => {
+            trieNames = new TrieTree(this.props.restaurants.map(restaurant => {
                 return restaurant.name
+            }))
+            trieCities = new TrieTree(this.props.restaurants.map(restaurant => {
+                return restaurant.city
             }))
         } else {
             return null
         }
         let i = 0;
-        const restaurantNames = trie.rootNode.filterWords(trie.rootNode, this.state.searchTerm).map(name => {
-            i += 1
+        const restaurantNames = trieNames.rootNode.filterWords(trieNames.rootNode, this.state.searchTerm).map(name => {
+            i += 1;
             return  <div key={i}>
                         {name}
-                        {name.id}
                     </div>
         });
+
+        let j = 0;
+        const restaurantCities = trieCities.rootNode.filterWords(trieCities.rootNode, this.state.searchTerm).map(city => {
+            j += 1;
+            return  <div key={j}>
+                        {city}
+                    </div>
+        })
 
 
         // console.log(this.state.searchTerm)
@@ -48,7 +58,12 @@ class Search extends React.Component {
                         value={this.state.searchTerm}
                         onChange={this.update('searchTerm')}
                         placeholder="Location, Restaurant, or Cuisine"/>
-                {restaurantNames}
+                <div>
+                    {restaurantNames}
+                </div>
+                <div>
+                    {restaurantCities}
+                </div>
             </div>
         )
     }
