@@ -21,6 +21,8 @@ class Search extends React.Component {
     }
 
     render() {
+        console.log(this.props.restaurants)
+        // debugger
         //I've now set up a Trie Tree with all of the restaurant names
         let trieNames, trieCities;
         if (this.props.restaurants.length > 0) {
@@ -36,13 +38,26 @@ class Search extends React.Component {
         let i = 0;
         const restaurantNames = trieNames.rootNode.filterWords(trieNames.rootNode, this.state.searchTerm).map(name => {
             i += 1;
+            let restCity = this.props.restaurants.find(restaurant => {
+                return restaurant.name === name;
+            }).city
             return  <li key={i}
                         className="search-list-item">
                         {name}
+                        <div className="search-list-item-city">
+                            {restCity}, New Jersey
+                        </div>
                     </li>
             //below is the built in method
             // return <option key={i} value={name}/>
         });
+
+        restaurantNames.unshift(
+            <li key={-1}
+            className="list-item-title">
+                Restaurants
+            </li>
+        )
 
         let j = 0;
         const restaurantCities = trieCities.rootNode.filterWords(trieCities.rootNode, this.state.searchTerm).map(city => {
@@ -53,9 +68,18 @@ class Search extends React.Component {
             return  <li key={j}
                         className="search-list-item">
                         {city}
+                        <div className="search-list-item-city">
+                            New Jersey - North, New York / Tri-State Area, United States
+                        </div>
                     </li>
         })
 
+        restaurantCities.unshift(
+            <li key={-1}
+                className="list-item-title">
+                Locations
+            </li>
+        )
 
         // console.log(this.state.searchTerm)
         // debugger
@@ -72,17 +96,17 @@ class Search extends React.Component {
                             <li key={0}
                                 className="search-list-item">
                                     Search: "{this.state.searchTerm}"
-                            </li> : <>Your recent searches</>}
-                        {this.state.searchTerm.length >= 1 ? restaurantNames : null}
+                            </li> 
+                            : 
+                            <li className="list-item-title">
+                                Your recent searches
+                            </li>}
+                        {this.state.searchTerm.length >= 1 && restaurantNames.length > 1 ? 
+                            restaurantNames : null}
+                        {this.state.searchTerm.length >= 1 && restaurantCities.length > 1 ? 
+                            restaurantCities : null}
                     </ul>
                 </div>
-                <ul>
-                    {restaurantCities}
-                </ul>
-                {/* <input type="text" list="data" onChange={this.update('searchTerm')} /> */}
-                {/* <datalist id="data">
-                    {restaurantNames}
-                </datalist> */}
             </div>
         )
     }
