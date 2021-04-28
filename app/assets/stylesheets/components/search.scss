@@ -36,6 +36,7 @@
 
 
 .search-text-box {
+    display: block;
     font-family: inherit;
     border-style: none;
     border-radius: 4px;
@@ -124,6 +125,7 @@
 }
 
 .search-submit {
+    cursor: pointer;
     background-color: #da3743;
     border-style: none;
     border-radius: 3px;
@@ -131,4 +133,8 @@
     width: 180px;
     font-family: inherit;
     color: white;
+}
+
+.search-submit:focus {
+    outline: none;
 }
