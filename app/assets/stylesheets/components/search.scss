@@ -34,15 +34,20 @@
     margin-right: 2vw;
 }
 
-.search-text-box:focus {
-    outline: none;
-}
 
 .search-text-box {
     font-family: inherit;
     border-style: none;
+    border-radius: 4px;
     width: inherit;
     height: 95%;
+}
+
+.search-text-box:focus {
+    outline: none;
+}
+
+.search-text-box:hover {
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
 }
