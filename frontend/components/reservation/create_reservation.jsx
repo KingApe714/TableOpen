@@ -34,10 +34,7 @@ class CreateReservation extends React.Component {
     }
 
     handleChange(type) {
-        console.log(`${type} selected`)
-        console.log(this.state)
         return e => {
-            console.log(e.target.value)
             this.setState({ [type]: e.target.value })
         }
     }

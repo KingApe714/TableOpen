@@ -30,10 +30,7 @@ class ModifyReservation extends React.Component {
     }
 
     handleChange(type) {
-        // console.log(`${type} selected`)
-        // console.log(this.state)
         return e => {
-            // console.log(e.target.value)
             this.setState({ [type]: e.target.value })
         }
     }
@@ -81,9 +78,6 @@ class ModifyReservation extends React.Component {
             restaurant = JSON.parse(localStorage.getItem('restaurant'))
             reservation = JSON.parse(localStorage.getItem('reservation'))
         }
-
-        console.log(restaurant)
-        console.log(reservation)
 
         if (restaurant.operation_hours) {
             options = timeInterval(restaurant.operation_hours)

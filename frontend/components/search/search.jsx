@@ -1,12 +1,20 @@
 import React from 'react';
-import TrieTree from '../../util/util_functions'
+import TrieTree, { timeInterval } from '../../util/util_functions'
 
 class Search extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            searchTerm: ''
+            searchTerm: '',
+            date: 0,
+            time: 0,
+            guest_count: 0
         }
+        this.handleSubmit = this.handleSubmit.bind(this)
+    }
+
+    handleSubmit(e) {
+        e.preventDefault()
     }
 
     componentDidMount() {
@@ -47,8 +55,6 @@ class Search extends React.Component {
                             {restCity}, New Jersey
                         </div>
                     </li>
-            //below is the built in method
-            // return <option key={i} value={name}/>
         });
 
         restaurantNames.unshift(
@@ -101,8 +107,34 @@ class Search extends React.Component {
                         </li>
             }))
         }
+
+        const options = timeInterval("1:00am - 11:30pm")
         return (
-            <div>
+            <form onSubmit={this.handleSubmit}
+                    className="search-container">
+                <div className="search-resi-div">
+                    <input type="date"
+                            value={this.state.date}
+                            onChange={this.update('date')}
+                            className="search-resi-dropdown"/>
+                    <select value={this.state.time}
+                            onChange={this.update('time')}
+                            className="search-resi-dropdown">
+                                {options}
+                    </select>
+                    <select value={this.state.guest_count} 
+                            onChange={this.update('guest_count')}
+                            className="search-resi-dropdown">
+                        <option value="1">1 person</option>
+                        <option value="2">2 people</option>
+                        <option value="3">3 people</option>
+                        <option value="4">4 people</option>
+                        <option value="5">5 people</option>
+                        <option value="6">6 people</option>
+                        <option value="7">7 people</option>
+                        <option value="8">8 people</option>
+                    </select>
+                </div>
                 <div className="search-dropdown">
                     <input  type="text"
                             className="search-text-box"
@@ -116,7 +148,7 @@ class Search extends React.Component {
                                     Search: "{this.state.searchTerm}"
                             </li> 
                             : 
-                            <li className="list-item-title">
+                            <li className="recent-searches">
                                 Your recent searches
                             </li>}
                         {this.state.searchTerm.length >= 1 && restaurantNames.length > 1 ? 
@@ -125,7 +157,8 @@ class Search extends React.Component {
                             restaurantCities : null}
                     </ul>
                 </div>
-            </div>
+                <button className="search-submit">Let's go</button>
+            </form>
         )
     }
 }
