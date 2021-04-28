@@ -14,11 +14,18 @@ class Search extends React.Component {
     }
 
     handleSubmit(e) {
+        debugger
         e.preventDefault()
+        this.props.searchRestaurants(this.state.searchTerm)
+            .then((restaurants) => {
+                this.props.history.push({
+                    pathname: '/search',
+                    state: this.state
+                })
+            })
     }
 
     componentDidMount() {
-        // this.props.searchRestaurants('Clifton')
         this.props.fetchRestaurants()
     }
 

@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import Search from './search';
 import { fetchRestaurants, searchRestaurants } from '../../actions/restaurant_actions';
 import { sendForm, clearForm } from '../../actions/search_actions';
@@ -15,4 +16,4 @@ const mDTP = (dispatch) => ({
     sendForm: (form) => dispatch(sendForm(form))
 })
 
-export default connect(mSTP, mDTP)(Search)
+export default withRouter(connect(mSTP, mDTP)(Search))
