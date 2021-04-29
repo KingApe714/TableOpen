@@ -57,9 +57,7 @@ class Search extends React.Component {
                         className="search-list-item"
                         to={{
                             pathname: '/search',
-                            state: {
-                                info: Object.assign({}, this.state, { keyWord: name })
-                            }
+                            state: Object.assign({}, this.state, { keyWord: name })
                         }}>
                         {name}
                         <div className="search-list-item-city">
@@ -87,9 +85,7 @@ class Search extends React.Component {
                         className="search-list-item"
                         to={{
                             pathname: '/search',
-                            state: {
-                                info: Object.assign({}, this.state, { keyWord: city })
-                            }
+                            state: Object.assign({}, this.state, { keyWord: city })
                         }}>
                         {city}
                         <div className="search-list-item-city">
@@ -119,9 +115,7 @@ class Search extends React.Component {
                             className="search-list-item"
                             to={{
                                 pathname: '/search',
-                                state: {
-                                    info: Object.assign({}, this.state, { keyWord: restaurant.name })
-                                }
+                                state: Object.assign({}, this.state, { keyWord: restaurant.name })
                             }}>
                                 {restaurant.name}
                                 <div className="search-list-item-city">
@@ -170,9 +164,7 @@ class Search extends React.Component {
                                 className="search-list-item"
                                 to={{
                                     pathname: '/search',
-                                    state: {
-                                        info: Object.assign({}, this.state)
-                                    }
+                                    state: Object.assign({}, this.state)
                                 }}>
                                     Search: "{this.state.searchTerm}"
                             </Link> 
