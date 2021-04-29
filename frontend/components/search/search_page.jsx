@@ -6,7 +6,7 @@ class SearchPage extends React.Component {
     }
 
     render() {
-        const restaurants = this.props.location.state.restaurants
+        // const restaurants = this.props.location.state.restaurants
         debugger
         return (
             <div>

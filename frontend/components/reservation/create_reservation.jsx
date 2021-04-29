@@ -5,7 +5,7 @@ class CreateReservation extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            guest_count: 0,
+            guest_count: 1,
             date: 0,
             time: 0
         }
@@ -56,7 +56,8 @@ class CreateReservation extends React.Component {
                             <p>Party Size</p>
                             <select value={this.state.guest_count} 
                                     onChange={this.handleChange('guest_count')}
-                                    className="resi-dropdown">
+                                    className="resi-dropdown"
+                                    required>
                                 <option value="1">1 person</option>
                                 <option value="2">2 people</option>
                                 <option value="3">3 people</option>

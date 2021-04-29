@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import TrieTree, { timeInterval } from '../../util/util_functions'
 
 class Search extends React.Component {
@@ -11,26 +12,14 @@ class Search extends React.Component {
             guest_count: 0
         }
         this.handleSubmit = this.handleSubmit.bind(this)
-        this.handleInput = this.handleInput.bind(this)
     }
 
     handleSubmit(e) {
-        debugger
-        const obj = this.state
         e.preventDefault()
-        this.props.searchRestaurants(this.state.searchTerm)
-            .then((res) => {
-                obj.res = Object.values(res.searchResult)
-                this.props.history.push({
-                    pathname: '/search',
-                    state: obj
-                })
-            })
-    }
-
-    handleInput(e) {
-        return this.setState({
-            searchTerm: e.target.value
+        
+        this.props.history.push({
+            pathname: '/search',
+            state: this.state
         })
     }
 
@@ -64,13 +53,21 @@ class Search extends React.Component {
             let restCity = this.props.restaurants.find(restaurant => {
                 return restaurant.name === name;
             }).city
-            return  <button key={i}
-                        className="search-list-item">
+            // let obj1 = this.state;
+            // obj1.keyWord = name;
+            return  <Link key={i}
+                        className="search-list-item"
+                        to={{
+                            pathname: '/search',
+                            state: {
+                                info: Object.assign({}, this.state, { keyWord: name })
+                            }
+                        }}>
                         {name}
                         <div className="search-list-item-city">
                             {restCity}, New Jersey
                         </div>
-                    </button>
+                    </Link>
         });
 
         restaurantNames.unshift(
@@ -85,17 +82,24 @@ class Search extends React.Component {
         let restaurantCities = trieCities.rootNode.filterWords(trieCities.rootNode, this.state.searchTerm).map(city => {
             j += 1;
             searchCity = city;
+            // let obj2 = this.state;
+            // obj2.keyWord = city
             //each of these guys should be a link to the search page with the searchTerm
             //passed in as a prop through state. This way we can dispatch restaurants/search
             //with the searchTerm. that should render on the search show page.
-            return  <button key={j}
+            return  <Link key={j}
                         className="search-list-item"
-                        value={city}>
+                        to={{
+                            pathname: '/search',
+                            state: {
+                                info: Object.assign({}, this.state, { keyWord: city })
+                            }
+                        }}>
                         {city}
                         <div className="search-list-item-city">
                             New Jersey - North, New York / Tri-State Area, United States
                         </div>
-                    </button>
+                    </Link>
         })
 
         restaurantCities.unshift(
@@ -115,15 +119,21 @@ class Search extends React.Component {
                 return restaurant.city === searchCity
             }).map(restaurant => {
                 j += 1;
-                return  <button key={j}
+                // let obj3 = this.state;
+                // obj3.keyWord = restaurant.name;
+                return  <Link key={j}
                             className="search-list-item"
-                            value={restaurant.name}
-                            onClick={e => this.handleInput(e, "value")}>
+                            to={{
+                                pathname: '/search',
+                                state: {
+                                    info: Object.assign({}, this.state, { keyWord: restaurant.name })
+                                }
+                            }}>
                                 {restaurant.name}
                                 <div className="search-list-item-city">
                                     {restaurant.city}, New Jersey
                                 </div>
-                        </button>
+                        </Link>
             }))
         }
 
@@ -162,11 +172,17 @@ class Search extends React.Component {
                             placeholder="Location, Restaurant, or Cuisine"/>
                     <div className="search-dropdown-list">
                         {this.state.searchTerm.length >= 1 ? 
-                            <button key={0}
-                                className="search-list-item">
+                            <Link key={0}
+                                className="search-list-item"
+                                to={{
+                                    pathname: '/search',
+                                    state: {
+                                        info: Object.assign({}, this.state)
+                                    }
+                                }}>
                                     Search: "{this.state.searchTerm}"
-                            </button> 
-                            : 
+                            </Link> 
+                         : 
                             <div className="recent-searches">
                                 Your recent searches
                             </div>}
