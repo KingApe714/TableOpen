@@ -5,6 +5,10 @@ class SearchPage extends React.Component {
         super(props)
     }
 
+    componentDidMount() {
+        
+    }
+
     render() {
         // const restaurants = this.props.location.state.restaurants
         debugger
