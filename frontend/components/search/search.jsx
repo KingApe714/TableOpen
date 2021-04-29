@@ -53,8 +53,6 @@ class Search extends React.Component {
             let restCity = this.props.restaurants.find(restaurant => {
                 return restaurant.name === name;
             }).city
-            // let obj1 = this.state;
-            // obj1.keyWord = name;
             return  <Link key={i}
                         className="search-list-item"
                         to={{
@@ -82,8 +80,6 @@ class Search extends React.Component {
         let restaurantCities = trieCities.rootNode.filterWords(trieCities.rootNode, this.state.searchTerm).map(city => {
             j += 1;
             searchCity = city;
-            // let obj2 = this.state;
-            // obj2.keyWord = city
             //each of these guys should be a link to the search page with the searchTerm
             //passed in as a prop through state. This way we can dispatch restaurants/search
             //with the searchTerm. that should render on the search show page.
@@ -119,8 +115,6 @@ class Search extends React.Component {
                 return restaurant.city === searchCity
             }).map(restaurant => {
                 j += 1;
-                // let obj3 = this.state;
-                // obj3.keyWord = restaurant.name;
                 return  <Link key={j}
                             className="search-list-item"
                             to={{
