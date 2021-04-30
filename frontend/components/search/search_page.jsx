@@ -19,20 +19,12 @@ class SearchPage extends React.Component {
                 info: JSON.parse(localStorage.getItem('info'))
             })
         }
-
-        if (this.props.location.state) {
-            if (this.props.location.state.keyWord) {
-                this.props.searchRestaurants(this.props.location.state.keyWord)
-            } else {
-                this.props.searchRestaurants(this.props.location.state.searchTerm)
-            }
+        
+        let info = JSON.parse(localStorage.getItem('info'))
+        if (info.keyWord) {
+            this.props.searchRestaurants(info.keyWord)
         } else {
-            let info = JSON.parse(localStorage.getItem('info'))
-            if (info.keyWord) {
-                this.props.searchRestaurants(info.keyWord)
-            } else {
-                this.props.searchRestaurants(info.searchTerm)
-            }
+            this.props.searchRestaurants(info.searchTerm)
         }
     }
 

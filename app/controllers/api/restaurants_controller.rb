@@ -19,6 +19,15 @@ class Api::RestaurantsController < ApplicationController
                         OR name ILIKE :search',
                         {search: "%#{search}"})
 
+        debugger
+
+        # if @restaurants.length == 0
+        #     Restaurant.all.each do |restaurant|
+        #         if restaurant.name.downcase.include?(search.downcase) || restaurant.city.downcase.include?(search.downcase)
+        #             @restaurants << restaurant
+        #         end
+        #     end
+        # end
         render :index
     end
 end
