@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class SearchPage extends React.Component {
     constructor(props) {
@@ -9,7 +10,6 @@ class SearchPage extends React.Component {
     }
 
     componentDidMount() {
-        
         if (this.props.location.state) {
             this.setState({
                 info: this.props.location.state
@@ -37,11 +37,29 @@ class SearchPage extends React.Component {
             info = JSON.parse(localStorage.getItem('info'));
         }
 
+        const restaurants = this.props.restaurants.map(restaurant => {
+            return <div>
+                <Link key={restaurant.id}
+                        id="restaurant-link"
+                        to={`/restaurants/${restaurant.id}`}>
+                    <img src={restaurant.photoUrl} alt=""/>
+                </Link>
+                <div>
+                    <Link key={restaurant.id}
+                            to={`/restaurants/${restaurant.id}`}>
+                        <p>{restaurant.name} - {restaurant.city}</p>
+                    </Link>
+                    <div>
+
+                    </div>
+                </div>
+            </div>
+        })
         // debugger
 
         return (
             <div>
-                Halaba!!
+                {restaurants}
             </div>
         )
     }
