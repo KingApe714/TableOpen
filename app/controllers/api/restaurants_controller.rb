@@ -23,7 +23,7 @@ class Api::RestaurantsController < ApplicationController
                     OR name ILIKE :ele',
                     {ele: "%#{ele}"})
             end
-            @restaurants.flatten
+            # @restaurants.flatten
         else
             @restaurants = Restaurant.where(
                             'city ILIKE :search 
