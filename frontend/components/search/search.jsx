@@ -37,6 +37,8 @@ class Search extends React.Component {
         // debugger
         //I've now set up a Trie Tree with all of the restaurant names
         let trieNames, trieCities;
+        const names = [];
+        const cities = [];
         if (this.props.restaurants.length > 0) {
             trieNames = new TrieTree(this.props.restaurants.map(restaurant => {
                 return restaurant.name
@@ -50,6 +52,7 @@ class Search extends React.Component {
         let i = 0;
         const restaurantNames = trieNames.rootNode.filterWords(trieNames.rootNode, this.state.searchTerm).map(name => {
             i += 1;
+            names.push(name)
             let restCity = this.props.restaurants.find(restaurant => {
                 return restaurant.name === name;
             }).city
@@ -78,6 +81,7 @@ class Search extends React.Component {
         let restaurantCities = trieCities.rootNode.filterWords(trieCities.rootNode, this.state.searchTerm).map(city => {
             j += 1;
             searchCity = city;
+            cities.push(city)
             //each of these guys should be a link to the search page with the searchTerm
             //passed in as a prop through state. This way we can dispatch restaurants/search
             //with the searchTerm. that should render on the search show page.
@@ -124,7 +128,14 @@ class Search extends React.Component {
                         </Link>
             }))
         }
-
+        let querryArray
+        console.log(`length: ${names.length}`)
+        if (names.length === 25) {
+            querryArray = names;
+        } else {
+            querryArray = names.concat(cities)
+        }
+        console.log(`querryArray: ${querryArray}`)
         const options = timeInterval("1:00am - 11:30pm")
         return (
             <form onSubmit={this.handleSubmit}
@@ -164,7 +175,7 @@ class Search extends React.Component {
                                 className="search-list-item"
                                 to={{
                                     pathname: '/search',
-                                    state: Object.assign({}, this.state)
+                                    state: Object.assign({}, this.state, { querryArray: querryArray })
                                 }}>
                                     Search: "{this.state.searchTerm}"
                             </Link> 

@@ -19,12 +19,12 @@ class SearchPage extends React.Component {
                 info: JSON.parse(localStorage.getItem('info'))
             })
         }
-        
+
         let info = JSON.parse(localStorage.getItem('info'))
         if (info.keyWord) {
             this.props.searchRestaurants(info.keyWord)
         } else {
-            this.props.searchRestaurants(info.searchTerm)
+            this.props.searchRestaurants(info.querryArray)
         }
     }
 
@@ -36,6 +36,9 @@ class SearchPage extends React.Component {
         } else {
             info = JSON.parse(localStorage.getItem('info'));
         }
+
+        // debugger
+
         return (
             <div>
                 Halaba!!

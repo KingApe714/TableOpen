@@ -13,13 +13,25 @@ class Api::RestaurantsController < ApplicationController
 
     def search
         search = params[:search]
+        # debugger
+        if search.is_a?(Array)
+            @restaurants = []
+            search.each do |ele|
+                # debugger
+                @restaurants << Restaurant.where(
+                    'city ILIKE :ele 
+                    OR name ILIKE :ele',
+                    {ele: "%#{ele}"})
+            end
+            @restaurants.flatten
+        else
+            @restaurants = Restaurant.where(
+                            'city ILIKE :search 
+                            OR name ILIKE :search',
+                            {search: "%#{search}"})
+        end
 
-        @restaurants = Restaurant.where(
-                        'city ILIKE :search 
-                        OR name ILIKE :search',
-                        {search: "%#{search}"})
-
-        debugger
+        # debugger
 
         # if @restaurants.length == 0
         #     Restaurant.all.each do |restaurant|
