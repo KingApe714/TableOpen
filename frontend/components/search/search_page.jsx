@@ -9,45 +9,41 @@ class SearchPage extends React.Component {
     }
 
     componentDidMount() {
-        // if (this.props.location.state.keyWord) {
-        //     this.props.searchRestaurants(this.props.location.state.keyWord)
-        // } else {
-        //     this.props.searchRestaurants(this.props.location.state.searchTerm)
-        // }
+        
+        if (this.props.location.state) {
+            this.setState({
+                info: this.props.location.state
+            })
+        } else {
+            this.setState({
+                info: JSON.parse(localStorage.getItem('info'))
+            })
+        }
 
-        // if (this.props.location.state) {
-            
-        // } else {
-        //     this.setState({
-        //         info: JSON.parse(localStorage.getItem('info'))
-        //     })
-        // }
-
-        // if (this.state.info) {
-        //     if (this.state.info.keyWord) {
-        //         this.props.searchRestaurants(this.state.info.keyWord)
-        //     } else {
-        //         this.props.searchRestaurants(this.state.info.searchTerm)
-        //     }
-        // }
+        if (this.props.location.state) {
+            if (this.props.location.state.keyWord) {
+                this.props.searchRestaurants(this.props.location.state.keyWord)
+            } else {
+                this.props.searchRestaurants(this.props.location.state.searchTerm)
+            }
+        } else {
+            let info = JSON.parse(localStorage.getItem('info'))
+            if (info.keyWord) {
+                this.props.searchRestaurants(info.keyWord)
+            } else {
+                this.props.searchRestaurants(info.searchTerm)
+            }
+        }
     }
 
     render() {
-        console.log(this.state)
         let info
-        // debugger
-        // if (this.props.location.state) {
-        //     info = this.props.location.state;
-        //     localStorage.setItem('info', JSON.stringify(info));
-        //     this.setState({
-        //         info: info
-        //     })
-        // } else {
-        //     info = JSON.parse(localStorage.getItem('info'));
-        //     this.setState({
-        //         info: info
-        //     })
-        // }
+        if (this.props.location.state) {
+            info = this.props.location.state;
+            localStorage.setItem('info', JSON.stringify(info));
+        } else {
+            info = JSON.parse(localStorage.getItem('info'));
+        }
         return (
             <div>
                 Halaba!!
