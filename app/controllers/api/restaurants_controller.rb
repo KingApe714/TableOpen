@@ -12,16 +12,16 @@ class Api::RestaurantsController < ApplicationController
 
     def search
         search = params[:search]
-        debugger
-        if search.is_a?(Object)
-            @restaurants = Restaurant
-                            .where(name: search["0"])
-                            .or(Restaurant.where(city: search["1"]))
-        else
+        # debugger
+        if search.is_a?(String)
             @restaurants = Restaurant.where(
                             'city ILIKE :search 
                             OR name ILIKE :search',
                             {search: "%#{search}"})
+        else
+            @restaurants = Restaurant
+                            .where(name: search["0"])
+                            .or(Restaurant.where(city: search["1"]))
         end
         render :index
     end
