@@ -138,8 +138,6 @@ class Search extends React.Component {
             }))
         }
         let querryArray = [];
-        // querryArray.push([]) //for the names array
-        // querryArray.push([]) //for the city string
         console.log(`length: ${names.length}`)
         if (names.length === 25) {
             querryArray[0] = names;

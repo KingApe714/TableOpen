@@ -18,6 +18,24 @@
     margin-top: 24px;
 }
 
+.search-title-container {
+    border-bottom: 0.5px solid lightgray;
+    padding-bottom: 30px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 70px;
+}
+
+.search-title-upper {
+    font-size: 20px;
+}
+
+.search-title-lower {
+    font-size: 12px;
+}
+
 .restaurant-search-container {
     display: flex;
     flex-direction: row;

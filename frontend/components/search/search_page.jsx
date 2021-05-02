@@ -20,7 +20,7 @@ class SearchPage extends React.Component {
                 info: JSON.parse(localStorage.getItem('info'))
             })
         }
-
+        debugger
         let info = JSON.parse(localStorage.getItem('info'))
         if (info.keyWord) {
             this.props.searchRestaurants(info.keyWord)
@@ -83,11 +83,11 @@ class SearchPage extends React.Component {
                     <SearchContainer />
                 </header>
                 <div className="search-page-inner-container">
-                    <div>
-                        <p>    
-                            You searched for "{info.searchTerm}"" in New York / Tri-State Area
+                    <div className="search-title-container">
+                        <p className="search-title-upper">    
+                            You searched for "{info.searchTerm}" in New York / Tri-State Area
                         </p>
-                        <p>
+                        <p className="search-title-lower">
                             {this.props.restaurants.length} restaurants available in New Jersey - North
                         </p>
                     </div>

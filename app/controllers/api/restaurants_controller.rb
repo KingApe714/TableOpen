@@ -12,6 +12,7 @@ class Api::RestaurantsController < ApplicationController
 
     def search
         search = params[:search]
+        debugger
         if search.is_a?(Object)
             @restaurants = Restaurant
                             .where(name: search["0"])
