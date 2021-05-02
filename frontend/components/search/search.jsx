@@ -9,7 +9,8 @@ class Search extends React.Component {
             searchTerm: '',
             date: 0,
             time: 0,
-            guest_count: 0
+            guest_count: 0,
+            querryArray: []
         }
         this.handleSubmit = this.handleSubmit.bind(this)
     }
@@ -31,6 +32,12 @@ class Search extends React.Component {
     update(field) {
         return e => this.setState({
             [field]: e.currentTarget.value
+        })
+    }
+
+    updateQuerryArray(querryArray) {
+        return this.setState({
+            querryArray: querryArray
         })
     }
 
@@ -141,7 +148,10 @@ class Search extends React.Component {
             querryArray[0] = names;
         }
         console.log(`querryArray: ${querryArray}`)
+        // this.updateQuerryArray(querryArray)
+
         const options = timeInterval("1:00am - 11:30pm")
+
         return (
             <form onSubmit={this.handleSubmit}
                     className="search-container">
