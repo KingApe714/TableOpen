@@ -16,7 +16,8 @@ class Search extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault()
-        
+        //this still needs the querry array to pass to the backend
+        //consider using state
         this.props.history.push({
             pathname: '/search',
             state: this.state
@@ -24,7 +25,7 @@ class Search extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchRestaurants()
+        // this.props.fetchRestaurants()
     }
 
     update(field) {
@@ -49,6 +50,7 @@ class Search extends React.Component {
         } else {
             return null
         }
+        
         let i = 0;
         const restaurantNames = trieNames.rootNode.filterWords(trieNames.rootNode, this.state.searchTerm).map(name => {
             i += 1;
@@ -129,8 +131,8 @@ class Search extends React.Component {
             }))
         }
         let querryArray = [];
-        querryArray.push([]) //for the names array
-        querryArray.push([]) //for the city string
+        // querryArray.push([]) //for the names array
+        // querryArray.push([]) //for the city string
         console.log(`length: ${names.length}`)
         if (names.length === 25) {
             querryArray[0] = names;
