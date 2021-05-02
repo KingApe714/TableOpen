@@ -24,6 +24,7 @@ class SearchPage extends React.Component {
         if (info.keyWord) {
             this.props.searchRestaurants(info.keyWord)
         } else {
+            debugger
             this.props.searchRestaurants(info.querryArray)
         }
     }

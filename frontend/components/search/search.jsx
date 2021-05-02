@@ -128,12 +128,15 @@ class Search extends React.Component {
                         </Link>
             }))
         }
-        let querryArray
+        let querryArray = [];
+        querryArray.push([]) //for the names array
+        querryArray.push([]) //for the city string
         console.log(`length: ${names.length}`)
         if (names.length === 25) {
-            querryArray = names;
+            querryArray[0] = names;
         } else {
-            querryArray = names.concat(cities)
+            querryArray[1] = cities;
+            querryArray[0] = names;
         }
         console.log(`querryArray: ${querryArray}`)
         const options = timeInterval("1:00am - 11:30pm")
