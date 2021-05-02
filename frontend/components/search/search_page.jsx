@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SearchContainer from './search_container';
 
 class SearchPage extends React.Component {
     constructor(props) {
@@ -24,7 +25,6 @@ class SearchPage extends React.Component {
         if (info.keyWord) {
             this.props.searchRestaurants(info.keyWord)
         } else {
-            debugger
             this.props.searchRestaurants(info.querryArray)
         }
     }
@@ -41,16 +41,16 @@ class SearchPage extends React.Component {
         const restaurants = this.props.restaurants.map(restaurant => {
             return <div>
                 <Link key={restaurant.id}
-                        id="restaurant-link"
                         to={`/restaurants/${restaurant.id}`}>
-                    <img src={restaurant.photoUrl} alt=""/>
+                    <img src={restaurant.photoUrl} className="search-page-img"/>
                 </Link>
                 <div>
-                    <Link key={restaurant.id}
+                    <Link key={restaurant.id * -1}
                             to={`/restaurants/${restaurant.id}`}>
                         <p>{restaurant.name} - {restaurant.city}</p>
                     </Link>
                     <div>
+                        {/* each one of these will be a button with the time on it 
                         <Link key={restaurant.id}
                                 to={`/restaurants/${restaurant.id}`}>
                             
@@ -70,7 +70,7 @@ class SearchPage extends React.Component {
                         <Link key={restaurant.id}
                                 to={`/restaurants/${restaurant.id}`}>
                             
-                        </Link>
+                        </Link> */}
                     </div>
                 </div>
             </div>
@@ -78,8 +78,14 @@ class SearchPage extends React.Component {
         // debugger
 
         return (
-            <div>
+            <div className="search-page-outer-container">
+                <header className="search-page-header">
+                    <SearchContainer />
+                </header>
+                <div className="search-page-inner-container">
+
                 {restaurants}
+                </div>
             </div>
         )
     }
