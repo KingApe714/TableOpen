@@ -39,17 +39,17 @@ class SearchPage extends React.Component {
         }
 
         const restaurants = this.props.restaurants.map(restaurant => {
-            return <div>
+            return <div className="restaurant-search-container">
                 <Link key={restaurant.id}
                         to={`/restaurants/${restaurant.id}`}>
                     <img src={restaurant.photoUrl} className="search-page-img"/>
                 </Link>
-                <div>
+                <div className="restaurant-search-inner-container">
                     <Link key={restaurant.id * -1}
                             to={`/restaurants/${restaurant.id}`}>
-                        <p>{restaurant.name} - {restaurant.city}</p>
+                        <p className="search-title">{restaurant.name} - {restaurant.city}</p>
                     </Link>
-                    <div>
+                    <div className="">
                         {/* each one of these will be a button with the time on it 
                         <Link key={restaurant.id}
                                 to={`/restaurants/${restaurant.id}`}>
@@ -83,8 +83,15 @@ class SearchPage extends React.Component {
                     <SearchContainer />
                 </header>
                 <div className="search-page-inner-container">
-
-                {restaurants}
+                    <div>
+                        <p>    
+                            You searched for "{info.searchTerm}"" in New York / Tri-State Area
+                        </p>
+                        <p>
+                            {this.props.restaurants.length} restaurants available in New Jersey - North
+                        </p>
+                    </div>
+                    {restaurants}
                 </div>
             </div>
         )
