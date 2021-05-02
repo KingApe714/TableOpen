@@ -50,7 +50,26 @@ class SearchPage extends React.Component {
                         <p>{restaurant.name} - {restaurant.city}</p>
                     </Link>
                     <div>
-
+                        <Link key={restaurant.id}
+                                to={`/restaurants/${restaurant.id}`}>
+                            
+                        </Link>
+                        <Link key={restaurant.id}
+                                to={`/restaurants/${restaurant.id}`}>
+                            
+                        </Link>
+                        <Link key={restaurant.id}
+                                to={`/restaurants/${restaurant.id}`}>
+                            
+                        </Link>
+                        <Link key={restaurant.id}
+                                to={`/restaurants/${restaurant.id}`}>
+                            
+                        </Link>
+                        <Link key={restaurant.id}
+                                to={`/restaurants/${restaurant.id}`}>
+                            
+                        </Link>
                     </div>
                 </div>
             </div>
