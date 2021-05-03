@@ -70,7 +70,8 @@ class Search extends React.Component {
                         to={{
                             pathname: '/search',
                             state: Object.assign({}, this.state, { keyWord: name })
-                        }}>
+                        }}
+                        replace>
                         {name}
                         <div className="search-list-item-city">
                             {restCity}, New Jersey
@@ -99,7 +100,8 @@ class Search extends React.Component {
                         to={{
                             pathname: '/search',
                             state: Object.assign({}, this.state, { keyWord: city })
-                        }}>
+                        }}
+                        replace>
                         {city}
                         <div className="search-list-item-city">
                             New Jersey - North, New York / Tri-State Area, United States
@@ -129,7 +131,8 @@ class Search extends React.Component {
                             to={{
                                 pathname: '/search',
                                 state: Object.assign({}, this.state, { keyWord: restaurant.name })
-                            }}>
+                            }}
+                            replace>
                                 {restaurant.name}
                                 <div className="search-list-item-city">
                                     {restaurant.city}, New Jersey
@@ -138,15 +141,12 @@ class Search extends React.Component {
             }))
         }
         let querryArray = [];
-        console.log(`length: ${names.length}`)
         if (names.length === 25) {
             querryArray[0] = names;
         } else {
             querryArray[1] = cities;
             querryArray[0] = names;
         }
-        console.log(`querryArray: ${querryArray}`)
-        // this.updateQuerryArray(querryArray)
 
         const options = timeInterval("1:00am - 11:30pm")
 
@@ -189,7 +189,8 @@ class Search extends React.Component {
                                 to={{
                                     pathname: '/search',
                                     state: Object.assign({}, this.state, { querryArray: querryArray })
-                                }}>
+                                }}
+                                replace>
                                     Search: "{this.state.searchTerm}"
                             </Link> 
                          : 

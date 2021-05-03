@@ -44,8 +44,8 @@ class SearchPage extends React.Component {
         let i = 0;
         let j = 100;
         const restaurants = this.props.restaurants.map(restaurant => {
-            i++;
             let buttons = timeButtons(restaurant.operation_hours, info.time ? info.time : '3:00pm').map(button => {
+                i++;
                 return  <Link key={i}
                                 to={`/restaurants/${restaurant.id}`}
                                 className='search-time-button'>
