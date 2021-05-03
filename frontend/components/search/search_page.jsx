@@ -21,12 +21,26 @@ class SearchPage extends React.Component {
                 info: JSON.parse(localStorage.getItem('info'))
             })
         }
-        // debugger
         let info = JSON.parse(localStorage.getItem('info'))
         if (info.keyWord) {
             this.props.searchRestaurants(info.keyWord)
         } else {
             this.props.searchRestaurants(info.querryArray)
+        }
+    }
+
+    componentDidUpdate(prevProps, prevState, snapShot) {
+        let info = JSON.parse(localStorage.getItem('info'))
+        if (this.state.info.searchTerm !== info.searchTerm){
+            debugger
+            this.setState({
+                info: info
+            })
+            if (info.keyWord) {
+                this.props.searchRestaurants(info.keyWord)
+            } else {
+                this.props.searchRestaurants(info.querryArray)
+            }
         }
     }
 
@@ -38,9 +52,9 @@ class SearchPage extends React.Component {
         } else {
             info = JSON.parse(localStorage.getItem('info'));
         }
+        // console.log(info)
 
         if (!this.props.restaurants.length) return null;
-
         let i = 0;
         let j = 100;
         const restaurants = this.props.restaurants.map(restaurant => {

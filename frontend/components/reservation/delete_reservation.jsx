@@ -57,8 +57,6 @@ class DeleteReservation extends React.Component {
         let [date, time] = reservation.reservation_date_time.split('T');
         let d = new Date(reservation.reservation_date_time).toDateString()
         time = renderTime(time)
-        console.log(restaurant)
-        console.log(reservation)
         return (
             <div className="delete-resi-container">
                 <div className="delete-resi-title">

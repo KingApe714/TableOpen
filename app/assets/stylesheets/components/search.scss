@@ -21,20 +21,6 @@
     position: absolute;
 }
 
-// .search-text-box:hover .search-dropdown-list {
-//     font-family: $montseratt;
-//     line-height: 25px;
-//     display: block;
-//     background-color: white;
-//     padding: 0px;
-//     width: inherit;
-//     border: solid $light-gray 1px;
-//     border-radius: 4px;
-//     border-top-left-radius: inherit;
-//     border-top-right-radius: inherit;
-//     position: absolute;
-// }
-
 .search-dropdown-list {
     display: none;
 }
@@ -43,6 +29,7 @@
     position: relative;
     height: 100%;
     margin-right: 2vw;
+    width: initial;
 }
 
 
