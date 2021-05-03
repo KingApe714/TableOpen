@@ -70,39 +70,53 @@ export const timeButtons = (operation_hours, time) => {
     if (endMinute[2] === 'p') endHour = parseInt(endHour) + 12
 
     let [checkHour, checkMinute] = time.split(':')
-    if (checkMinute[2] === 'p' && checkHour[0] !== '1' && checkHour[1] !== '2') checkHour = parseInt(checkHour) + 12
+    if (checkMinute[2] === 'p' && checkHour !== '12') checkHour = parseInt(checkHour) + 12
+    let sMinute = parseInt(startMinute.slice(0, 2))
+    let eMinute = parseInt(endMinute.slice(0, 2))
+    let cMinute = parseInt(checkMinute.slice(0, 2))
+
+    let startDate = new Date(2021, 5, 20, startHour, sMinute)
+    let endDate = new Date(2021, 5, 20, endHour, eMinute)
+    let checkDate = new Date(2021, 5, 20, checkHour, cMinute)
+    let suffix = 'AM';
+    let minutes;
+    let hours;
+    let arr = [];
     // debugger
-    //check is before start
-    if (checkHour < startHour || checkHour >= startHour + 2){
-        //return the first five possible buttons
-        let nextHour = startHour
-        if (startMinute[0] === '3') nextHour = parseInt(startHour) + 1
-        // debugger
-        return () => {
-            let buttons = []
-            startHour = parseInt(startHour)
-            console.log(`startHour = ${startHour}`)
-            for (let i = startHour; i <= startHour + 3; i ++) {
-                let h = i;
-                let suffix = 'am';
-                let option
-                if (h >= 12) suffix = 'pm';
-                if (h > 12) h -= 12;
-                if (i === startHour && startMinute[0] === '3') {
-                    option = h + ":30" + suffix
-                    buttons.push(option)
-                } else {
-                    option = h + ":00" + suffix
-                    buttons.push(option)
-                    option = h + ":30" + suffix
-                    buttons.push(option)
-                }
-            }
-            return buttons
+    if (checkDate.getHours() <= startDate.getHours() + 2) {
+        for (let i = 0; i < 5; i++) {
+            if (startDate.getHours() >= 12) suffix = 'PM'
+            minutes = startDate.getMinutes() === 0 ? '00' : '30'
+            hours = startDate.getHours() > 12 ? startDate.getHours() - 12 : startDate.getHours()
+            arr.push(`${hours}:${minutes} ${suffix}`);
+            startDate.setMinutes(startDate.getMinutes() + 30)
+        }
+    } else if (checkDate.getHours() >= endDate.getHours()) {
+        console.log(`check hour: ${checkDate.getHours()}`)
+        console.log(`end hour: ${endDate.getHours()}`)
+        for (let i = 0; i < 5; i++) {
+            if (endDate.getHours() >= 12) suffix = 'PM'
+            minutes = endDate.getMinutes() === 0 ? '00' : '30'
+            hours = endDate.getHours() > 12 ? endDate.getHours() - 12 : endDate.getHours()
+            arr.unshift(`${hours}:${minutes} ${suffix}`)
+            endDate.setMinutes(endDate.getMinutes() - 30)
+        }
+    } else {
+        checkDate.setMinutes(checkDate.getMinutes() - 90)
+        for (let i = 0; i < 5; i++) {
+            if (checkDate.getHours() >= 12) suffix = 'PM'
+            minutes = checkDate.getMinutes() === 0 ? '00' : '30'
+            hours = checkDate.getHours() > 12 ? checkDate.getHours() - 12 : checkDate.getHours()
+            arr.push(`${hours}:${minutes} ${suffix}`);
+            checkDate.setMinutes(checkDate.getMinutes() + 30)
         }
     }
-    return "nothing";
+    // console.log(arr)
+    return arr
 }
+
+// console.log(timeButtons("10:00am - 10:00pm", "2:30pm"))
+
 
 class PolyTreeNode {
     constructor(value) {
@@ -225,13 +239,3 @@ class TrieTree {
 }
 
 export default TrieTree
-
-// let trie = new TrieTree(['abc', 'abcd', 'abcde', 'add', 'baa', 'bad', 'back', 'baq', 'baaaaaaa'])
-
-// let check = trie.rootNode.children[1].children[0].children[2]
-
-// console.log(trie.rootNode.dfsFrag(trie.rootNode, 'bac'))
-
-// let test = trie.rootNode.filterWords(trie.rootNode, 'ab')
-
-// console.log(test)

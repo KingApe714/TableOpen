@@ -39,7 +39,9 @@ class SearchPage extends React.Component {
             info = JSON.parse(localStorage.getItem('info'));
         }
 
-        console.log(info.time)
+        if (!this.props.restaurants.length) return null;
+
+        console.log(this.props.restaurants)
         const restaurants = this.props.restaurants.map(restaurant => {
             let buttons = timeButtons(restaurant.operation_hours, info.time)
             return <div className="restaurant-search-container">
