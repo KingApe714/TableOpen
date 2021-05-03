@@ -60,6 +60,50 @@ export const renderTime = (time) => {
     return hour + ':' + minute + ' ' + suffix
 }
 
+//this function splits up the time variable into 5 buttons
+//the middle button is the time they selected, 2, and 2 below
+export const timeButtons = (operation_hours, time) => {
+    let [start, end] = operation_hours.split(' - ');
+    let [startHour, startMinute] = start.split(':');
+    let [endHour, endMinute] = end.split(':');
+    if (startMinute[2] === 'p' && startHour[0] !== '1' && startHour[1] !== '2') startHour = parseInt(startHour) + 12
+    if (endMinute[2] === 'p') endHour = parseInt(endHour) + 12
+
+    let [checkHour, checkMinute] = time.split(':')
+    if (checkMinute[2] === 'p' && checkHour[0] !== '1' && checkHour[1] !== '2') checkHour = parseInt(checkHour) + 12
+    // debugger
+    //check is before start
+    if (checkHour < startHour || checkHour >= startHour + 2){
+        //return the first five possible buttons
+        let nextHour = startHour
+        if (startMinute[0] === '3') nextHour = parseInt(startHour) + 1
+        // debugger
+        return () => {
+            let buttons = []
+            startHour = parseInt(startHour)
+            console.log(`startHour = ${startHour}`)
+            for (let i = startHour; i <= startHour + 3; i ++) {
+                let h = i;
+                let suffix = 'am';
+                let option
+                if (h >= 12) suffix = 'pm';
+                if (h > 12) h -= 12;
+                if (i === startHour && startMinute[0] === '3') {
+                    option = h + ":30" + suffix
+                    buttons.push(option)
+                } else {
+                    option = h + ":00" + suffix
+                    buttons.push(option)
+                    option = h + ":30" + suffix
+                    buttons.push(option)
+                }
+            }
+            return buttons
+        }
+    }
+    return "nothing";
+}
+
 class PolyTreeNode {
     constructor(value) {
         this.value = value;

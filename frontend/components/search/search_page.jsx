@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SearchContainer from './search_container';
+import { timeButtons } from '../../util/util_functions';
 
 class SearchPage extends React.Component {
     constructor(props) {
@@ -20,7 +21,7 @@ class SearchPage extends React.Component {
                 info: JSON.parse(localStorage.getItem('info'))
             })
         }
-        debugger
+        // debugger
         let info = JSON.parse(localStorage.getItem('info'))
         if (info.keyWord) {
             this.props.searchRestaurants(info.keyWord)
@@ -38,7 +39,9 @@ class SearchPage extends React.Component {
             info = JSON.parse(localStorage.getItem('info'));
         }
 
+        console.log(info.time)
         const restaurants = this.props.restaurants.map(restaurant => {
+            let buttons = timeButtons(restaurant.operation_hours, info.time)
             return <div className="restaurant-search-container">
                 <Link key={restaurant.id}
                         to={`/restaurants/${restaurant.id}`}>
@@ -50,6 +53,8 @@ class SearchPage extends React.Component {
                         <p className="search-title">{restaurant.name} - {restaurant.city}</p>
                     </Link>
                     <div className="">
+                        {restaurant.operation_hours}
+                        {buttons}
                         {/* each one of these will be a button with the time on it 
                         <Link key={restaurant.id}
                                 to={`/restaurants/${restaurant.id}`}>
@@ -85,7 +90,7 @@ class SearchPage extends React.Component {
                 <div className="search-page-inner-container">
                     <div className="search-title-container">
                         <p className="search-title-upper">    
-                            You searched for "{info.searchTerm}" in New York / Tri-State Area
+                            You searched for "{info.keyWord ? info.keyWord : info.searchTerm}" in New York / Tri-State Area
                         </p>
                         <p className="search-title-lower">
                             {this.props.restaurants.length} restaurants available in New Jersey - North
