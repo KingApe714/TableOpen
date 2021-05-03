@@ -58,3 +58,29 @@
 .search-title {
     color: $blue-green;
 }
+
+.restaurant-search-inner-container {
+    padding-top: 0.5vh;
+    padding-left: 1vw;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.search-button-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.search-time-button {
+    background-color: #da3743;
+    color: white;
+    border-radius: 4px;
+    width: 19%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}

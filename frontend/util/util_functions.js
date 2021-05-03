@@ -102,7 +102,7 @@ export const timeButtons = (operation_hours, time) => {
             endDate.setMinutes(endDate.getMinutes() - 30)
         }
     } else {
-        checkDate.setMinutes(checkDate.getMinutes() - 90)
+        checkDate.setMinutes(checkDate.getMinutes() - 60)
         for (let i = 0; i < 5; i++) {
             if (checkDate.getHours() >= 12) suffix = 'PM'
             minutes = checkDate.getMinutes() === 0 ? '00' : '30'

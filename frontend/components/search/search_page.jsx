@@ -41,43 +41,30 @@ class SearchPage extends React.Component {
 
         if (!this.props.restaurants.length) return null;
 
-        console.log(this.props.restaurants)
+        let i = 0;
+        let j = 100;
         const restaurants = this.props.restaurants.map(restaurant => {
-            let buttons = timeButtons(restaurant.operation_hours, info.time)
+            i++;
+            let buttons = timeButtons(restaurant.operation_hours, info.time ? info.time : '3:00pm').map(button => {
+                return  <Link key={i}
+                                to={`/restaurants/${restaurant.id}`}
+                                className='search-time-button'>
+                            { button }
+                        </Link>
+            })
+            j += 2;
             return <div className="restaurant-search-container">
-                <Link key={restaurant.id}
+                <Link key={j}
                         to={`/restaurants/${restaurant.id}`}>
                     <img src={restaurant.photoUrl} className="search-page-img"/>
                 </Link>
                 <div className="restaurant-search-inner-container">
-                    <Link key={restaurant.id * -1}
+                    <Link key={j+1}
                             to={`/restaurants/${restaurant.id}`}>
                         <p className="search-title">{restaurant.name} - {restaurant.city}</p>
                     </Link>
-                    <div className="">
-                        {restaurant.operation_hours}
+                    <div className="search-button-container">
                         {buttons}
-                        {/* each one of these will be a button with the time on it 
-                        <Link key={restaurant.id}
-                                to={`/restaurants/${restaurant.id}`}>
-                            
-                        </Link>
-                        <Link key={restaurant.id}
-                                to={`/restaurants/${restaurant.id}`}>
-                            
-                        </Link>
-                        <Link key={restaurant.id}
-                                to={`/restaurants/${restaurant.id}`}>
-                            
-                        </Link>
-                        <Link key={restaurant.id}
-                                to={`/restaurants/${restaurant.id}`}>
-                            
-                        </Link>
-                        <Link key={restaurant.id}
-                                to={`/restaurants/${restaurant.id}`}>
-                            
-                        </Link> */}
                     </div>
                 </div>
             </div>
