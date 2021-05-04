@@ -22,10 +22,16 @@ class SearchPage extends React.Component {
             })
         }
         let info = JSON.parse(localStorage.getItem('info'))
+        let recentSearches = JSON.parse(localStorage.getItem('recentSearches'))
         if (info.keyWord) {
+            recentSearches.push(info.keyWord)
+            localStorage.setItem('recentSearches', JSON.stringify(recentSearches))
             this.props.searchRestaurants(info.keyWord)
         } else {
+            recentSearches.push(info.searchTerm)
+            localStorage.setItem('recentSearches', JSON.stringify(recentSearches))
             this.props.searchRestaurants(info.querryArray)
+
         }
     }
 
@@ -36,9 +42,14 @@ class SearchPage extends React.Component {
             this.setState({
                 info: info
             })
+            let recentSearches = JSON.parse(localStorage.getItem('recentSearches'))
             if (info.keyWord) {
+                recentSearches.push(info.keyWord)
+                localStorage.setItem('recentSearches', JSON.stringify(recentSearches))
                 this.props.searchRestaurants(info.keyWord)
             } else {
+                recentSearches.push(info.searchTerm)
+                localStorage.setItem('recentSearches', JSON.stringify(recentSearches))
                 this.props.searchRestaurants(info.querryArray)
             }
         }
