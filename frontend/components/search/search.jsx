@@ -35,15 +35,14 @@ class Search extends React.Component {
         })
     }
 
-    updateQuerryArray(querryArray) {
-        return this.setState({
-            querryArray: querryArray
-        })
-    }
-
     render() {
-        // debugger
-        //I've now set up a Trie Tree with all of the restaurant names
+        let rs = JSON.parse(localStorage.getItem('recentSearches'));
+        const recentSearches = rs.slice(rs.length - 2).map(searchItem => {
+            
+            return  <Link
+                        className="search-list-item">
+                    </Link>
+        })
         let trieNames, trieCities;
         const names = [];
         const cities = [];
