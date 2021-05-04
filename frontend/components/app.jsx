@@ -6,7 +6,6 @@ import GreetingContainer from './greeting/greeting_containter'
 import Modal from './modal/modal_container'
 import NotFoundPage from './not_found.jsx'
 import SplashContainer from './splash_page/splash_container';
-import RestaurantIndexContainer from './restaurant/restaurant_index_container';
 import RestaurantShowContainer from './restaurant/restaurant_show_container';
 import UserShowContainer from './user/user_show_container'
 import CreateResiShowContainer from './reservation/create-resi-show-container';
@@ -14,7 +13,6 @@ import ViewReservationContainer from './reservation/view_reservation_container';
 import DeleteReservationContainer from './reservation/delete_reservation_container';
 import ModifyReservationContainer from './reservation/modify_reservation_container';
 import CancelConfirmContainer from './reservation/cancel_confirm_container';
-// import SearchContainer from './search/search_container'
 import SearchPageContainer from './search/search_page_container'
 
 const App = () => (

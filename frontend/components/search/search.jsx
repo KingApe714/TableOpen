@@ -36,13 +36,15 @@ class Search extends React.Component {
     }
 
     render() {
-        let rs = JSON.parse(localStorage.getItem('recentSearches'));
-        const recentSearches = rs.slice(rs.length - 2).map(searchItem => {
-            
-            return  <Link
-                        className="search-list-item">
-                    </Link>
-        })
+        // if (localStorage.recentSearches) {
+        //     let rs = JSON.parse(localStorage.getItem('recentSearches'));
+        //     const recentSearches = rs.slice(rs.length - 2).map(searchItem => {
+                
+        //         return  <Link
+        //                     className="search-list-item">
+        //                 </Link>
+        //     })
+        // }
         let trieNames, trieCities;
         const names = [];
         const cities = [];
@@ -64,6 +66,12 @@ class Search extends React.Component {
             let restCity = this.props.restaurants.find(restaurant => {
                 return restaurant.name === name;
             }).city
+            let searchFrag = name.substring(this.state.searchTerm.length)
+            let searchWord = <div className="search-words">
+                                <p className="search-frags">{this.state.searchTerm}</p>
+                                <p>{searchFrag}</p>
+                            </div>;
+
             return  <Link key={i}
                         className="search-list-item"
                         to={{
@@ -71,7 +79,7 @@ class Search extends React.Component {
                             state: Object.assign({}, this.state, { keyWord: name })
                         }}
                         replace>
-                        {name}
+                        {searchWord}
                         <div className="search-list-item-city">
                             {restCity}, New Jersey
                         </div>

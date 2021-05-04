@@ -5,8 +5,10 @@ import { logout } from '../../actions/session_actions';
 import Greeting from './greeting';
 
 const mapStateToProps = ({ session, entities: { users } }) => {
+  debugger
+  // let currentUser = Object.values(session).length > 1 ? Object.values(session)[0] : null;
   return {
-    currentUser: Object.values(session)[0]
+    currentUser: session.currentUser
   };
 };
 

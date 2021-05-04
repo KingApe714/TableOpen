@@ -76,6 +76,15 @@
     border-bottom-right-radius: inherit;
 }
 
+.search-words {
+    display: flex;
+    flex-direction: row;
+}
+
+.search-frags {
+    color: black;
+}
+
 .recent-searches {
     font-size: medium;
     color: $dark-gray;

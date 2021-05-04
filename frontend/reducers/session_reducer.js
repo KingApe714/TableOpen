@@ -9,12 +9,15 @@ import {
   
   const sessionReducer = (state = _nullUser, action) => {
     Object.freeze(state);
+    const newState = Object.assign({}, state);
     switch(action.type) {
       case RECEIVE_CURRENT_USER:
-        // return { id: action.currentUser.id };
-        return { [action.currentUser.id]: action.currentUser }
+        newState.currentUser = action.currentUser
+        // { [action.currentUser.id]: action.currentUser }
+        return newState
       case LOGOUT_CURRENT_USER:
-        return _nullUser;
+        newState.currentUser = null
+        return newState;
       default:
         return state;
     }
