@@ -5,8 +5,6 @@ import { logout } from '../../actions/session_actions';
 import Greeting from './greeting';
 
 const mapStateToProps = ({ session, entities: { users } }) => {
-  debugger
-  // let currentUser = Object.values(session).length > 1 ? Object.values(session)[0] : null;
   return {
     currentUser: session.currentUser
   };

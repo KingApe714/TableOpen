@@ -6,7 +6,9 @@ import { sendForm, clearForm } from '../../actions/search_actions';
 
 const mSTP = (state) => {
     return {
-        restaurants: Object.values(state.session.searchInfo)
+        // restaurants: Object.values(state.session.search)
+        restaurants: Object.values(state.session.search.searchInfo),
+        trieTrees: state.session.search.trieTrees
     }
 }
 

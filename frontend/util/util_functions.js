@@ -207,10 +207,11 @@ class TrieTree {
         //rootNode will have populated in it the entire tree
         this.rootNode = new PolyTreeNode(null);
         this.filter = filter;
-        this.buildTree()
+        this.buildTree();
     }
 
     buildTree() {
+        // debugger
         let currentNode = null;
 
         this.filter.forEach(word => {

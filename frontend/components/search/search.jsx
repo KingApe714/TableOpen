@@ -10,6 +10,8 @@ class Search extends React.Component {
             date: 0,
             time: 0,
             guest_count: 0,
+            trieNames: null,
+            trieCities: null,
             querryArray: []
         }
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -26,7 +28,14 @@ class Search extends React.Component {
     }
 
     componentDidMount() {
-        // this.props.fetchRestaurants()
+        // let trieNames = this.props.trieTrees.names;
+        // let trieCities = this.props.trieTrees.cities;
+        // trieNames.buildTree()
+        // trieCities.buildTree()
+        // this.setState({
+        //     trieNames: trieNames,
+        //     trieCities: trieCities
+        // })
     }
 
     update(field) {
@@ -45,20 +54,10 @@ class Search extends React.Component {
         //                 </Link>
         //     })
         // }
-        let trieNames, trieCities;
+        const trieNames = this.props.trieTrees.names; 
+        const trieCities = this.props.trieTrees.cities;
         const names = [];
         const cities = [];
-        if (this.props.restaurants.length > 0) {
-            trieNames = new TrieTree(this.props.restaurants.map(restaurant => {
-                return restaurant.name
-            }))
-            trieCities = new TrieTree(this.props.restaurants.map(restaurant => {
-                return restaurant.city
-            }))
-        } else {
-            return null
-        }
-        
         let i = 0;
         const restaurantNames = trieNames.rootNode.filterWords(trieNames.rootNode, this.state.searchTerm).map(name => {
             i += 1;
