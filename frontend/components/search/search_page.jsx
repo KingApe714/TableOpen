@@ -56,19 +56,23 @@ class SearchPage extends React.Component {
     }
 
     render() {
+        if (!this.props.restaurants.length) return null;
+        let restaurants = this.props.location.state.searchResult ? 
+                        Object.values(this.props.location.state.searchResult) 
+                        : this.props.restaurants;
         let info
+        debugger
         if (this.props.location.state) {
             info = this.props.location.state;
             localStorage.setItem('info', JSON.stringify(info));
         } else {
             info = JSON.parse(localStorage.getItem('info'));
         }
-        // console.log(info)
+        console.log(info)
 
-        if (!this.props.restaurants.length) return null;
         let i = 0;
         let j = 100;
-        const restaurants = this.props.restaurants.map(restaurant => {
+        restaurants = restaurants.map(restaurant => {
             let buttons = timeButtons(restaurant.operation_hours, info.time ? info.time : '3:00pm').map(button => {
                 i++;
                 return  <Link key={i}

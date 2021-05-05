@@ -17,12 +17,14 @@ class Search extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault()
-        debugger
         //this still needs the querry array to pass to the backend
         //consider using state
-        this.props.history.push({
-            pathname: '/search',
-            state: this.state
+        this.props.searchRestaurants(this.state.querryArray).then(res => {
+            debugger
+            this.props.history.push({
+                pathname: '/search',
+                state: Object.assign({}, this.state, { searchResult: res.searchResult })
+            })
         })
     }
 
