@@ -10,17 +10,18 @@ class Search extends React.Component {
             date: 0,
             time: 0,
             guest_count: 0,
-            querryArray: []
+            querryArray: [],
+            keyWord: null
         }
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     handleSubmit(e) {
         e.preventDefault()
-        //this still needs the querry array to pass to the backend
-        //consider using state
-        this.props.searchRestaurants(this.state.querryArray).then(res => {
-            debugger
+        debugger
+        let querryItem = this.state.keyWord ? this.state.keyWord : this.state.querryArray
+        this.props.searchRestaurants(querryItem).then(res => {
+            console.log(res)
             this.props.history.push({
                 pathname: '/search',
                 state: Object.assign({}, this.state, { searchResult: res.searchResult })
@@ -28,10 +29,16 @@ class Search extends React.Component {
         })
     }
 
+    // handleInput(e) {
+    //     console.log(e.currentTarget.value)
+    //     this.state.key
+    // }
+
     componentDidMount() {
     }
 
     update(field) {
+        // debugger
         return e => this.setState({
             [field]: e.currentTarget.value
         })
@@ -64,18 +71,29 @@ class Search extends React.Component {
                                 <p>{searchFrag}</p>
                             </div>;
 
-            return  <Link key={i}
+            // return  <Link key={i}
+            //             className="search-list-item"
+            //             to={{
+            //                 pathname: '/search',
+            //                 state: Object.assign({}, this.state, { keyWord: name })
+            //             }}
+            //             replace>
+            //             {searchWord}
+            //             <div className="search-list-item-city">
+            //                 {restCity}, New Jersey
+            //             </div>
+            //         </Link>
+
+            return  <button key={i}
                         className="search-list-item"
-                        to={{
-                            pathname: '/search',
-                            state: Object.assign({}, this.state, { keyWord: name })
-                        }}
-                        replace>
+                        value={name}
+                        onClick={this.update('keyWord')}
+                        replace="true">
                         {searchWord}
                         <div className="search-list-item-city">
                             {restCity}, New Jersey
                         </div>
-                    </Link>
+                    </button>
         });
 
         restaurantNames.unshift(

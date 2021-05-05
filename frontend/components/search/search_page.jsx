@@ -12,54 +12,55 @@ class SearchPage extends React.Component {
     }
 
     componentDidMount() {
-        if (this.props.location.state) {
-            this.setState({
-                info: this.props.location.state
-            })
-        } else {
-            this.setState({
-                info: JSON.parse(localStorage.getItem('info'))
-            })
-        }
-        let info = JSON.parse(localStorage.getItem('info'))
-        let recentSearches = JSON.parse(localStorage.getItem('recentSearches'))
-        if (info.keyWord) {
-            recentSearches.push(info.keyWord)
-            localStorage.setItem('recentSearches', JSON.stringify(recentSearches))
-            this.props.searchRestaurants(info.keyWord)
-        } else {
-            recentSearches.push(info.searchTerm)
-            localStorage.setItem('recentSearches', JSON.stringify(recentSearches))
-            this.props.searchRestaurants(info.querryArray)
-
-        }
+        // if (this.props.location.state) {
+        //     this.setState({
+        //         info: this.props.location.state
+        //     })
+        // } else {
+        //     this.setState({
+        //         info: JSON.parse(localStorage.getItem('info'))
+        //     })
+        // }
+        // let info = JSON.parse(localStorage.getItem('info'))
+        // let recentSearches = JSON.parse(localStorage.getItem('recentSearches'))
+        // if (info.keyWord) {
+        //     recentSearches.push(info.keyWord)
+        //     localStorage.setItem('recentSearches', JSON.stringify(recentSearches))
+        //     // this.props.searchRestaurants(info.keyWord)
+        // } else {
+        //     recentSearches.push(info.searchTerm)
+        //     localStorage.setItem('recentSearches', JSON.stringify(recentSearches))
+        //     // this.props.searchRestaurants(info.querryArray)
+        // }
     }
 
     componentDidUpdate(prevProps, prevState, snapShot) {
-        let info = JSON.parse(localStorage.getItem('info'))
-        if (this.state.info.searchTerm !== info.searchTerm){
-            debugger
-            this.setState({
-                info: info
-            })
-            let recentSearches = JSON.parse(localStorage.getItem('recentSearches'))
-            if (info.keyWord) {
-                recentSearches.push(info.keyWord)
-                localStorage.setItem('recentSearches', JSON.stringify(recentSearches))
-                this.props.searchRestaurants(info.keyWord)
-            } else {
-                recentSearches.push(info.searchTerm)
-                localStorage.setItem('recentSearches', JSON.stringify(recentSearches))
-                this.props.searchRestaurants(info.querryArray)
-            }
-        }
+        // let info = JSON.parse(localStorage.getItem('info'))
+        // if (this.state.info.searchTerm !== info.searchTerm){
+        //     debugger
+        //     this.setState({
+        //         info: info
+        //     })
+        //     let recentSearches = JSON.parse(localStorage.getItem('recentSearches'))
+        //     if (info.keyWord) {
+        //         recentSearches.push(info.keyWord)
+        //         localStorage.setItem('recentSearches', JSON.stringify(recentSearches))
+        //         // this.props.searchRestaurants(info.keyWord)
+        //     } else {
+        //         recentSearches.push(info.searchTerm)
+        //         localStorage.setItem('recentSearches', JSON.stringify(recentSearches))
+        //         // this.props.searchRestaurants(info.querryArray)
+        //     }
+        // }
     }
 
     render() {
         if (!this.props.restaurants.length) return null;
-        let restaurants = this.props.location.state.searchResult ? 
-                        Object.values(this.props.location.state.searchResult) 
-                        : this.props.restaurants;
+        // let restaurants = this.props.location.state.searchResult ? 
+        //                 Object.values(this.props.location.state.searchResult) 
+        //                 : this.props.restaurants;
+        // let restaurants = Object.values(this.props.location.state.searchResult) 
+        let restaurants = this.props.restaurants
         let info
         debugger
         if (this.props.location.state) {
