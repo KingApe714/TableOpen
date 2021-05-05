@@ -10,8 +10,6 @@ class Search extends React.Component {
             date: 0,
             time: 0,
             guest_count: 0,
-            trieNames: null,
-            trieCities: null,
             querryArray: []
         }
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -19,6 +17,7 @@ class Search extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault()
+        debugger
         //this still needs the querry array to pass to the backend
         //consider using state
         this.props.history.push({
@@ -28,14 +27,6 @@ class Search extends React.Component {
     }
 
     componentDidMount() {
-        // let trieNames = this.props.trieTrees.names;
-        // let trieCities = this.props.trieTrees.cities;
-        // trieNames.buildTree()
-        // trieCities.buildTree()
-        // this.setState({
-        //     trieNames: trieNames,
-        //     trieCities: trieCities
-        // })
     }
 
     update(field) {
@@ -146,14 +137,13 @@ class Search extends React.Component {
                         </Link>
             }))
         }
-        let querryArray = [];
-        if (names.length === 25) {
-            querryArray[0] = names;
-        } else {
-            querryArray[1] = cities;
-            querryArray[0] = names;
-        }
 
+        if (names.length === 25) {
+            this.state.querryArray[0] = names;
+        } else {
+            this.state.querryArray[1] = cities;
+            this.state.querryArray[0] = names;
+        }
         const options = timeInterval("1:00am - 11:30pm")
 
         return (
@@ -194,7 +184,7 @@ class Search extends React.Component {
                                 className="search-list-item"
                                 to={{
                                     pathname: '/search',
-                                    state: Object.assign({}, this.state, { querryArray: querryArray })
+                                    state: Object.assign({}, this.state, { querryArray: this.state.querryArray })
                                 }}
                                 replace>
                                     Search: "{this.state.searchTerm}"
