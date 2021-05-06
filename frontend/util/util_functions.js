@@ -62,13 +62,23 @@ export const renderTime = (time) => {
 
 //I need to make this return the remainder of word fragment
 //Put searchTerm in front of the return fragment
+//searchTerm is the word the user is typing
+//word is the potential word that the user is typing
+//needs to perfectly return the word with the spaces
 export const searchFrag = (word, searchTerm) => {
     let arr = word.split(' ');
-
+    let frag = '';
+    for (let i = searchTerm.length; i < word.length; i++) {
+        frag += word[i]
+    }
+    return frag
 }
 
-//this function splits up the time variable into 5 buttons
-//the middle button is the time they selected, 2, and 2 below
+console.log(searchFrag('something', 'som'))
+console.log(searchFrag('something else', 'som'))
+
+// this function splits up the time variable into 5 buttons
+// the middle button is the time they selected, 2, and 2 below
 export const timeButtons = (operation_hours, time) => {
     let [start, end] = operation_hours.split(' - ');
     let [startHour, startMinute] = start.split(':');

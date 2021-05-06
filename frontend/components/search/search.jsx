@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import TrieTree, { timeInterval } from '../../util/util_functions'
+import { timeInterval } from '../../util/util_functions'
 
 class Search extends React.Component {
     constructor(props) {
@@ -45,15 +45,6 @@ class Search extends React.Component {
     }
 
     render() {
-        // if (localStorage.recentSearches) {
-        //     let rs = JSON.parse(localStorage.getItem('recentSearches'));
-        //     const recentSearches = rs.slice(rs.length - 2).map(searchItem => {
-                
-        //         return  <Link
-        //                     className="search-list-item">
-        //                 </Link>
-        //     })
-        // }
         const trieNames = this.props.trieTrees.names; 
         const trieCities = this.props.trieTrees.cities;
         const names = [];
@@ -65,24 +56,23 @@ class Search extends React.Component {
             let restCity = this.props.restaurants.find(restaurant => {
                 return restaurant.name === name;
             }).city
-            //searchFrag needs to be rewritten to render properly
-            // let searchFrag = name.substring(this.state.searchTerm.length)
-            let searchFrag
-            for (let i = 0; i < name; i++) {
-                let chr = name[i];
-                let sChar = this.state.searchTerm[i]
-                if (chr !== sChar) {
-                    break;
-                } else if (chr === sChar) {
-                    continue;
-                } else if (sChar === undefined) {
-                    searchFrag += chr;
-                } 
+            let searchFrag = name.substring(this.state.searchTerm.length)
+            let searchTerm = this.state.searchTerm
+            if (searchTerm.length > 0) {
+                let arr = name.split(' ').map(word => word.toLowerCase());
+                searchTerm = searchTerm.split(' ').map(word => {
+                    console.log(word)
+                    if (word === '') return
+                    return  <>
+                                {word[0].toUpperCase() + word.slice(1).toLowerCase()}
+                                {arr.includes(word.toLowerCase()) ? <>&nbsp;</> : null}
+                            </>
+                })
             }
-            let searchWord = <div className="search-words">
-                                <p className="search-frags">{this.state.searchTerm}</p>
-                                <p>{searchFrag}</p>
-                            </div>;
+            const searchWord =  <div className="search-words">
+                                    <p className="search-frags">{searchTerm}</p>
+                                    <p>{searchFrag}</p>
+                                </div>;
             return  <button key={i}
                         className="search-list-item"
                         value={name}
