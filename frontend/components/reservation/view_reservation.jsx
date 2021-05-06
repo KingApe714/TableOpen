@@ -38,7 +38,7 @@ class ViewReservation extends React.Component {
                             className="resi-view-rest-image"/>
                     </Link>
                     <div className="view-resi-detail">
-                        <p>{restaurant.name}</p>
+                        <p className="reservation-rest-title">{restaurant.name}</p>
                         <p>{d}, {time}</p>
                         <p>
                             {reservation.guest_count}

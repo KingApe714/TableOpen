@@ -40,7 +40,7 @@ export const handleTime = (currentUserId, restaurantId, state) => {
     if (minute[2] === 'p') hour = parseInt(hour) + 12;
     minute = minute[0] + minute[1];
     let time = hour + ' ' + minute;
-    console.log(hour)
+    console.log(currentUserId)
     let reservation_date_time = `${year}-${month}-${day}T${hour}:${minute}:00.000Z`
     return {
         restaurant_id: restaurantId,
@@ -58,6 +58,13 @@ export const renderTime = (time) => {
         hour -= 12
     }
     return hour + ':' + minute + ' ' + suffix
+}
+
+//I need to make this return the remainder of word fragment
+//Put searchTerm in front of the return fragment
+export const searchFrag = (word, searchTerm) => {
+    let arr = word.split(' ');
+
 }
 
 //this function splits up the time variable into 5 buttons

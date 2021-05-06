@@ -12,15 +12,16 @@ class SearchPage extends React.Component {
     }
 
     componentDidMount() {
-        // if (this.props.location.state) {
-        //     this.setState({
-        //         info: this.props.location.state
-        //     })
-        // } else {
-        //     this.setState({
-        //         info: JSON.parse(localStorage.getItem('info'))
-        //     })
-        // }
+        debugger
+        if (this.props.location.state) {
+            this.setState({
+                info: this.props.location.state
+            })
+        } else {
+            this.setState({
+                info: JSON.parse(localStorage.getItem('info'))
+            })
+        }
         // let info = JSON.parse(localStorage.getItem('info'))
         // let recentSearches = JSON.parse(localStorage.getItem('recentSearches'))
         // if (info.keyWord) {
@@ -35,41 +36,40 @@ class SearchPage extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapShot) {
-        // let info = JSON.parse(localStorage.getItem('info'))
-        // if (this.state.info.searchTerm !== info.searchTerm){
-        //     debugger
-        //     this.setState({
-        //         info: info
-        //     })
-        //     let recentSearches = JSON.parse(localStorage.getItem('recentSearches'))
-        //     if (info.keyWord) {
-        //         recentSearches.push(info.keyWord)
-        //         localStorage.setItem('recentSearches', JSON.stringify(recentSearches))
-        //         // this.props.searchRestaurants(info.keyWord)
-        //     } else {
-        //         recentSearches.push(info.searchTerm)
-        //         localStorage.setItem('recentSearches', JSON.stringify(recentSearches))
-        //         // this.props.searchRestaurants(info.querryArray)
-        //     }
-        // }
+        let info = JSON.parse(localStorage.getItem('info'))
+        // debugger
+        if (this.state.info.searchTerm !== info.searchTerm){
+            this.setState({
+                info: info
+            })
+            // let recentSearches = JSON.parse(localStorage.getItem('recentSearches'))
+            // if (info.keyWord) {
+            //     recentSearches.push(info.keyWord)
+            //     localStorage.setItem('recentSearches', JSON.stringify(recentSearches))
+            // } else {
+            //     recentSearches.push(info.searchTerm)
+            //     localStorage.setItem('recentSearches', JSON.stringify(recentSearches))
+            // }
+        }
     }
 
     render() {
-        if (!this.props.restaurants.length) return null;
-        // let restaurants = this.props.location.state.searchResult ? 
-        //                 Object.values(this.props.location.state.searchResult) 
-        //                 : this.props.restaurants;
-        // let restaurants = Object.values(this.props.location.state.searchResult) 
-        let restaurants = this.props.restaurants
+        let restaurants;
+        if (this.props.restaurants.length) {
+            restaurants = this.props.restaurants;
+            localStorage.setItem('restaurants', JSON.stringify(restaurants))
+        } else {
+            restaurants = JSON.parse(localStorage.getItem('restaurants'))
+        }
         let info
-        debugger
+        // debugger
         if (this.props.location.state) {
             info = this.props.location.state;
             localStorage.setItem('info', JSON.stringify(info));
         } else {
             info = JSON.parse(localStorage.getItem('info'));
         }
-        console.log(info)
+        console.log(this.props.location)
 
         let i = 0;
         let j = 100;
@@ -112,7 +112,7 @@ class SearchPage extends React.Component {
                             You searched for "{info.keyWord ? info.keyWord : info.searchTerm}" in New York / Tri-State Area
                         </p>
                         <p className="search-title-lower">
-                            {this.props.restaurants.length} restaurants available in New Jersey - North
+                            {restaurants.length} restaurants available in New Jersey - North
                         </p>
                     </div>
                     {restaurants}

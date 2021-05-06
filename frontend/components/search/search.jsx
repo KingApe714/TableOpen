@@ -18,7 +18,6 @@ class Search extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault()
-        debugger
         let querryItem 
         if (this.state.keyWord) {
             querryItem = this.state.keyWord
@@ -28,10 +27,13 @@ class Search extends React.Component {
         } else {
             querryItem = this.state.querryArray
         }
+
         this.props.searchRestaurants(querryItem).then(res => {
+            console.log(`search this.state = `)
+            console.log(this.state)
             this.props.history.push({
                 pathname: '/search',
-                state: Object.assign({}, this.state)
+                state: Object.assign({}, this.state),
             })
         })
     }
@@ -63,7 +65,20 @@ class Search extends React.Component {
             let restCity = this.props.restaurants.find(restaurant => {
                 return restaurant.name === name;
             }).city
-            let searchFrag = name.substring(this.state.searchTerm.length)
+            //searchFrag needs to be rewritten to render properly
+            // let searchFrag = name.substring(this.state.searchTerm.length)
+            let searchFrag
+            for (let i = 0; i < name; i++) {
+                let chr = name[i];
+                let sChar = this.state.searchTerm[i]
+                if (chr !== sChar) {
+                    break;
+                } else if (chr === sChar) {
+                    continue;
+                } else if (sChar === undefined) {
+                    searchFrag += chr;
+                } 
+            }
             let searchWord = <div className="search-words">
                                 <p className="search-frags">{this.state.searchTerm}</p>
                                 <p>{searchFrag}</p>

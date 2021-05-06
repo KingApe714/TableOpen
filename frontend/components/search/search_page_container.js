@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import { searchRestaurants } from '../../actions/restaurant_actions';
 import SearchPage from './search_page';
 
-const mSTP = (state) => {
+const mSTP = (state, ownProps) => {
+    debugger
     return {
         restaurants: Object.values(state.entities.restaurants)
     }

@@ -12,7 +12,7 @@
     padding: 25px;
     padding-left: 60px;
     font-size: 20px;
-    font-weight: 900;
+    font-weight: 600;
 }
 
 .view-resi-detail-container {
@@ -39,11 +39,16 @@
     margin-left: 20px;
 }
 
+.reservation-rest-title {
+    font-weight: 600;
+}
+
 .view-resi-links {
     display: flex;
     flex-direction: row;
     width: 150px;
     color: #247f9e;
+    font-weight: 400;
 }
 
 .view-resi-link {
