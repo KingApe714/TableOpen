@@ -1,4 +1,5 @@
 import React from 'react';
+import { fetchRestaurants } from './restaurant_util'
 
 export const timeInterval = (hoursOfOp) => {
     if (hoursOfOp) {
@@ -59,23 +60,6 @@ export const renderTime = (time) => {
     }
     return hour + ':' + minute + ' ' + suffix
 }
-
-//I need to make this return the remainder of word fragment
-//Put searchTerm in front of the return fragment
-//searchTerm is the word the user is typing
-//word is the potential word that the user is typing
-//needs to perfectly return the word with the spaces
-export const searchFrag = (word, searchTerm) => {
-    let arr = word.split(' ');
-    let frag = '';
-    for (let i = searchTerm.length; i < word.length; i++) {
-        frag += word[i]
-    }
-    return frag
-}
-
-console.log(searchFrag('something', 'som'))
-console.log(searchFrag('something else', 'som'))
 
 // this function splits up the time variable into 5 buttons
 // the middle button is the time they selected, 2, and 2 below
@@ -254,6 +238,27 @@ class TrieTree {
             }
         })
     }
+}
+
+export const trieTrees = () => {
+    let obj = new Object();
+    let arr = fetchRestaurants().then(function(data) { 
+        let names = [];
+        let cities = [];
+        for (let i in data) {
+            obj[i] = { name: data[i].name, city: data[i].city }
+            names.push(data[i].name);
+            cities.includes(data[i].city) ? null : cities.push(data[i].city);
+        }
+        const trieNames = new TrieTree(names)
+        const trieCities = new TrieTree(cities)
+        return [trieNames, trieCities]
+    }).then(res => {
+        console.log(res)
+        return res
+    })
+    console.log(arr instanceof Array)
+    return arr
 }
 
 export default TrieTree

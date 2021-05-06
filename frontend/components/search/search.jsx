@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { timeInterval } from '../../util/util_functions'
+import { timeInterval, trieTrees } from '../../util/util_functions'
 
 class Search extends React.Component {
     constructor(props) {
@@ -38,6 +38,26 @@ class Search extends React.Component {
         })
     }
 
+    styleSearchWord(name) {
+        let searchFrag = name.substring(this.state.searchTerm.length)
+        let searchTerm = this.state.searchTerm
+        if (searchTerm.length > 0) {
+            let arr = name.split(' ').map(word => word.toLowerCase());
+            searchTerm = searchTerm.split(' ').map(word => {
+                if (word === '') return
+                return  <>
+                            {word[0].toUpperCase() + word.slice(1).toLowerCase()}
+                            {arr.includes(word.toLowerCase()) && arr.length > 1 ? <>&nbsp;</> : null}
+                        </>
+            })
+        }
+        const searchWord =  <div className="search-words">
+                                <p className="search-frags">{searchTerm}</p>
+                                <p>{searchFrag}</p>
+                            </div>;
+        return searchWord
+    }
+
     update(field) {
         return e => this.setState({
             [field]: e.currentTarget.value
@@ -45,6 +65,8 @@ class Search extends React.Component {
     }
 
     render() {
+        console.log(trieTrees())
+        console.log(trieTrees)
         const trieNames = this.props.trieTrees.names; 
         const trieCities = this.props.trieTrees.cities;
         const names = [];
@@ -56,23 +78,7 @@ class Search extends React.Component {
             let restCity = this.props.restaurants.find(restaurant => {
                 return restaurant.name === name;
             }).city
-            let searchFrag = name.substring(this.state.searchTerm.length)
-            let searchTerm = this.state.searchTerm
-            if (searchTerm.length > 0) {
-                let arr = name.split(' ').map(word => word.toLowerCase());
-                searchTerm = searchTerm.split(' ').map(word => {
-                    console.log(word)
-                    if (word === '') return
-                    return  <>
-                                {word[0].toUpperCase() + word.slice(1).toLowerCase()}
-                                {arr.includes(word.toLowerCase()) ? <>&nbsp;</> : null}
-                            </>
-                })
-            }
-            const searchWord =  <div className="search-words">
-                                    <p className="search-frags">{searchTerm}</p>
-                                    <p>{searchFrag}</p>
-                                </div>;
+            const searchWord = this.styleSearchWord(name)
             return  <button key={i}
                         className="search-list-item"
                         value={name}
@@ -98,13 +104,13 @@ class Search extends React.Component {
             j += 1;
             searchCity = city;
             cities.push(city)
-
+            const searchWordCity = this.styleSearchWord(city)
             return  <button key={j}
                         className="search-list-item"
                         value={city}
                         onClick={this.update('keyWord')}
                         replace="true">
-                        {city}
+                        {searchWordCity}
                         <div className="search-list-item-city">
                             New Jersey - North, New York / Tri-State Area, United States
                         </div>
@@ -128,6 +134,7 @@ class Search extends React.Component {
                 return restaurant.city === searchCity
             }).map(restaurant => {
                 j += 1;
+                const searchRestaurantCity = this.styleSearchWord(restaurant.city)
                 return  <button key={j}
                             className="search-list-item"
                             value={restaurant.name}
@@ -135,7 +142,7 @@ class Search extends React.Component {
                             replace="true">
                                 {restaurant.name}
                                 <div className="search-list-item-city">
-                                    {restaurant.city}, New Jersey
+                                    {searchRestaurantCity}, New Jersey
                                 </div>
                         </button>
             }))

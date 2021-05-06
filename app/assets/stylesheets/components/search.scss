@@ -109,6 +109,8 @@
 
 .search-list-item-city {
     font-size: 13px;
+    display: flex;
+    flex-direction: row;
 }
 
 .search-resi-dropdown:nth-child(-n+2) {
