@@ -18,14 +18,29 @@ class Search extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault()
-        let querryItem 
+        let querryItem, currentSearch
         if (this.state.keyWord) {
             querryItem = this.state.keyWord
+            currentSearch = this.state.keyWord
             this.setState({
                 keyWord: null
             })
         } else {
             querryItem = this.state.querryArray
+            currentSearch = this.state.searchTerm
+        }
+
+        if (!localStorage.recentSearches) {
+            localStorage.setItem('recentSearches', JSON.stringify([currentSearch]))
+        } else {
+            let recentSearches = JSON.parse(localStorage.getItem('recentSearches'))
+            if (recentSearches.length >= 2) {
+                recentSearches.push(currentSearch)
+                recentSearches.shift();
+            } else {
+                recentSearches.push(currentSearch)
+            }
+            localStorage.setItem('recentSearches', JSON.stringify(recentSearches));
         }
 
         this.props.searchRestaurants(querryItem).then(res => {
@@ -65,8 +80,22 @@ class Search extends React.Component {
     }
 
     render() {
-        console.log(trieTrees())
-        console.log(trieTrees)
+        // console.log(trieTrees())
+        // console.log(trieTrees)
+        let recentSearches = null;
+        if (localStorage.recentSearches) {
+            recentSearches = JSON.parse(localStorage.getItem('recentSearches'))
+        }
+        let h = 0;
+        recentSearches = recentSearches ? recentSearches.map(item => {
+            h += 1;
+            return  <button key={h}
+                        className="search-list-item"
+                        value={item}
+                        onClick={this.update('keyWord')}>
+                            {item}
+                    </button>
+        }) : null
         const trieNames = this.props.trieTrees.names; 
         const trieCities = this.props.trieTrees.cities;
         const names = [];
@@ -196,9 +225,13 @@ class Search extends React.Component {
                                     Search: "{this.state.searchTerm}"
                             </button> 
                          : 
-                            <div className="recent-searches">
-                                Your recent searches
-                            </div>}
+                            <>
+                                <div className="recent-searches">
+                                    Your recent searches
+                                </div>
+                                {recentSearches}
+                            </>
+                            }
                         {this.state.searchTerm.length >= 1 && restaurantNames.length > 1 ? 
                             restaurantNames : null}
                         {this.state.searchTerm.length >= 1 && restaurantCities.length > 2 ? 

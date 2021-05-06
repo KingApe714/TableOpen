@@ -3,7 +3,7 @@ import { searchRestaurants } from '../../actions/restaurant_actions';
 import SearchPage from './search_page';
 
 const mSTP = (state, ownProps) => {
-    debugger
+    // debugger
     return {
         restaurants: Object.values(state.entities.restaurants)
     }

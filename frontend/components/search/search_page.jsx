@@ -12,7 +12,7 @@ class SearchPage extends React.Component {
     }
 
     componentDidMount() {
-        debugger
+        // debugger
         if (this.props.location.state) {
             this.setState({
                 info: this.props.location.state
