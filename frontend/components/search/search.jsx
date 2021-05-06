@@ -89,12 +89,37 @@ class Search extends React.Component {
         let h = 0;
         recentSearches = recentSearches ? recentSearches.map(item => {
             h += 1;
-            return  <button key={h}
-                        className="search-list-item"
-                        value={item}
-                        onClick={this.update('keyWord')}>
+            if (this.props.restaurantNames.includes(item)) {
+                let restCity = this.props.restaurants.find(obj => obj.name === item).city
+                return  <button key={h}
+                            className="search-list-item"
+                            value={item}
+                            onClick={this.update('keyWord')}
+                            replace="true">
                             {item}
-                    </button>
+                            <div className="search-list-item-city">
+                                {restCity}, New Jersey
+                            </div>
+                        </button>
+            } else if (this.props.restaurantCities.includes(item)) {
+                return  <button key={h}
+                            className="search-list-item"
+                            value={item}
+                            onClick={this.update('keyWord')}
+                            replace="true">
+                            {item}
+                            <div className="search-list-item-city">
+                                New Jersey - North, New York / Tri-State Area, United States
+                            </div>
+                        </button>
+            } else {
+                return  <button key={h}
+                            className="search-list-item"
+                            value={item}
+                            onClick={this.update('keyWord')}>
+                                {item}
+                        </button>
+            }
         }) : null
         const trieNames = this.props.trieTrees.names; 
         const trieCities = this.props.trieTrees.cities;

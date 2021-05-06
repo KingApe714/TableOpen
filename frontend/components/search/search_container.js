@@ -5,9 +5,11 @@ import { fetchRestaurants, searchRestaurants } from '../../actions/restaurant_ac
 import { sendForm, clearForm } from '../../actions/search_actions';
 
 const mSTP = (state) => {
+    const restaurants = Object.values(state.session.search.searchInfo)
     return {
-        // restaurants: Object.values(state.session.search)
-        restaurants: Object.values(state.session.search.searchInfo),
+        restaurants: restaurants,
+        restaurantNames: restaurants.map(res => res.name),
+        restaurantCities: restaurants.map(res => res.city),
         trieTrees: state.session.search.trieTrees
     }
 }
