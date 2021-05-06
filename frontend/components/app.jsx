@@ -14,6 +14,7 @@ import DeleteReservationContainer from './reservation/delete_reservation_contain
 import ModifyReservationContainer from './reservation/modify_reservation_container';
 import CancelConfirmContainer from './reservation/cancel_confirm_container';
 import SearchPageContainer from './search/search_page_container'
+import Footer from './footer/footer'
 
 const App = () => (
     <div className="app">
@@ -34,6 +35,9 @@ const App = () => (
         <ProtectedRoute exact path="/reservations/:reservationId/modify" component={ModifyReservationContainer} />
         <ProtectedRoute exact path="/reservations/:reservationId/delete" component={DeleteReservationContainer} />
         <ProtectedRoute exact path="/restaurants/:restaurantId/cancel-confirm" component={CancelConfirmContainer} />
+        <footer className="footer-container">
+            <Footer />
+        </footer>
     </div>
 );
 
