@@ -23,15 +23,15 @@ class SearchPage extends React.Component {
         }
     }
 
-    componentDidUpdate(prevProps, prevState, snapShot) {
-        let info = JSON.parse(localStorage.getItem('info'))
-        // debugger
-        if (this.state.info.searchTerm !== info.searchTerm){
-            this.setState({
-                info: info
-            })
-        }
-    }
+    // componentDidUpdate(prevProps, prevState, snapShot) {
+    //     let info = JSON.parse(localStorage.getItem('info'))
+    //     // debugger
+    //     if (this.state.info.searchTerm !== info.searchTerm){
+    //         this.setState({
+    //             info: info
+    //         })
+    //     }
+    // }
 
     render() {
         let restaurants;
@@ -80,7 +80,7 @@ class SearchPage extends React.Component {
             </div>
         })
         // debugger
-
+        console.log(this.props.searchTerm)
         return (
             <div className="search-page-outer-container">
                 <header className="search-page-header">
@@ -89,7 +89,7 @@ class SearchPage extends React.Component {
                 <div className="search-page-inner-container">
                     <div className="search-title-container">
                         <p className="search-title-upper">    
-                            You searched for "{info.keyWord ? info.keyWord : info.searchTerm}" in New York / Tri-State Area
+                            You searched for "{this.props.searchTerm}" in New York / Tri-State Area
                         </p>
                         <p className="search-title-lower">
                             {restaurants.length} restaurants available in New Jersey - North

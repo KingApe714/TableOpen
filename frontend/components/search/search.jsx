@@ -42,12 +42,12 @@ class Search extends React.Component {
             }
             localStorage.setItem('recentSearches', JSON.stringify(recentSearches));
         }
-
+        //pass querryItem in as a wildcard
         this.props.searchRestaurants(querryItem).then(res => {
             console.log(`search this.state = `)
             console.log(this.state)
             this.props.history.push({
-                pathname: '/search',
+                pathname: `/search/${currentSearch}`,
                 state: Object.assign({}, this.state),
             })
         })

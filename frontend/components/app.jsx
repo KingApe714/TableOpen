@@ -27,7 +27,7 @@ const App = () => (
             <Modal />
         </header>
         <Route exact path="/" component={SplashContainer}/>
-        <Route exact path="/search" component={SearchPageContainer}/>
+        <Route exact path="/search/:searchTerm" component={SearchPageContainer}/>
         <Route exact path="/restaurants/:restaurantId" component={RestaurantShowContainer}/>
         <ProtectedRoute exact path="/restaurants/:restaurantId/reserve" component={CreateResiShowContainer} />
         <ProtectedRoute exact path="/users/:userId" component={UserShowContainer}/>
