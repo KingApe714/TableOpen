@@ -1,4 +1,5 @@
 import React from 'react';
+import SearchContainer from '../search/search_container';
 
 class CancelConfirm extends React.Component {
     constructor(props) {
@@ -23,6 +24,10 @@ class CancelConfirm extends React.Component {
                     <p className="cancel-takeout-order">
                         Call {restaurant.phone_number} to place your order.
                     </p>
+                </div>
+                <div>
+                    <p>Make a new reservation</p>
+                    <SearchContainer container="cancel-confirm"/>
                 </div>
             </div>
         )

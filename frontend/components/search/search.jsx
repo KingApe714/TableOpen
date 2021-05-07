@@ -80,8 +80,8 @@ class Search extends React.Component {
     }
 
     render() {
-        // console.log(trieTrees())
-        // console.log(trieTrees)
+        let resiDropdown = this.props.container === "cancel-confirm" ? "cancel-resi-dropdown" : "search-resi-dropdown"
+        let resiTextbox = this.props.container === "cancel-confirm" ? "cancel-resi-textbox" : "search-text-box"
         let recentSearches = null;
         if (localStorage.recentSearches) {
             recentSearches = JSON.parse(localStorage.getItem('recentSearches'))
@@ -217,15 +217,15 @@ class Search extends React.Component {
                     <input type="date"
                             value={this.state.date}
                             onChange={this.update('date')}
-                            className="search-resi-dropdown"/>
+                            className={resiDropdown}/>
                     <select value={this.state.time}
                             onChange={this.update('time')}
-                            className="search-resi-dropdown">
+                            className={resiDropdown}>
                                 {options}
                     </select>
                     <select value={this.state.guest_count} 
                             onChange={this.update('guest_count')}
-                            className="search-resi-dropdown">
+                            className={resiDropdown}>
                         <option value="1">1 person</option>
                         <option value="2">2 people</option>
                         <option value="3">3 people</option>
@@ -238,7 +238,7 @@ class Search extends React.Component {
                 </div>
                 <div className="search-dropdown">
                     <input  type="text"
-                            className="search-text-box"
+                            className={resiTextbox}
                             value={this.state.searchTerm}
                             onChange={this.update('searchTerm')}
                             placeholder="Location, Restaurant, or Cuisine"/>
