@@ -68,15 +68,16 @@ class Search extends React.Component {
             let arr = name.split(' ').map(word => word.toLowerCase());
             searchTerm = searchTerm.split(' ').map(word => {
                 if (word === '') return
-                return  <>
+                return  <div key={word}>
                             {word[0].toUpperCase() + word.slice(1).toLowerCase()}
                             {arr.includes(word.toLowerCase()) && arr.length > 1 ? <>&nbsp;</> : null}
-                        </>
+                        </div>
             })
         }
-        const searchWord =  <div className="search-words">
-                                <p className="search-frags">{searchTerm}</p>
-                                <p>{searchFrag}</p>
+        const searchWord =  <div className="search-words"
+                                    key={searchFrag}>
+                                <div className="search-frags">{searchTerm}</div>
+                                <div>{searchFrag}</div>
                             </div>;
         return searchWord
     }
@@ -105,29 +106,31 @@ class Search extends React.Component {
             h += 1;
             if (this.props.restaurantNames.includes(item)) {
                 let restCity = this.props.restaurants.find(obj => obj.name === item).city
-                return  <button key={h}
+                return  <button key={h.toString()}
                             className="search-list-item"
                             value={item}
                             onClick={this.update('keyWord')}
                             replace="true">
                             {item}
-                            <div className="search-list-item-city">
+                            <div className="search-list-item-city"
+                                    key={++h}>
                                 {restCity}, New Jersey
                             </div>
                         </button>
             } else if (this.props.restaurantCities.includes(item)) {
-                return  <button key={h}
+                return  <button key={h.toString()}
                             className="search-list-item"
                             value={item}
                             onClick={this.update('keyWord')}
                             replace="true">
                             {item}
-                            <div className="search-list-item-city">
+                            <div className="search-list-item-city"
+                                    key={++h}>
                                 New Jersey - North, New York / Tri-State Area, United States
                             </div>
                         </button>
             } else {
-                return  <button key={h}
+                return  <button key={h.toString()}
                             className="search-list-item"
                             value={item}
                             onClick={this.update('keyWord')}>
@@ -138,7 +141,7 @@ class Search extends React.Component {
 
         const names = [];
         const cities = [];
-        let i = 0;
+        let i = 100;
         const restaurantNames = this.state.trieNames.rootNode.filterWords(this.state.trieNames.rootNode, this.state.searchTerm).map(name => {
             i += 1;
             names.push(name)
@@ -146,54 +149,59 @@ class Search extends React.Component {
                 return restaurant.name === name;
             }).city
             const searchWord = this.styleSearchWord(name)
-            return  <button key={i}
+            return  <button key={i.toString()}
                         className="search-list-item"
                         value={name}
                         onClick={this.update('keyWord')}
                         replace="true">
+                            {i}
                         {searchWord}
-                        <div className="search-list-item-city">
+                        <div className="search-list-item-city"
+                                key={++i}>
                             {restCity}, New Jersey
                         </div>
                     </button>
         });
 
         restaurantNames.unshift(
-            <div key={-1}
-            className="list-item-title">
+            <div key={'-100'}
+                className="list-item-title">
                 Restaurants
             </div>
         )
 
-        let j = 0;
+        let j = 200;
         let searchCity = null;
         let restaurantCities = this.state.trieCities.rootNode.filterWords(this.state.trieCities.rootNode, this.state.searchTerm).map(city => {
             j += 1;
             searchCity = city;
             cities.push(city)
             const searchWordCity = this.styleSearchWord(city)
-            return  <button key={j}
+            return  <button key={j.toString()}
                         className="search-list-item"
                         value={city}
                         onClick={this.update('keyWord')}
                         replace="true">
+                            {j}
                         {searchWordCity}
-                        <div className="search-list-item-city">
+                        <div className="search-list-item-city"
+                                key={++j}>
                             New Jersey - North, New York / Tri-State Area, United States
                         </div>
                     </button>
         })
 
         restaurantCities.unshift(
-            <div key={-1}
+            <div key={'-200'}
                 className="list-item-title">
                 Locations
             </div>
         )
         if (restaurantNames.length < 2) {
+            j++
             restaurantCities.push(
-                <div key={j+=1}
-                className="list-item-title">
+                <div key={j.toString()}
+                    className="list-item-title">
                     Restaurants
                 </div>
             )
@@ -202,13 +210,15 @@ class Search extends React.Component {
             }).map(restaurant => {
                 j += 1;
                 const searchRestaurantCity = this.styleSearchWord(restaurant.city)
-                return  <button key={j}
+                return  <button key={j.toString()}
                             className="search-list-item"
                             value={restaurant.name}
                             onClick={this.update('keyWord')}
                             replace="true">
+                                {j}
                                 {restaurant.name}
-                                <div className="search-list-item-city">
+                                <div className="search-list-item-city"
+                                        key={++j}>
                                     {searchRestaurantCity}, New Jersey
                                 </div>
                         </button>
@@ -257,14 +267,16 @@ class Search extends React.Component {
                             placeholder="Location, Restaurant, or Cuisine"/>
                     <div className="search-dropdown-list">
                         {this.state.searchTerm.length >= 1 ? 
-                            <button key={0}
+                            <button key={'300'}
                                 className="search-list-item"
                                 replace="true">
+                                    {300}
                                     Search: "{this.state.searchTerm}"
                             </button> 
                          : 
                             <>
-                                <div className="recent-searches">
+                                <div className="recent-searches"
+                                        key="recent-searches">
                                     Your recent searches
                                 </div>
                                 {recentSearches}

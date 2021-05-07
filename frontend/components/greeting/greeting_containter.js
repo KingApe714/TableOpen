@@ -15,6 +15,8 @@ const mapDispatchToProps = dispatch => ({
   openModal: modal => dispatch(openModal(modal))
 });
 
+// .then(() => this.props.history.push('/'))
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps

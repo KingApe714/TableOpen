@@ -18,7 +18,7 @@ const Greeting = ({ currentUser, logout, openModal }) => {
         <li className="list-item"><Link to={`/users/${currentUser.id}`}>My Profile</Link></li>
         <li className="list-item"><Link to={`/users/${currentUser.id}`}>My Dining History</Link></li>
         <li className="list-item"><Link to={`/users/${currentUser.id}`}>My Saved Restaurants</Link></li>
-        <li className="dropdown-signout" onClick={logout}>Sign Out</li>
+        <li className="dropdown-signout" onClick={logout}><Link to={`/`}>Sign Out</Link></li>
       </ul>
     </div>
   );
