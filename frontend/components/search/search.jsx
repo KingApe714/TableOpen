@@ -154,7 +154,6 @@ class Search extends React.Component {
                         value={name}
                         onClick={this.update('keyWord')}
                         replace="true">
-                            {i}
                         {searchWord}
                         <div className="search-list-item-city"
                                 key={++i}>
@@ -182,7 +181,6 @@ class Search extends React.Component {
                         value={city}
                         onClick={this.update('keyWord')}
                         replace="true">
-                            {j}
                         {searchWordCity}
                         <div className="search-list-item-city"
                                 key={++j}>
@@ -215,7 +213,6 @@ class Search extends React.Component {
                             value={restaurant.name}
                             onClick={this.update('keyWord')}
                             replace="true">
-                                {j}
                                 {restaurant.name}
                                 <div className="search-list-item-city"
                                         key={++j}>
@@ -270,7 +267,6 @@ class Search extends React.Component {
                             <button key={'300'}
                                 className="search-list-item"
                                 replace="true">
-                                    {300}
                                     Search: "{this.state.searchTerm}"
                             </button> 
                          : 
