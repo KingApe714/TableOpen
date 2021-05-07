@@ -42,7 +42,7 @@ class SearchPage extends React.Component {
             restaurants = JSON.parse(localStorage.getItem('restaurants'))
         }
         let info
-        // debugger
+        debugger
         if (this.props.location.state) {
             info = this.props.location.state;
             localStorage.setItem('info', JSON.stringify(info));

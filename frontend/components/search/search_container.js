@@ -10,7 +10,7 @@ const mSTP = (state) => {
         restaurants: restaurants,
         restaurantNames: restaurants.map(res => res.name),
         restaurantCities: restaurants.map(res => res.city),
-        trieTrees: state.session.search.trieTrees
+        // trieTrees: state.session.search.trieTrees
     }
 }
 

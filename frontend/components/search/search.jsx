@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { timeInterval, trieTrees } from '../../util/util_functions'
+import TrieTree, { timeInterval, trieTrees }  from '../../util/util_functions'
 
 class Search extends React.Component {
     constructor(props) {
@@ -11,7 +11,9 @@ class Search extends React.Component {
             time: 0,
             guest_count: 0,
             querryArray: [],
-            keyWord: null
+            keyWord: null,
+            trieNames: new TrieTree(this.props.restaurantNames),
+            trieCities: new TrieTree(this.props.restaurantCities),
         }
         this.handleSubmit = this.handleSubmit.bind(this)
     }
@@ -42,13 +44,19 @@ class Search extends React.Component {
             }
             localStorage.setItem('recentSearches', JSON.stringify(recentSearches));
         }
-        //pass querryItem in as a wildcard
+        //pass currentSearch in as a wildcard
+        let obj = {
+            searchTerm: this.state.searchTerm,
+            date: this.state.date,
+            time: this.state.time,
+            guest_count: this.state.guest_count,
+            querryArray: this.state.querryArray,
+            keyWord: this.state.keyWord
+        }
         this.props.searchRestaurants(querryItem).then(res => {
-            console.log(`search this.state = `)
-            console.log(this.state)
             this.props.history.push({
                 pathname: `/search/${currentSearch}`,
-                state: Object.assign({}, this.state),
+                state: Object.assign({}, obj),
             })
         })
     }
@@ -80,8 +88,14 @@ class Search extends React.Component {
     }
 
     render() {
-        let resiDropdown = this.props.container === "cancel-confirm" ? "cancel-resi-dropdown" : "search-resi-dropdown"
-        let resiTextbox = this.props.container === "cancel-confirm" ? "cancel-resi-textbox" : "search-text-box"
+        let resiDiv = "search-resi-div";
+        let resiDropdown = "search-resi-dropdown";
+        let resiTextbox = "search-text-box";
+        if (this.props.container === "cancel-confirm") {
+            resiDiv = "cancel-resi-div";
+            resiDropdown = "cancel-resi-dropdown";
+            resiTextbox = "cancel-resi-textbox";
+        }
         let recentSearches = null;
         if (localStorage.recentSearches) {
             recentSearches = JSON.parse(localStorage.getItem('recentSearches'))
@@ -121,12 +135,11 @@ class Search extends React.Component {
                         </button>
             }
         }) : null
-        const trieNames = this.props.trieTrees.names; 
-        const trieCities = this.props.trieTrees.cities;
+
         const names = [];
         const cities = [];
         let i = 0;
-        const restaurantNames = trieNames.rootNode.filterWords(trieNames.rootNode, this.state.searchTerm).map(name => {
+        const restaurantNames = this.state.trieNames.rootNode.filterWords(this.state.trieNames.rootNode, this.state.searchTerm).map(name => {
             i += 1;
             names.push(name)
             let restCity = this.props.restaurants.find(restaurant => {
@@ -154,7 +167,7 @@ class Search extends React.Component {
 
         let j = 0;
         let searchCity = null;
-        let restaurantCities = trieCities.rootNode.filterWords(trieCities.rootNode, this.state.searchTerm).map(city => {
+        let restaurantCities = this.state.trieCities.rootNode.filterWords(this.state.trieCities.rootNode, this.state.searchTerm).map(city => {
             j += 1;
             searchCity = city;
             cities.push(city)
@@ -213,7 +226,7 @@ class Search extends React.Component {
         return (
             <form onSubmit={this.handleSubmit}
                     className="search-container">
-                <div className="search-resi-div">
+                <div className={resiDiv}>
                     <input type="date"
                             value={this.state.date}
                             onChange={this.update('date')}
