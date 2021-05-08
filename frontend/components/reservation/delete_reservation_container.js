@@ -4,7 +4,9 @@ import DeleteReservation from './delete_reservation';
 
 const mSTP = (state) => {
     window.userShow = true;
-    return
+    return {
+        
+    }
 }
 
 const mDTP = (dispatch) => ({

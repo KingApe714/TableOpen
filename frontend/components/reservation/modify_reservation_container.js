@@ -5,7 +5,9 @@ import ModifyReservation from './modify_reservation';
 
 const mSTP = (state, ownProps) => {
     window.userShow = true;
-    return
+    return {
+        
+    }
 }
 //[ownProps.match.params.reservationId]
 const mDTP = (dispatch) => ({

@@ -4,7 +4,9 @@ import ViewReservation from './view_reservation';
 
 const mSTP = (state) => {
     window.userShow = true;
-    return
+    return {
+        
+    }
 }
 
 const mDTP = (dispatch) => ({

@@ -3,7 +3,9 @@ import CancelConfirm from './cancel_confirm';
 
 const mSTP = (state) => {
     window.userShow = true;
-    return
+    return {
+        
+    }
 }
 
 const mDTP = (dispatch) => ({

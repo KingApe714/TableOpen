@@ -3,10 +3,11 @@ import { openModal } from '../../actions/modal_actions';
 import { logout } from '../../actions/session_actions';
 import Greeting from './greeting';
 
-const mapStateToProps = ({ session, entities: { users } }) => {
+const mapStateToProps = ({ session, session: { search: { searchInfo } } }) => {
   return {
     currentUser: session.currentUser,
-    userShow: window.userShow
+    userShow: window.userShow,
+    restaurants: Object.values(searchInfo)
   };
 };
 

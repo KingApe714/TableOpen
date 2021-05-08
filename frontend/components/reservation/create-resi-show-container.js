@@ -3,7 +3,9 @@ import CreateResiShow from './create-resi-show';
 
 const mSTP = (state) => {
     window.userShow = true;
-    return
+    return {
+        
+    }
 }
 
 const mDTP = (dispatch) => ({
