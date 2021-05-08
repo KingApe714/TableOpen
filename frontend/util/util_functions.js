@@ -41,7 +41,6 @@ export const handleTime = (currentUserId, restaurantId, state) => {
     if (minute[2] === 'p') hour = parseInt(hour) + 12;
     minute = minute[0] + minute[1];
     let time = hour + ' ' + minute;
-    console.log(currentUserId)
     let reservation_date_time = `${year}-${month}-${day}T${hour}:${minute}:00.000Z`
     return {
         restaurant_id: restaurantId,
@@ -112,12 +111,8 @@ export const timeButtons = (operation_hours, time) => {
             checkDate.setMinutes(checkDate.getMinutes() + 30)
         }
     }
-    // console.log(arr)
     return arr
 }
-
-// console.log(timeButtons("10:00am - 10:00pm", "2:30pm"))
-
 
 class PolyTreeNode {
     constructor(value) {

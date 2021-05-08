@@ -13,6 +13,10 @@ class DeleteReservation extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
+    componentWillUnmount() {
+        window.userShow = false;
+    }
+
     componentDidMount() {
         if (this.props.location.state) {
             this.setState({

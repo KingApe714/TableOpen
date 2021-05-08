@@ -6,6 +6,10 @@ class CancelConfirm extends React.Component {
         super(props)
     }
 
+    componentWillUnmount() {
+        window.userShow = false;
+    }
+
     render() {
         let restaurant = this.props.location.state.restaurant
         return (

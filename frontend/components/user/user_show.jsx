@@ -12,6 +12,10 @@ class UserShow extends React.Component {
         this.props.fetchRestaurants()
     }
 
+    componentWillUnmount() {
+        window.userShow = false;
+    }
+
     render() {
         const restaurants = this.props.restaurants;
         if (!restaurants || Object.keys(restaurants).length < 25) return null

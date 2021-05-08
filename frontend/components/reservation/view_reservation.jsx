@@ -7,6 +7,10 @@ class ViewReservation extends React.Component {
         super(props)
     }
 
+    componentWillUnmount() {
+        window.userShow = false;
+    }
+
     render() {
         let restaurant, reservation
 

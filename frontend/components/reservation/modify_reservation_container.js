@@ -4,10 +4,9 @@ import { fetchRestaurants } from '../../actions/restaurant_actions';
 import ModifyReservation from './modify_reservation';
 
 const mSTP = (state, ownProps) => {
-    // debugger
-    return{
-    // reservation: state.entities.reservations
-}}
+    window.userShow = true;
+    return
+}
 //[ownProps.match.params.reservationId]
 const mDTP = (dispatch) => ({
     updateReservation: reservation => dispatch(updateReservation(reservation)),

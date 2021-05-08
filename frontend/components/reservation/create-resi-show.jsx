@@ -8,6 +8,10 @@ class CreateResiShow extends React.Component {
         }
     }
 
+    componentWillUnmount() {
+        window.userShow = false;
+    }
+
     update(field) {
         return e => this.setState({
             [field]: e.currentTarget.value

@@ -52,22 +52,22 @@ class SearchPage extends React.Component {
                         </Link>
             })
 
-            return <div className="restaurant-search-container"
+            return  <div className="restaurant-search-container"
                         key={++k}>
-                <Link key={j}
-                        to={`/restaurants/${restaurant.id}`}>
-                    <img src={restaurant.photoUrl} className="search-page-img"/>
-                </Link>
-                <div className="restaurant-search-inner-container">
-                    <Link key={++j}
-                            to={`/restaurants/${restaurant.id}`}>
-                        <p className="search-title">{restaurant.name} - {restaurant.city}</p>
-                    </Link>
-                    <div className="search-button-container">
-                        {buttons}
+                        <Link key={j}
+                                to={`/restaurants/${restaurant.id}`}>
+                            <img src={restaurant.photoUrl} className="search-page-img"/>
+                        </Link>
+                        <div className="restaurant-search-inner-container">
+                            <Link key={++j}
+                                    to={`/restaurants/${restaurant.id}`}>
+                                <p className="search-title">{restaurant.name} - {restaurant.city}</p>
+                            </Link>
+                            <div className="search-button-container">
+                                {buttons}
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
         })
 
         return (

@@ -7,7 +7,7 @@ class Search extends React.Component {
         super(props)
         this.state = {
             searchTerm: '',
-            date: 0,
+            date: "2020-05-05",
             time: 0,
             guest_count: 0,
             querryArray: [],

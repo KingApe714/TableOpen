@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
 import CreateResiShow from './create-resi-show';
 
-const mSTP = (state) => ({
-
-})
+const mSTP = (state) => {
+    window.userShow = true;
+    return
+}
 
 const mDTP = (dispatch) => ({
 

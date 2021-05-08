@@ -12,6 +12,10 @@ class CreateReservation extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
+    componentWillUnmount() {
+        window.userShow = false;
+    }
+
     handleSubmit(e) {
         e.preventDefault()
         let reservation = handleTime(

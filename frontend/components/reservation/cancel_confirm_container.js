@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
 import CancelConfirm from './cancel_confirm';
 
-const mSTP = (state) => ({
-
-})
+const mSTP = (state) => {
+    window.userShow = true;
+    return
+}
 
 const mDTP = (dispatch) => ({
 
