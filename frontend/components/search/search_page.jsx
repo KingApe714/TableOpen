@@ -23,16 +23,6 @@ class SearchPage extends React.Component {
         }
     }
 
-    // componentDidUpdate(prevProps, prevState, snapShot) {
-    //     let info = JSON.parse(localStorage.getItem('info'))
-    //     // debugger
-    //     if (this.state.info.searchTerm !== info.searchTerm){
-    //         this.setState({
-    //             info: info
-    //         })
-    //     }
-    // }
-
     render() {
         let restaurants;
         if (this.props.restaurants.length) {
@@ -48,10 +38,10 @@ class SearchPage extends React.Component {
         } else {
             info = JSON.parse(localStorage.getItem('info'));
         }
-        console.log(this.props.location)
 
         let i = 0;
         let j = 100;
+        let k = 200;
         restaurants = restaurants.map(restaurant => {
             let buttons = timeButtons(restaurant.operation_hours, info.time ? info.time : '3:00pm').map(button => {
                 i++;
@@ -61,14 +51,15 @@ class SearchPage extends React.Component {
                             { button }
                         </Link>
             })
-            j += 2;
-            return <div className="restaurant-search-container">
+
+            return <div className="restaurant-search-container"
+                        key={++k}>
                 <Link key={j}
                         to={`/restaurants/${restaurant.id}`}>
                     <img src={restaurant.photoUrl} className="search-page-img"/>
                 </Link>
                 <div className="restaurant-search-inner-container">
-                    <Link key={j+1}
+                    <Link key={++j}
                             to={`/restaurants/${restaurant.id}`}>
                         <p className="search-title">{restaurant.name} - {restaurant.city}</p>
                     </Link>
@@ -78,8 +69,7 @@ class SearchPage extends React.Component {
                 </div>
             </div>
         })
-        // debugger
-        console.log(this.props.searchTerm)
+
         return (
             <div className="search-page-outer-container">
                 <header className="search-page-header">

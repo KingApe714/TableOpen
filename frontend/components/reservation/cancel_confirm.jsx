@@ -8,7 +8,6 @@ class CancelConfirm extends React.Component {
 
     render() {
         let restaurant = this.props.location.state.restaurant
-        console.log(restaurant)
         return (
             <div className="cancel-resi-container">
                 <p className="cancel-resi-message">
@@ -25,8 +24,8 @@ class CancelConfirm extends React.Component {
                         Call {restaurant.phone_number} to place your order.
                     </p>
                 </div>
-                <div>
-                    <p>Make a new reservation</p>
+                <div className="new-resi-container">
+                    <p className="new-resi-title">Make a new reservation</p>
                     <SearchContainer container="cancel-confirm"/>
                 </div>
             </div>
