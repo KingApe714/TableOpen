@@ -5,17 +5,16 @@ import { fetchRestaurant, fetchRestaurants } from '../../actions/restaurant_acti
 
 const mSTP = (state, ownProps) => {
     return{
-    currentUser: Object.values(state.session)[0],
-    reservations: Object.values(state.entities.reservations),
-    restaurants: state.entities.restaurants,
-    fetchRestaurant: restaurantId => state.entities.restaurants[restaurantId]
-}
+        currentUser: Object.values(state.session)[0],
+        reservations: Object.values(state.entities.reservations),
+        restaurants: state.entities.restaurants,
+        fetchRestaurant: restaurantId => state.entities.restaurants[restaurantId]
+    }
 }
 
 const mDTP = (dispatch) => ({
     fetchReservations: () => dispatch(fetchReservations()),
     deleteReservation: (reservationId) => dispatch(deleteReservation(reservationId)),
-    // fetchRestaurant: (restaurantId) => dispatch(fetchRestaurant(restaurantId)),
     fetchRestaurants: () => dispatch(fetchRestaurants())
 })
 
