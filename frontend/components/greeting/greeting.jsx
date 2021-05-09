@@ -78,7 +78,7 @@ const Greeting = ({ currentUser, userShow, restaurants, logout, openModal }) => 
                 </div>
               </div>
               <div className="user-dropdown">
-                {userShow ? <div>Hi, {currentUser.username.split(' ')[0]}</div> : 
+                {userShow ? <div className="greeting-user-icon">Hi, {currentUser.username.split(' ')[0]}</div> : 
                 <img src={window.profileIcon} className="user-icon"/> }
                 <ul className="dropdown-list arrow">
                   <li className="dropdown-greeting">Hello, {currentUser.username}!</li>
