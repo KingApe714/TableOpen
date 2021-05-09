@@ -26,15 +26,41 @@ const Greeting = ({ currentUser, userShow, restaurants, logout, openModal }) => 
       let currentDateTime = new Date()
       if (resiDateTime.getTime() - currentDateTime.getTime() >= 0) {
         let restaurant = restaurants[reservation.restaurant_id];
-        upcomingResis.push(<div className="list-item" 
+        upcomingResis.push(<div className="resi-list-item" 
                                 key={resiDateTime.getTime()}>
-                            <div>{restaurant.name} - {restaurant.city}</div>
-                            <div>
-                              <div>Table for {reservation.guest_count} people</div>
-                              <div>
+                            <Link to={`restaurants/${restaurant.id}`}
+                                  className="rest-dropdown-link">
+                              {restaurant.name} - {restaurant.city}
+                            </Link>
+                            <div className="list-item-container">
+                              <div className="list-item-details">Table for {reservation.guest_count} people</div>
+                              <div className="list-item-details">
                                 {resiDateTime.toLocaleString('default', { month: 'long'})}
-                                {day}, {year} {renderTime(time)}
+                                &nbsp;{day}, {year} {renderTime(time)}
                               </div>
+                              <div className="resi-dropdown-links">
+                                <Link to={{
+                                    pathname: `/reservations/${reservation.id}/view`,
+                                    state: {
+                                        reservation: reservation,
+                                        restaurant: restaurant
+                                    }
+                                    }}>View</Link>
+                                <Link to={{
+                                    pathname: `/reservations/${reservation.id}/modify`,
+                                    state: {
+                                        reservation: reservation,
+                                        restaurant: restaurant
+                                    }
+                                    }}>Modify</Link>
+                                <Link to={{
+                                    pathname: `/reservations/${reservation.id}/delete`,
+                                    state: {
+                                        reservation: reservation,
+                                        restaurant: restaurant
+                                    }
+                                    }}>Cancel</Link>
+                                </div>
                             </div>
                           </div>)
       } 
@@ -43,8 +69,11 @@ const Greeting = ({ currentUser, userShow, restaurants, logout, openModal }) => 
               <div className="user-dropdown">
                 <img src={window.rescal} className="calendar-icon"/>
                 <div className="dropdown-list">
-                  <div className="dropdown-greeting">Upcoming Reservations</div>
+                  <div className="resi-dropdown-greeting">UPCOMING</div>
                   {upcomingResis}
+                  <div>
+                    View All
+                  </div>
                 </div>
               </div>
               <div className="user-dropdown">

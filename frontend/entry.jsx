@@ -15,7 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         fetchRestaurants().done(function(data) { 
             for (let i in data) {
-                obj[i] = { name: data[i].name, city: data[i].city }
+                obj[i] =  { id: data[i].id, 
+                            name: data[i].name, 
+                            city: data[i].city,
+                            photoUrl: data[i].photoUrl}
             }
     
             localStorage.setItem('searchInfo', JSON.stringify(obj))

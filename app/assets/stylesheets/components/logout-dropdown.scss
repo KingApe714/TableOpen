@@ -1,7 +1,9 @@
 .personal-greeting {
     display: flex;
     flex-direction: row;
-    align-items: baseline;
+    align-items: center;
+    width: 80px;
+    justify-content: space-around;
 }
 
 .user-dropdown:hover .dropdown-list {
@@ -92,4 +94,43 @@
 a {
     text-decoration: none;
     color: inherit;
+}
+
+.resi-dropdown-greeting {
+    padding: 15px;
+    font-weight: 500;
+    color: $dark-gray;
+    border-bottom: 1px solid $light-gray;
+}
+
+.resi-list-item {
+    padding-left: 15px;
+    font-weight: 400;
+    text-decoration: none;
+    color: $dark-gray;
+    border-bottom: 1px solid $light-gray;
+}
+
+.rest-dropdown-link {
+    font-size: 15px;
+    font-weight: 500;
+    font-style: normal;
+    line-height: inherit;
+    color: $magenta;
+}
+
+.list-item-container {
+    font-family: inherit;
+    font-weight: 500;
+    font-style: normal;
+    cursor: default;
+    font-size: 13px;
+    line-height: 18px;
+}
+
+.resi-dropdown-links {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    color: $blue-green;
 }
