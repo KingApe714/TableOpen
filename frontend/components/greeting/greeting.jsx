@@ -26,7 +26,8 @@ const Greeting = ({ currentUser, userShow, restaurants, logout, openModal }) => 
       let currentDateTime = new Date()
       if (resiDateTime.getTime() - currentDateTime.getTime() >= 0) {
         let restaurant = restaurants[reservation.restaurant_id];
-        upcomingResis.push(<div key={resiDateTime.getTime()}>
+        upcomingResis.push(<div className="list-item" 
+                                key={resiDateTime.getTime()}>
                             <div>{restaurant.name} - {restaurant.city}</div>
                             <div>
                               <div>Table for {reservation.guest_count} people</div>
@@ -39,9 +40,10 @@ const Greeting = ({ currentUser, userShow, restaurants, logout, openModal }) => 
       } 
     })
     return  <div className="personal-greeting">
-              <div>
+              <div className="user-dropdown">
                 <img src={window.rescal} className="calendar-icon"/>
-                <div>
+                <div className="dropdown-list">
+                  <div className="dropdown-greeting">Upcoming Reservations</div>
                   {upcomingResis}
                 </div>
               </div>

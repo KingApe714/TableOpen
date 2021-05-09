@@ -1,5 +1,7 @@
 .personal-greeting {
-    
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
 }
 
 .user-dropdown:hover .dropdown-list {
@@ -11,7 +13,7 @@
     background-color: white;
     padding: 0px;
     width: 280px;
-    height: 200px;
+    // height: 200px;
     border: solid $light-gray 1px;
     border-radius: 4px;
     left: -200px;
@@ -27,8 +29,8 @@
 
 .user-dropdown {
     position: relative;
-    padding: 15px;
-    margin-right: 35px;
+    // padding: 15px;
+    // margin-right: 35px;
     float: right;
     z-index: 1;
 }
@@ -58,15 +60,15 @@
 
 .user-icon {
     cursor: pointer;
-    margin-right: 20px;
+    // margin-right: 20px;
     width: 35px;
     height: 35px;
 }
 
 .calendar-icon {
     cursor: pointer;
-    margin-right: 20px;
-    width: 35px;
+    // margin-right: 20px;
+    // width: 35px;
     height: 35px;
 }
 
@@ -79,7 +81,7 @@
     padding-left: 15px;
     font-weight: 400;
     text-decoration: none;
-    color: black;
+    color: $dark-gray;
 }
 
 .list-item:hover {
