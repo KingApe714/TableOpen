@@ -25,7 +25,7 @@ const Greeting = ({ currentUser, userShow, restaurants, logout, openModal }) => 
       let resiDateTime = new Date(year, month - 1, day, hour, minute);
       let currentDateTime = new Date()
       if (resiDateTime.getTime() - currentDateTime.getTime() >= 0) {
-        let restaurant = restaurants[reservation.restaurant_id];
+        let restaurant = restaurants[reservation.restaurant_id - 1];
         upcomingResis.push(<div className="resi-list-item" 
                                 key={resiDateTime.getTime()}>
                             <Link to={`restaurants/${restaurant.id}`}
@@ -71,9 +71,10 @@ const Greeting = ({ currentUser, userShow, restaurants, logout, openModal }) => 
                 <div className="dropdown-list">
                   <div className="resi-dropdown-greeting">UPCOMING</div>
                   {upcomingResis}
-                  <div>
+                  <Link to={`users/${currentUser.id}`}
+                        className="resi-dropdown-footer">
                     View All
-                  </div>
+                  </Link>
                 </div>
               </div>
               <div className="user-dropdown">

@@ -97,6 +97,7 @@ a {
 }
 
 .resi-dropdown-greeting {
+    cursor: default;
     padding: 15px;
     font-weight: 500;
     color: $dark-gray;
@@ -109,6 +110,8 @@ a {
     text-decoration: none;
     color: $dark-gray;
     border-bottom: 1px solid $light-gray;
+    padding-top: 10px;
+    padding-bottom: 15px;
 }
 
 .rest-dropdown-link {
@@ -133,4 +136,10 @@ a {
     justify-content: space-between;
     width: 70%;
     color: $blue-green;
+}
+
+.resi-dropdown-footer {
+    padding: 15px;
+    font-weight: 500;
+    color: #247f9e;
 }
