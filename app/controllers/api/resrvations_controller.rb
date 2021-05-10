@@ -6,9 +6,12 @@ class Api::ResrvationsController < ApplicationController
     end
 
     def index
-        @reservations = current_user.reservations
+        @reservations = current_user.reservations.order('reservation_date_time DESC')
+        # debugger
         render :index
     end
+
+    # .order(content_date: :desc)
 
     def create
         @reservation = Resrvation.new(reservation_params)

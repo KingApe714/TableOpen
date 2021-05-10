@@ -82,7 +82,7 @@ class UserShow extends React.Component {
                         </div>
                     </div>]
         })
-
+        debugger
         const past = reservations.filter(res => res[0] === true);
         const upcoming = reservations.filter(res => res[0] === false);
         return (
