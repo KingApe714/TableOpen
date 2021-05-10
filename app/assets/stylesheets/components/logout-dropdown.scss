@@ -39,7 +39,10 @@
 }
 
 .greeting-user-icon {
+    cursor: pointer;
     min-width: max-content;
+    height: 35px;
+    line-height: 30px;
 }
 
 // .dropdown-list.arrow {
