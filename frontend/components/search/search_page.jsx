@@ -24,6 +24,7 @@ class SearchPage extends React.Component {
     }
 
     render() {
+        console.log(this.state.info)
         let restaurants;
         if (this.props.restaurants.length) {
             restaurants = this.props.restaurants;

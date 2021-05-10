@@ -70,18 +70,21 @@ const Greeting = ({ currentUser, userShow, restaurants, logout, openModal }) => 
                 <img src={window.rescal} className="calendar-icon"/>
                 <div className="dropdown-list">
                   <div className="resi-dropdown-greeting">UPCOMING</div>
-                  {upcomingResis}
-                  <Link to={`users/${currentUser.id}`}
-                        className="resi-dropdown-footer">
-                    View All
-                  </Link>
+                  {upcomingResis.length === 0 ? <>No Upcoming Reservations</> :
+                  <>
+                    {upcomingResis}
+                    <Link to={`/users/${currentUser.id}`}
+                          className="resi-dropdown-footer">
+                      View All
+                    </Link>
+                  </>}
                 </div>
               </div>
               <div className="user-dropdown">
                 {userShow ? <div className="greeting-user-icon">Hi, {currentUser.username.split(' ')[0]}</div> : 
                 <img src={window.profileIcon} className="user-icon"/> }
                 <ul className="dropdown-list arrow">
-                  <li className="dropdown-greeting">Hello, {currentUser.username}!</li>
+                  <li className="dropdown-greeting">{userShow ? <>Dining Points coming soon!</> : <>Hello, {currentUser.username}!</>}</li>
                   <li className="list-item"><Link to={`/users/${currentUser.id}`}>My Profile</Link></li>
                   <li className="list-item"><Link to={`/users/${currentUser.id}`}>My Dining History</Link></li>
                   <li className="list-item"><Link to={`/users/${currentUser.id}`}>My Saved Restaurants</Link></li>

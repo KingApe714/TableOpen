@@ -5,9 +5,16 @@ import TrieTree, { timeInterval, trieTrees }  from '../../util/util_functions'
 class Search extends React.Component {
     constructor(props) {
         super(props)
+
+        let dt = new Date()
+        let m = dt.getMonth() + 1 >= 10  ? 
+                dt.getMonth() + 1 :
+                `0${dt.getMonth()+1}`
+        let d = `${dt.getFullYear()}-${m}-${dt.getDate()}`
+        
         this.state = {
             searchTerm: '',
-            date: "2020-05-05",
+            date: d,
             time: 0,
             guest_count: 0,
             querryArray: [],

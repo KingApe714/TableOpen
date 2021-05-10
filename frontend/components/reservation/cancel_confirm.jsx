@@ -11,7 +11,14 @@ class CancelConfirm extends React.Component {
     }
 
     render() {
-        let restaurant = this.props.location.state.restaurant
+        let restaurant
+
+        if (this.props.location.state) {
+            restaurant = this.props.location.state.restaurant
+            localStorage.setItem('restaurant', JSON.stringify(restaurant))
+        } else {
+            restaurant = JSON.parse(localStorage.getItem('restaurant'))
+        }
         return (
             <div className="cancel-resi-container">
                 <p className="cancel-resi-message">
