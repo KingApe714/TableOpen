@@ -89,6 +89,7 @@ class ModifyReservation extends React.Component {
         let [date, time] = reservation.reservation_date_time.split('T');
         let d = new Date(reservation.reservation_date_time).toDateString()
         time = renderTime(time)
+        debugger
 
         return (
             <div className="edit-resi-container">

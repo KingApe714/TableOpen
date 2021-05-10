@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 obj[i] =  { id: data[i].id, 
                             name: data[i].name, 
                             city: data[i].city,
+                            operation_hours: data[i].operation_hours,
                             photoUrl: data[i].photoUrl}
             }
     
