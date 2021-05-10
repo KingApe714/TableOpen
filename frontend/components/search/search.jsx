@@ -16,7 +16,7 @@ class Search extends React.Component {
             searchTerm: '',
             date: d,
             time: 0,
-            guest_count: 0,
+            guest_count: 1,
             querryArray: [],
             keyWord: null,
             trieNames: new TrieTree(this.props.restaurantNames),
@@ -96,6 +96,7 @@ class Search extends React.Component {
     }
 
     render() {
+        debugger
         let resiDiv = "search-resi-div";
         let resiDropdown = "search-resi-dropdown";
         let resiTextbox = "search-text-box";

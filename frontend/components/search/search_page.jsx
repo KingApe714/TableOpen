@@ -56,12 +56,24 @@ class SearchPage extends React.Component {
             return  <div className="restaurant-search-container"
                         key={++k}>
                         <Link key={j}
-                                to={`/restaurants/${restaurant.id}`}>
+                                to={{
+                                pathname: `/restaurants/${restaurant.id}`,
+                                state: {
+                                    time: info.time,
+                                    date: info.date,
+                                    guest_count: info.guest_count
+                                }}}>
                             <img src={restaurant.photoUrl} className="search-page-img"/>
                         </Link>
                         <div className="restaurant-search-inner-container">
                             <Link key={++j}
-                                    to={`/restaurants/${restaurant.id}`}>
+                                    to={{
+                                        pathname: `/restaurants/${restaurant.id}`,
+                                        state: {
+                                            time: info.time,
+                                            date: info.date,
+                                            guest_count: info.guest_count
+                                        }}}>
                                 <p className="search-title">{restaurant.name} - {restaurant.city}</p>
                             </Link>
                             <div className="search-button-container">

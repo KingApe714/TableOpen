@@ -53,3 +53,7 @@
     cursor: pointer;
     border-bottom: 2px solid $magenta;
 }
+
+.resi-dropdown:focus {
+    outline: none;
+}

@@ -4,9 +4,16 @@ import { timeInterval, handleTime } from '../../util/util_functions'
 class CreateReservation extends React.Component {
     constructor(props) {
         super(props)
+
+        let dt = new Date()
+        let m = dt.getMonth() + 1 >= 10  ? 
+                dt.getMonth() + 1 :
+                `0${dt.getMonth()+1}`
+        let d = `${dt.getFullYear()}-${m}-${dt.getDate()}`
+
         this.state = {
             guest_count: 1,
-            date: 0,
+            date: d,
             time: 0
         }
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -43,7 +50,28 @@ class CreateReservation extends React.Component {
         }
     }
 
+    componentDidMount() {
+        let createInfo;
+        if (this.props.location.state || localStorage.createInfo) {
+            if (this.props.location.state) {
+                createInfo = this.props.location.state;
+            } else {
+                createInfo = JSON.parse(localStorage.getItem('createInfo'));
+            }
+            this.setState({
+                guest_count: createInfo.guest_count,
+                date: createInfo.date,
+                time: createInfo.time
+            })
+        }
+    }
+
+    componentWillUnmount() {
+
+    }
+
     render() {
+        debugger
         let options = null;
         if (this.props.restaurant.operation_hours) {
             options = timeInterval(this.props.restaurant.operation_hours)
