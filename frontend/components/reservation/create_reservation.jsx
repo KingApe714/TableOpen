@@ -41,7 +41,6 @@ class CreateReservation extends React.Component {
                 }
             })
         })
-
     }
 
     handleChange(type) {
