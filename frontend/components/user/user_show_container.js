@@ -6,7 +6,7 @@ import { fetchRestaurant, fetchRestaurants } from '../../actions/restaurant_acti
 const mSTP = (state, ownProps) => {
     window.userShow = true;
     return{
-        currentUser: Object.values(state.session)[0],
+        currentUser: state.session.currentUser,
         reservations: Object.values(state.entities.reservations),
         restaurants: state.entities.restaurants,
         fetchRestaurant: restaurantId => state.entities.restaurants[restaurantId]
