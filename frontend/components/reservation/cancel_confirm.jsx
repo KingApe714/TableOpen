@@ -22,7 +22,7 @@ class CancelConfirm extends React.Component {
         return (
             <div className="cancel-resi-container">
                 <p className="cancel-resi-message">
-                    {window.currentUser.username}, your reservation has been canceled
+                    {this.props.currentUser.username}, your reservation has been canceled
                 </p>
                 <p className="cancel-resi-support">
                     You can still get great food, and support {restaurant.name}.

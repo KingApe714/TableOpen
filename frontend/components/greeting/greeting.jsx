@@ -26,11 +26,11 @@ class Greeting extends React.Component {
 
   render() {
     console.log(window.newResi)
-    if (window.newResi) {
-      debugger
-      this.props.fetchReservations()
-      // window.newResi = false;
-    }
+    // if (window.newResi) {
+    //   debugger
+    //   this.props.fetchReservations()
+    //   window.newResi = false;
+    // }
     const currentUser = this.props.currentUser;
     const upcomingResis = this.props.upcomingResis;
     const userShow = this.props.userShow;
@@ -46,46 +46,46 @@ class Greeting extends React.Component {
     );
     const personalGreeting = () => {
       const upcoming = upcomingResis.map(reservation => {
-          const restaurant = restaurants[reservation.restaurant_id - 1];
-          const resi = dateBuilder(reservation);
-          const time = `${resi.getHours()}:${resi.getMinutes()}:${resi.getSeconds()}`;
-          return <div className="resi-list-item" 
-                      key={resi.getTime()}>
-                    <Link to={`/restaurants/${restaurant.id}`}
-                          className="rest-dropdown-link">
-                      {restaurant.name} - {restaurant.city}
-                    </Link>
-                    <div className="list-item-container">
-                      <div className="list-item-details">Table for {reservation.guest_count} people</div>
-                      <div className="list-item-details">
-                        {resi.toLocaleString('default', { month: 'long'})}
-                        &nbsp;{resi.getDate()}, {resi.getFullYear()} {renderTime(time)}
-                      </div>
-                      <div className="resi-dropdown-links">
-                        <Link to={{
-                            pathname: `/reservations/${reservation.id}/view`,
-                            state: {
-                                reservation: reservation,
-                                restaurant: restaurant
-                            }
-                            }}>View</Link>
-                        <Link to={{
-                            pathname: `/reservations/${reservation.id}/modify`,
-                            state: {
-                                reservation: reservation,
-                                restaurant: restaurant
-                            }
-                            }}>Modify</Link>
-                        <Link to={{
-                            pathname: `/reservations/${reservation.id}/delete`,
-                            state: {
-                                reservation: reservation,
-                                restaurant: restaurant
-                            }
-                            }}>Cancel</Link>
-                        </div>
+        const restaurant = restaurants[reservation.restaurant_id - 1];
+        const resi = dateBuilder(reservation);
+        const time = `${resi.getHours()}:${resi.getMinutes()}:${resi.getSeconds()}`;
+        return <div className="resi-list-item" 
+                    key={resi.getTime()}>
+                  <Link to={`/restaurants/${restaurant.id}`}
+                        className="rest-dropdown-link">
+                    {restaurant.name} - {restaurant.city}
+                  </Link>
+                  <div className="list-item-container">
+                    <div className="list-item-details">Table for {reservation.guest_count} people</div>
+                    <div className="list-item-details">
+                      {resi.toLocaleString('default', { month: 'long'})}
+                      &nbsp;{resi.getDate()}, {resi.getFullYear()} {renderTime(time)}
                     </div>
+                    <div className="resi-dropdown-links">
+                      <Link to={{
+                          pathname: `/reservations/${reservation.id}/view`,
+                          state: {
+                              reservation: reservation,
+                              restaurant: restaurant
+                          }
+                          }}>View</Link>
+                      <Link to={{
+                          pathname: `/reservations/${reservation.id}/modify`,
+                          state: {
+                              reservation: reservation,
+                              restaurant: restaurant
+                          }
+                          }}>Modify</Link>
+                      <Link to={{
+                          pathname: `/reservations/${reservation.id}/delete`,
+                          state: {
+                              reservation: reservation,
+                              restaurant: restaurant
+                          }
+                          }}>Cancel</Link>
+                      </div>
                   </div>
+                </div>
       })
       return  <div className="personal-greeting">
                 <div className="user-dropdown">

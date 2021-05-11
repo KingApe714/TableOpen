@@ -1,0 +1,18 @@
+.not-found-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.not-found-image {
+    width: 80%;
+    height: 80%;
+}
+
+.not-found-button {
+    height: 5.5%;
+    width: 20%;
+    position: absolute;
+    margin-top: 29%;
+    border-radius: 22px;
+}

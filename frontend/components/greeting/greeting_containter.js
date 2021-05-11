@@ -7,28 +7,29 @@ import Greeting from './greeting';
 
 const mapStateToProps = (state) => {
   // debugger
-  let resis;
+  let resis, upcomingResis;
   if (window.newResi) {
     resis = state.entities.reservations
-  } else {
+  } else if (state.session.currentUser){
     resis = state.session.currentUser.reservations
   }
-  
-  let upcomingResis = resis.sort((a, b) => {
-    let da = a.reservation_date_time,
-        db = b.reservation_date_time;
-    if (da < db) {
-      return -1
-    } else if (da > db) {
-      return 1
-    } else {
-      return 0
-    }
-  }).filter(reservation => {
-    let resiDateTime = dateBuilder(reservation)
-    let currentDateTime = new Date()
-    return resiDateTime.getTime() - currentDateTime.getTime() >= 0
-  })
+  if (resis instanceof Array) {
+    upcomingResis = resis.sort((a, b) => {
+      let da = a.reservation_date_time,
+          db = b.reservation_date_time;
+      if (da < db) {
+        return -1
+      } else if (da > db) {
+        return 1
+      } else {
+        return 0
+      }
+    }).filter(reservation => {
+      let resiDateTime = dateBuilder(reservation)
+      let currentDateTime = new Date()
+      return resiDateTime.getTime() - currentDateTime.getTime() >= 0
+    })
+  }
 
   return {
     currentUser: state.session.currentUser,

@@ -26,15 +26,18 @@ const App = () => (
             <GreetingContainer />
             <Modal />
         </header>
-        <Route exact path="/" component={SplashContainer}/>
-        <Route exact path="/search/:searchTerm" component={SearchPageContainer}/>
-        <Route exact path="/restaurants/:restaurantId" component={RestaurantShowContainer}/>
-        <ProtectedRoute exact path="/restaurants/:restaurantId/reserve" component={CreateResiShowContainer} />
-        <ProtectedRoute exact path="/users/:userId" component={UserShowContainer}/>
-        <ProtectedRoute exact path="/reservations/:reservationId/view" component={ViewReservationContainer} />
-        <ProtectedRoute exact path="/reservations/:reservationId/modify" component={ModifyReservationContainer} />
-        <ProtectedRoute exact path="/reservations/:reservationId/delete" component={DeleteReservationContainer} />
-        <ProtectedRoute exact path="/restaurants/:restaurantId/cancel-confirm" component={CancelConfirmContainer} />
+        <Switch>
+            <Route exact path="/" component={SplashContainer}/>
+            <Route exact path="/search/:searchTerm" component={SearchPageContainer}/>
+            <Route exact path="/restaurants/:restaurantId" component={RestaurantShowContainer}/>
+            <ProtectedRoute exact path="/restaurants/:restaurantId/reserve" component={CreateResiShowContainer} />
+            <ProtectedRoute exact path="/users/:userId" component={UserShowContainer}/>
+            <ProtectedRoute exact path="/reservations/:reservationId/view" component={ViewReservationContainer} />
+            <ProtectedRoute exact path="/reservations/:reservationId/modify" component={ModifyReservationContainer} />
+            <ProtectedRoute exact path="/reservations/:reservationId/delete" component={DeleteReservationContainer} />
+            <ProtectedRoute exact path="/restaurants/:restaurantId/cancel-confirm" component={CancelConfirmContainer} />
+            <Route component={NotFoundPage}/>
+        </Switch>
         <footer className="footer-container">
             <Footer />
         </footer>
