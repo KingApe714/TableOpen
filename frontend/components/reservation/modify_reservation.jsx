@@ -7,7 +7,7 @@ class ModifyReservation extends React.Component {
         super(props)
 
         let dt = new Date()
-        let m = dt.getMonth() + 1 >= 10  ? 
+        let m = dt.getMonth() + 1 >= 10 ? 
                 dt.getMonth() + 1 :
                 `0${dt.getMonth()+1}`
         let d = `${dt.getFullYear()}-${m}-${dt.getDate()}`
@@ -33,18 +33,13 @@ class ModifyReservation extends React.Component {
         } else {
             reservation = JSON.parse(localStorage.getItem('reservation'))
             restaurant = JSON.parse(localStorage.getItem('restaurant'))
-            // this.setState({
-                //     restaurant: JSON.parse(localStorage.getItem('restaurant')),
-                //     reservation: reservation,
-                //     guest_count: reservation.guest_count,
-                //     date: reservation.reservation_date_time.split('T')[0]
-                // })
         }
         this.setState({
             restaurant: restaurant,
             reservation: reservation,
             guest_count: reservation.guest_count,
             date: reservation.reservation_date_time.split('T')[0],
+            time: renderTime(reservation.reservation_date_time.split('T')[1]).split(' ').join('').toLowerCase()
         })
     }
 

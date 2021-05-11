@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { renderTime } from '../../util/util_functions'
+import { dateBuilder, renderTime } from '../../util/util_functions'
 
 class UserShow extends React.Component {
     constructor(props) {
@@ -22,20 +22,13 @@ class UserShow extends React.Component {
         if (this.props.reservations.length === 0) return null
         const reservations = this.props.reservations.map(reservation => {
             let restaurant = restaurants[reservation.restaurant_id]
-            let arr = reservation.reservation_date_time.split("T")
-            let date = arr[0];
-            let time = arr[1]
-            let year, month, day, hour, minute, second;
-            [year, month, day] = date.split('-');
-            [hour, minute, second] = time.split(':');
-            //we do month -1 because js computes months from 0 - 11
-            let resiDateTime = new Date(year, month - 1, day, hour, minute);
+            let resi = dateBuilder(reservation)
             let currentDateTime = new Date()
             let pastResi = true;
             let resiTime = null;
-            if (resiDateTime.getTime() - currentDateTime.getTime() >= 0) {
+            if (resi.getTime() - currentDateTime.getTime() >= 0) {
                 pastResi = false;
-                resiTime = renderTime(time);
+                resiTime = renderTime(`${resi.getHours()}:${resi.getMinutes()}:${resi.getSeconds()}`);
             }
 
             return [pastResi, <div className="reservation-container"
@@ -49,7 +42,7 @@ class UserShow extends React.Component {
                             <div>
                                 {restaurant.name}
                                 <br/>
-                                {month}/{day}/{year} {resiTime ? <>at {resiTime}.</> : null}
+                                {resi.getMonth()}/{resi.getDate()}/{resi.getFullYear()} {resiTime ? <>at {resiTime}.</> : null}
                             </div>
                             <p className="table-status">
                                 Table for {reservation.guest_count} {reservation.guest_count === 1 ? <>person</> : <>people</>}
@@ -82,7 +75,7 @@ class UserShow extends React.Component {
                         </div>
                     </div>]
         })
-        debugger
+
         const past = reservations.filter(res => res[0] === true);
         const upcoming = reservations.filter(res => res[0] === false);
         return (

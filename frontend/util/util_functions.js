@@ -114,6 +114,17 @@ export const timeButtons = (operation_hours, time) => {
     return arr
 }
 
+export const dateBuilder = (reservation) => {
+    let arr = reservation.reservation_date_time.split("T")
+    let date = arr[0];
+    let time = arr[1]
+    let year, month, day, hour, minute, second;
+    [year, month, day] = date.split('-');
+    [hour, minute, second] = time.split(':');
+    //we do month -1 because js computes months from 0 - 11
+    return new Date(year, month - 1, day, hour, minute);
+}
+
 class PolyTreeNode {
     constructor(value) {
         this.value = value;

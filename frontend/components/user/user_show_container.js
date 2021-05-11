@@ -5,7 +5,6 @@ import { fetchRestaurant, fetchRestaurants } from '../../actions/restaurant_acti
 
 const mSTP = (state, ownProps) => {
     window.userShow = true;
-    debugger
     return{
         currentUser: Object.values(state.session)[0],
         reservations: Object.values(state.entities.reservations),

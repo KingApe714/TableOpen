@@ -96,7 +96,6 @@ class Search extends React.Component {
     }
 
     render() {
-        debugger
         let resiDiv = "search-resi-div";
         let resiDropdown = "search-resi-dropdown";
         let resiTextbox = "search-text-box";
