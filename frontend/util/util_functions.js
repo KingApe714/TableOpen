@@ -218,7 +218,6 @@ class TrieTree {
     }
 
     buildTree() {
-        // debugger
         let currentNode = null;
 
         this.filter.forEach(word => {

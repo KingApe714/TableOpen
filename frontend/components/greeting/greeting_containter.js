@@ -6,7 +6,7 @@ import { dateBuilder } from '../../util/util_functions';
 import Greeting from './greeting';
 
 const mapStateToProps = (state) => {
-  debugger
+  // debugger
   let resis;
   if (window.newResi) {
     resis = state.entities.reservations

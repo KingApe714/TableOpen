@@ -10,8 +10,13 @@ class ViewReservation extends React.Component {
     componentWillUnmount() {
         window.userShow = false;
     }
-
+    
+    componentDidMount() {
+    }
+    
     render() {
+        debugger
+        window.newResi = true;
         let restaurant, reservation
 
         if (this.props.location.state) {

@@ -10,6 +10,15 @@ class Greeting extends React.Component {
 
   componentDidUpdate() {
     if (window.newResi) {
+      debugger
+      this.props.fetchReservations()
+      // window.newResi = false;
+    }
+  }
+
+  componentDidMount() {
+    if (window.newResi) {
+      debugger
       this.props.fetchReservations()
       // window.newResi = false;
     }
@@ -17,6 +26,11 @@ class Greeting extends React.Component {
 
   render() {
     console.log(window.newResi)
+    if (window.newResi) {
+      debugger
+      this.props.fetchReservations()
+      // window.newResi = false;
+    }
     const currentUser = this.props.currentUser;
     const upcomingResis = this.props.upcomingResis;
     const userShow = this.props.userShow;
