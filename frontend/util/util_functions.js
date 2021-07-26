@@ -57,6 +57,8 @@ export const renderTime = (time) => {
         suffix = 'PM'
         hour -= 12
     }
+    // debugger
+    if (minute === "0") minute = "00"
     return hour + ':' + minute + ' ' + suffix
 }
 
