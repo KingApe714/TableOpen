@@ -1,5 +1,6 @@
 import React from 'react';
 import CreateReservationContainer from '../reservation/create_reservation_container'
+import CreateReviewContainer from '../reviews/create_review_container';
 
 class RestaurantShow extends React.Component {
     constructor(props) {
@@ -108,6 +109,7 @@ class RestaurantShow extends React.Component {
                     <p className="rest-show-titles">
                         Reviews
                     </p>
+                    <CreateReviewContainer />
                 </div>
             </div>
         )

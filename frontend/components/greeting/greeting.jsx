@@ -25,7 +25,7 @@ class Greeting extends React.Component {
   }
 
   render() {
-    console.log(window.newResi)
+    // console.log(window.newResi)
     // if (window.newResi) {
     //   debugger
     //   this.props.fetchReservations()
