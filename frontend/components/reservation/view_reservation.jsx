@@ -15,7 +15,7 @@ class ViewReservation extends React.Component {
     }
     
     render() {
-        debugger
+        // debugger
         window.newResi = true;
         let restaurant, reservation
 

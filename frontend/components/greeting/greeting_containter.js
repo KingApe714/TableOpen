@@ -6,13 +6,13 @@ import { dateBuilder } from '../../util/util_functions';
 import Greeting from './greeting';
 
 const mapStateToProps = (state) => {
-  // debugger
+  debugger
   let resis, upcomingResis;
-  if (window.newResi) {
-    resis = state.entities.reservations
-  } else if (state.session.currentUser){
+  // if (window.newResi) {
+  //   resis = state.entities.reservations
+  // } else if (state.session.currentUser){
     resis = state.session.currentUser.reservations
-  }
+  // }
   if (resis instanceof Array) {
     upcomingResis = resis.sort((a, b) => {
       let da = a.reservation_date_time,

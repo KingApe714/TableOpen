@@ -12,7 +12,7 @@ class Greeting extends React.Component {
     if (window.newResi) {
       debugger
       this.props.fetchReservations()
-      // window.newResi = false;
+      window.newResi = false;
     }
   }
 
@@ -45,6 +45,7 @@ class Greeting extends React.Component {
       </nav>
     );
     const personalGreeting = () => {
+      debugger
       const upcoming = upcomingResis.map(reservation => {
         const restaurant = restaurants[reservation.restaurant_id - 1];
         const resi = dateBuilder(reservation);
