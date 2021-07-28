@@ -1,5 +1,3 @@
-import { $CombinedState } from "redux"
-
 export const fetchReviews = () => {
     return $CombinedState.ajax({
         method: 'GET',
