@@ -24,6 +24,8 @@ export const fetchReviews = () => (
         .then(reviews => dispatchEvent(receiveAllReviews(reviews)))
 )
 
+// export const fetchReview
+
 export const createReview = (review) => (
     ReviewAPIUtil.createReview(review)
         .then(review => dispatchEvent(receiveReview(review)))
@@ -32,4 +34,9 @@ export const createReview = (review) => (
 export const updateReview = (review) => dispatch => (
     ReviewAPIUtil.updateReview(review)
         .then(review => dispatch(receiveReview(review)))
+)
+
+export const deleteReview = (reviewId) => dispatch => (
+    ReviewAPIUtil.deleteReview(reviewId)
+        .then(() => dispatch(removeReview(reviewId)))
 )
