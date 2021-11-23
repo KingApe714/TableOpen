@@ -11,7 +11,9 @@ const mapStateToProps = (state) => {
   // if (window.newResi) {
   //   resis = state.entities.reservations
   // } else if (state.session.currentUser){
-    resis = state.session.currentUser.reservations
+    if (state.session.currentUser) {
+      resis = state.session.currentUser.reservations
+    }
   // }
   if (resis instanceof Array) {
     upcomingResis = resis.sort((a, b) => {
